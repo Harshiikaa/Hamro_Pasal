@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
+import 'constants/constants.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -13,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Hamropasal',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -62,7 +64,7 @@ class _SplashScreenState extends State<SplashScreen> {
             SizedBox(height: 50,
             ),
             SpinKitChasingDots(
-              color: Colors.orange,
+              color: orange,
               size: 50.0,
 
             ),
