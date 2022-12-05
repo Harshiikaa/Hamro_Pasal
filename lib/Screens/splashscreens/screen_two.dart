@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:hamropasal/Screens/LoginScreen/login_screens.dart';
+import 'package:hamropasal/Screens/splashscreens/screen_three.dart';
 import '../../constants/constants.dart';
 import '../../main.dart';
 import '../components/slanding_clipper.dart';
@@ -109,7 +111,14 @@ class OnboardingScreenTwo extends StatelessWidget {
                   Container(
                     alignment: Alignment.centerRight,
                     child: TextButton(
-                      onPressed: () => print('Skip'),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => LoginScreens(),
+                          ),
+                        );
+                      },
                       child: Text(
                         'Skip',
                         style: TextStyle(
@@ -126,7 +135,7 @@ class OnboardingScreenTwo extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (_) => SplashScreen(),
+                            builder: (_) => OnboardingScreenThree(),
                           ),
                         );
                       },

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hamropasal/Screens/LoginScreen/login_screens.dart';
 import 'package:hamropasal/main.dart';
 
 import '../../constants/constants.dart';
@@ -118,7 +119,7 @@ class OnboardingScreenThree extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (_) => SplashScreen(),
+                            builder: (_) => LoginScreens(),
                           ),
                         );
                       },
@@ -134,7 +135,14 @@ class OnboardingScreenThree extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.only(right: appPadding),
                     child: FloatingActionButton(
-                      onPressed: () => print('Onboarding Done'),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => LoginScreens(),
+                          ),
+                        );
+                      },
                       backgroundColor: white,
                       child: Icon(
                         Icons.done_rounded,
