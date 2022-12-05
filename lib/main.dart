@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-
+import 'Screens/splashscreens/screen_one.dart';
 import 'constants/constants.dart';
 
 void main() {
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Hamropasal',
+      title: 'Hamro-Pasal',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -46,7 +46,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Future.delayed(const Duration(seconds: 3)).then((value){
       Navigator.of(context).pushReplacement(
-          CupertinoPageRoute(builder: (ctx) =>SplashScreen()));
+          CupertinoPageRoute(builder: (ctx) =>OnboardingScreenOne()));
     });
   }
   @override
