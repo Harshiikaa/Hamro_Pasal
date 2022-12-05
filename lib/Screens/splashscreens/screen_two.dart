@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:hamropasal/Screens/splashscreens/screen_two.dart';
-import 'package:hamropasal/constants/constants.dart';
+import '../../constants/constants.dart';
+import '../../main.dart';
 import '../components/slanding_clipper.dart';
-
-class OnboardingScreenOne extends StatelessWidget {
+class OnboardingScreenTwo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    //it will helps to return the size of the screen
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
@@ -16,32 +14,35 @@ class OnboardingScreenOne extends StatelessWidget {
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+                RotatedBox(
+                  quarterTurns: 2,
+                  child: ClipPath(
+                    clipper: SlandingClipper(),
+                    child: Container(
+                      height: size.height * 0.4,
+                      color: orange,
+                    ),
+                  ),
+                ),
                 Image(
                   width: size.width,
                   height: size.height * 0.6,
                   fit: BoxFit.cover,
-                  image: AssetImage('assets/images/onboard1.png'),
+                  image: AssetImage('assets/images/onboard2.png'),
                 ),
-                ClipPath(
-                  clipper: SlandingClipper(),
-                  child: Container(
-                    height: size.height * 0.4,
-                    color: orange,
-                  ),
-                )
               ],
             ),
             Positioned(
-              top: size.height * 0.65,
+              top: size.height * 0.05,
               child: Container(
                 width: size.width,
                 padding: EdgeInsets.all(appPadding),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'SELECT ITEMS',
-                      textAlign: TextAlign.end,
+                      'PURCHASE',
+                      textAlign: TextAlign.start,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: white,
@@ -53,7 +54,7 @@ class OnboardingScreenOne extends StatelessWidget {
                     ),
                     Text(
                       'Find your favorite products that you want to \nbuy exactly',
-                      textAlign: TextAlign.end,
+                      textAlign: TextAlign.start,
                       style: TextStyle(
                         fontSize: 18,
                       ),
@@ -94,7 +95,7 @@ class OnboardingScreenOne extends StatelessWidget {
                     decoration: BoxDecoration(
                         border: Border.all(color: black, width: 2),
                         shape: BoxShape.circle,
-                        color: orange),
+                        color: white),
                   ),
                 ],
               ),
@@ -107,7 +108,7 @@ class OnboardingScreenOne extends StatelessWidget {
                 children: [
                   Container(
                     alignment: Alignment.centerRight,
-                    child: TextButton (
+                    child: TextButton(
                       onPressed: () => print('Skip'),
                       child: Text(
                         'Skip',
@@ -125,7 +126,7 @@ class OnboardingScreenOne extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (_) => OnboardingScreenTwo(),
+                            builder: (_) => SplashScreen(),
                           ),
                         );
                       },
