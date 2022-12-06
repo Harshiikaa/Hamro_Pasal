@@ -14,12 +14,18 @@ class _ForgotScreenState extends State<ForgotScreen> {
     final deviceHeight = MediaQuery.of(context).size.height;
     final deviceWidth = MediaQuery.of(context).size.width;
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             children: [
               Container(
-                height: deviceHeight * 0.40,
+                padding: EdgeInsets.only(top: 110),
+                // color: Colors.blue,
+                height: deviceHeight * 0.50,
                 child: Image.asset('assets/images/HamroPasal.png'),
               ),
               Container(
@@ -38,7 +44,7 @@ class _ForgotScreenState extends State<ForgotScreen> {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        SizedBox(height: constraints.maxHeight * 0.08),
+                        SizedBox(height: constraints.maxHeight * 0.04),
                         Container(
                           height: constraints.maxHeight * 0.12,
                           decoration: BoxDecoration(
@@ -49,6 +55,7 @@ class _ForgotScreenState extends State<ForgotScreen> {
                             child: Center(
                               child: TextField(
                                 decoration: InputDecoration(
+                                  label: Text("Email"),
                                   border: InputBorder.none,
                                   hintText: 'Enter your valid email',
                                 ),
@@ -56,7 +63,7 @@ class _ForgotScreenState extends State<ForgotScreen> {
                             ),
                           ),
                         ),
-                        SizedBox(height: constraints.maxHeight * 0.08),
+                        SizedBox(height: constraints.maxHeight * 0.04),
                         Container(
                           height: constraints.maxHeight * 0.12,
                           decoration: BoxDecoration(
