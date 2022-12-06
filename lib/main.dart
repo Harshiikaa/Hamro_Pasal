@@ -35,11 +35,12 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(seconds: 3)).then((value){
+    Future.delayed(const Duration(seconds: 3)).then((value) {
       Navigator.of(context).pushReplacement(
-          CupertinoPageRoute(builder: (ctx) =>OnboardingScreenOne()));
+          CupertinoPageRoute(builder: (ctx) => OnboardingScreenOne()));
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,17 +48,17 @@ class _SplashScreenState extends State<SplashScreen> {
         width: double.infinity,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const[
+          children: const [
             Image(
               image: AssetImage('assets/images/HamroPasal.png'),
               width: 500,
             ),
-            SizedBox(height: 50,
+            SizedBox(
+              height: 50,
             ),
             SpinKitChasingDots(
               color: orange,
               size: 50.0,
-
             ),
           ],
         ),
@@ -65,5 +66,3 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   }
 }
-
-
