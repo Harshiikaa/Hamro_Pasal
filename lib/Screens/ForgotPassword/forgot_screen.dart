@@ -38,6 +38,55 @@ class _ForgotScreenState extends State<ForgotScreen> {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
+                        SizedBox(height: constraints.maxHeight * 0.08),
+                        Container(
+                          height: constraints.maxHeight * 0.12,
+                          decoration: BoxDecoration(
+                              color: Color(0xffB4B4B4).withOpacity(0.4),
+                              borderRadius: BorderRadius.circular(16)),
+                          child: const Padding(
+                            padding: EdgeInsets.only(left: 15),
+                            child: Center(
+                              child: TextField(
+                                decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                  hintText: 'Enter your valid email',
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: constraints.maxHeight * 0.08),
+                        Container(
+                          height: constraints.maxHeight * 0.12,
+                          decoration: BoxDecoration(
+                              color: Color(0xffB4B4B4).withOpacity(0.4),
+                              borderRadius: BorderRadius.circular(16)),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 15),
+                            child: Center(
+                              child: TextField(
+                                obscureText: _isVisible ? false : true,
+                                decoration: InputDecoration(
+                                    suffixIcon: IconButton(
+                                      onPressed: () {
+                                        setState(() {
+                                          _isVisible = !_isVisible;
+                                        });
+                                      },
+                                      icon: Icon(
+                                        _isVisible
+                                            ? Icons.visibility
+                                            : Icons.visibility_off,
+                                        color: Colors.grey,
+                                      ),
+                                    ),
+                                    border: InputBorder.none,
+                                    hintText: "Enter new password"),
+                              ),
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   );
