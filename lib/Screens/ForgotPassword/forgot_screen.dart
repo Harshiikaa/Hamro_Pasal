@@ -87,6 +87,29 @@ class _ForgotScreenState extends State<ForgotScreen> {
                             ),
                           ),
                         ),
+                        Container(
+                          width: double.infinity,
+                          height: constraints.maxHeight * 0.12,
+                          margin: EdgeInsets.only(
+                            top: constraints.maxHeight * 0.05,
+                          ),
+                          child: ElevatedButton(
+                            onPressed: () {},
+                            child: Text(
+                              'Reset',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 22,
+                              ),
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              primary: Colors.orange,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(28),
+                              ),
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   );
