@@ -44,6 +44,7 @@ class _SignupScreenState extends State<SignupScreen> {
           children: <Widget>[
             logo(),
             form(),
+            signup(),
           ],
         ),
       ),
@@ -52,15 +53,14 @@ class _SignupScreenState extends State<SignupScreen> {
 
   Widget logo() {
     return Container(
-      height: _height * 0.45,
+      height: _height * 0.35,
       child: Image.asset("assets/images/HamroPasal.png"),
     );
   }
 
   Widget form() {
     return Container(
-      margin: EdgeInsets.only(
-          left: _width / 12.0, right: _width / 12.0, top: _height / 50.0),
+      margin: EdgeInsets.all(20),
       child: Column(
         children: <Widget>[
           fullNameTextField(),
@@ -70,7 +70,7 @@ class _SignupScreenState extends State<SignupScreen> {
           passwordTextField(),
           SizedBox(height: 20.0),
           confirmPasswordTextField(),
-          SizedBox(height: 10.0),
+          SizedBox(height: 5.0),
         ],
       ),
     );
@@ -131,6 +131,7 @@ class _SignupScreenState extends State<SignupScreen> {
 
   Widget passwordTextField() {
     return Container(
+      padding: EdgeInsets.only(right: 15),
       decoration: BoxDecoration(
           color: Color(0xffB4B4B4).withOpacity(0.4),
           borderRadius: BorderRadius.circular(30)),
@@ -138,11 +139,16 @@ class _SignupScreenState extends State<SignupScreen> {
           keyboardType: TextInputType.text,
           cursorColor: Colors.deepOrange,
           cursorHeight: 25,
+          obscureText: true,
           decoration: InputDecoration(
             prefixIcon: Icon(
               Icons.lock,
               color: Colors.deepOrange,
               size: 25,
+            ),
+            suffixIcon: Icon(
+              Icons.remove_red_eye_sharp,
+              color: Colors.black,
             ),
             hintText: "Enter password",
             border: OutlineInputBorder(
@@ -177,6 +183,27 @@ class _SignupScreenState extends State<SignupScreen> {
             focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(30),
                 borderSide: BorderSide(color: Colors.orangeAccent)),
+          )),
+    );
+  }
+
+  Widget signup() {
+    return Container(
+      width: _width / 1.2,
+      margin: EdgeInsets.all(10),
+      child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            primary: Colors.deepOrange,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30.0)),
+          ),
+          onPressed: () {},
+          child: Padding(
+            padding: const EdgeInsets.all(18.0),
+            child: Text(
+              'Signup',
+              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+            ),
           )),
     );
   }
