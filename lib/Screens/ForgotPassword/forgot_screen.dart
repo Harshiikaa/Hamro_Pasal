@@ -25,11 +25,11 @@ class _ForgotScreenState extends State<ForgotScreen> {
               Container(
                 padding: EdgeInsets.only(top: 110),
                 // color: Colors.blue,
-                height: deviceHeight * 0.50,
+                height: deviceHeight * 0.40,
                 child: Image.asset('assets/images/HamroPasal.png'),
               ),
               Container(
-                height: deviceHeight * 0.65,
+                height: deviceHeight * 0.60,
                 width: double.infinity,
                 margin: EdgeInsets.symmetric(horizontal: 20),
                 child: LayoutBuilder(builder: (ctx, constraints) {
