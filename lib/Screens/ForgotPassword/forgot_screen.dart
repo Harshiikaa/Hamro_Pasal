@@ -49,13 +49,17 @@ class _ForgotScreenState extends State<ForgotScreen> {
                           height: constraints.maxHeight * 0.12,
                           decoration: BoxDecoration(
                               color: Color(0xffB4B4B4).withOpacity(0.4),
-                              borderRadius: BorderRadius.circular(16)),
+                              borderRadius: BorderRadius.circular(30)),
                           child: const Padding(
                             padding: EdgeInsets.only(left: 15),
                             child: Center(
                               child: TextField(
                                 decoration: InputDecoration(
-                                  label: Text("Email"),
+                                  prefixIcon: Icon(
+                                    Icons.email,
+                                    color: Colors.deepOrange,
+                                    size: 25,
+                                  ),
                                   border: InputBorder.none,
                                   hintText: 'Enter your valid email',
                                 ),
@@ -68,13 +72,18 @@ class _ForgotScreenState extends State<ForgotScreen> {
                           height: constraints.maxHeight * 0.12,
                           decoration: BoxDecoration(
                               color: Color(0xffB4B4B4).withOpacity(0.4),
-                              borderRadius: BorderRadius.circular(16)),
+                              borderRadius: BorderRadius.circular(30)),
                           child: Padding(
                             padding: const EdgeInsets.only(left: 15),
                             child: Center(
                               child: TextField(
                                 obscureText: _isVisible ? false : true,
                                 decoration: InputDecoration(
+                                    prefixIcon: const Icon(
+                                      Icons.lock,
+                                      color: Colors.deepOrange,
+                                      size: 25,
+                                    ),
                                     suffixIcon: IconButton(
                                       onPressed: () {
                                         setState(() {
@@ -102,17 +111,17 @@ class _ForgotScreenState extends State<ForgotScreen> {
                           ),
                           child: ElevatedButton(
                             onPressed: () {},
-                            child: Text(
+                            style: ElevatedButton.styleFrom(
+                              primary: Colors.deepOrange,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30),
+                              ),
+                            ),
+                            child: const Text(
                               'Reset',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 22,
-                              ),
-                            ),
-                            style: ElevatedButton.styleFrom(
-                              primary: Colors.orange,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(28),
                               ),
                             ),
                           ),
