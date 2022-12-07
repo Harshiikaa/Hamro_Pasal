@@ -63,15 +63,20 @@ class _SignupScreenState extends State<SignupScreen> {
           left: _width / 12.0, right: _width / 12.0, top: _height / 50.0),
       child: Column(
         children: <Widget>[
-          firstNameTextField(),
+          fullNameTextField(),
+          SizedBox(height: 20.0),
+          emailTextField(),
+          SizedBox(height: 20.0),
+          passwordTextField(),
+          SizedBox(height: 20.0),
+          confirmPasswordTextField(),
           SizedBox(height: 10.0),
-          lastNameTextField(),
         ],
       ),
     );
   }
 
-  Widget firstNameTextField() {
+  Widget fullNameTextField() {
     return Container(
       decoration: BoxDecoration(
           color: Color(0xffB4B4B4).withOpacity(0.4),
@@ -84,10 +89,10 @@ class _SignupScreenState extends State<SignupScreen> {
           decoration: InputDecoration(
             prefixIcon: Icon(
               Icons.person,
-              color: Colors.orange,
+              color: Colors.deepOrange,
               size: 25,
             ),
-            hintText: "Enter first name",
+            hintText: "Enter full name",
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(30),
                 borderSide: BorderSide.none),
@@ -98,9 +103,81 @@ class _SignupScreenState extends State<SignupScreen> {
     );
   }
 
-  Widget lastNameTextField() {
-    return TextFormField(
-      decoration: InputDecoration(label: Text('First Name')),
+  Widget emailTextField() {
+    return Container(
+      decoration: BoxDecoration(
+          color: Color(0xffB4B4B4).withOpacity(0.4),
+          borderRadius: BorderRadius.circular(30)),
+      child: TextFormField(
+          keyboardType: TextInputType.emailAddress,
+          cursorColor: Colors.deepOrange,
+          cursorHeight: 25,
+          decoration: InputDecoration(
+            prefixIcon: Icon(
+              Icons.email_rounded,
+              color: Colors.deepOrange,
+              size: 25,
+            ),
+            hintText: "Enter your email",
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(30),
+                borderSide: BorderSide.none),
+            focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(30),
+                borderSide: BorderSide(color: Colors.orangeAccent)),
+          )),
+    );
+  }
+
+  Widget passwordTextField() {
+    return Container(
+      decoration: BoxDecoration(
+          color: Color(0xffB4B4B4).withOpacity(0.4),
+          borderRadius: BorderRadius.circular(30)),
+      child: TextFormField(
+          keyboardType: TextInputType.text,
+          cursorColor: Colors.deepOrange,
+          cursorHeight: 25,
+          decoration: InputDecoration(
+            prefixIcon: Icon(
+              Icons.lock,
+              color: Colors.deepOrange,
+              size: 25,
+            ),
+            hintText: "Enter password",
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(30),
+                borderSide: BorderSide.none),
+            focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(30),
+                borderSide: BorderSide(color: Colors.orangeAccent)),
+          )),
+    );
+  }
+
+  Widget confirmPasswordTextField() {
+    return Container(
+      decoration: BoxDecoration(
+          color: Color(0xffB4B4B4).withOpacity(0.4),
+          borderRadius: BorderRadius.circular(30)),
+      child: TextFormField(
+          keyboardType: TextInputType.text,
+          cursorColor: Colors.deepOrange,
+          cursorHeight: 25,
+          decoration: InputDecoration(
+            prefixIcon: Icon(
+              Icons.lock,
+              color: Colors.deepOrange,
+              size: 25,
+            ),
+            hintText: "Enter password",
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(30),
+                borderSide: BorderSide.none),
+            focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(30),
+                borderSide: BorderSide(color: Colors.orangeAccent)),
+          )),
     );
   }
 }
