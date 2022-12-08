@@ -1,4 +1,7 @@
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
+
+import 'button_hover.dart';
 
 void main() {
   runApp(const MyApps());
@@ -28,8 +31,41 @@ class SignupScreen extends StatefulWidget {
 }
 
 class _SignupScreenState extends State<SignupScreen> {
+  TextEditingController emailController = TextEditingController();
+
+  void emailValidate() {
+    final bool isValid = EmailValidator.validate(emailController.text.trim());
+
+    if (isValid) {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text('Valid email')));
+    } else {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text('Invalid email')));
+    }
+  }
+
   late double _height;
   late double _width;
+
+  bool isVisible = false;
+
+  Widget passwordVisibility() {
+    return Padding(
+      padding: const EdgeInsets.only(right: 10.0),
+      child: IconButton(
+        onPressed: () {
+          setState(() {
+            isVisible = !isVisible;
+          });
+        },
+        icon: Icon(
+          isVisible ? Icons.visibility : Icons.visibility_off,
+          color: Colors.grey,
+        ),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,15 +73,17 @@ class _SignupScreenState extends State<SignupScreen> {
     _width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.grey.shade100,
-      body: Container(
-        width: _width,
-        height: _height,
-        child: Column(
-          children: <Widget>[
-            logo(),
-            form(),
-            signup(),
-          ],
+      body: SingleChildScrollView(
+        child: Container(
+          width: _width,
+          height: _height,
+          child: Column(
+            children: <Widget>[
+              logo(),
+              form(),
+              signup(),
+            ],
+          ),
         ),
       ),
     );
@@ -98,7 +136,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 borderSide: BorderSide.none),
             focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(30),
-                borderSide: BorderSide(color: Colors.orangeAccent)),
+                borderSide: BorderSide(color: Colors.black38)),
           )),
     );
   }
@@ -109,6 +147,7 @@ class _SignupScreenState extends State<SignupScreen> {
           color: Color(0xffB4B4B4).withOpacity(0.4),
           borderRadius: BorderRadius.circular(30)),
       child: TextFormField(
+          controller: emailController,
           keyboardType: TextInputType.emailAddress,
           cursorColor: Colors.deepOrange,
           cursorHeight: 25,
@@ -124,14 +163,14 @@ class _SignupScreenState extends State<SignupScreen> {
                 borderSide: BorderSide.none),
             focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(30),
-                borderSide: BorderSide(color: Colors.orangeAccent)),
+                borderSide: BorderSide(color: Colors.black38)),
           )),
     );
   }
 
   Widget passwordTextField() {
     return Container(
-      padding: EdgeInsets.only(right: 15),
+      padding: EdgeInsets.only(right: 0),
       decoration: BoxDecoration(
           color: Color(0xffB4B4B4).withOpacity(0.4),
           borderRadius: BorderRadius.circular(30)),
@@ -139,24 +178,21 @@ class _SignupScreenState extends State<SignupScreen> {
           keyboardType: TextInputType.text,
           cursorColor: Colors.deepOrange,
           cursorHeight: 25,
-          obscureText: true,
+          obscureText: isVisible ? false : true,
           decoration: InputDecoration(
             prefixIcon: Icon(
               Icons.lock,
               color: Colors.deepOrange,
               size: 25,
             ),
-            suffixIcon: Icon(
-              Icons.remove_red_eye_sharp,
-              color: Colors.black,
-            ),
+            suffixIcon: passwordVisibility(),
             hintText: "Enter password",
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(30),
                 borderSide: BorderSide.none),
             focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(30),
-                borderSide: BorderSide(color: Colors.orangeAccent)),
+                borderSide: BorderSide(color: Colors.black38)),
           )),
     );
   }
@@ -176,13 +212,14 @@ class _SignupScreenState extends State<SignupScreen> {
               color: Colors.deepOrange,
               size: 25,
             ),
-            hintText: "Enter password",
+            suffixIcon: passwordVisibility(),
+            hintText: "Confirm password",
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(30),
                 borderSide: BorderSide.none),
             focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(30),
-                borderSide: BorderSide(color: Colors.orangeAccent)),
+                borderSide: BorderSide(color: Colors.black38)),
           )),
     );
   }
@@ -191,20 +228,26 @@ class _SignupScreenState extends State<SignupScreen> {
     return Container(
       width: _width / 1.2,
       margin: EdgeInsets.all(10),
-      child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            primary: Colors.deepOrange,
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(30.0)),
-          ),
-          onPressed: () {},
-          child: Padding(
-            padding: const EdgeInsets.all(18.0),
-            child: Text(
-              'Signup',
-              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+      child: ButtonOnHover(
+        child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              primary: Colors.deepOrange,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30.0)),
             ),
-          )),
+            onPressed: () {
+              setState(() {
+                emailValidate();
+              });
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(18.0),
+              child: Text(
+                'Signup',
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+              ),
+            )),
+      ),
     );
   }
 }
