@@ -1,8 +1,7 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:password_field_validator/password_field_validator.dart';
-
 import 'button_hover.dart';
 
 void main() {
@@ -77,6 +76,7 @@ class _SignupScreenState extends State<SignupScreen> {
               logo(),
               form(),
               signup(),
+              backToLogin(),
             ],
           ),
         ),
@@ -275,5 +275,24 @@ class _SignupScreenState extends State<SignupScreen> {
             )),
       ),
     );
+  }
+
+  Widget backToLogin() {
+    return RichText(
+        textAlign: TextAlign.start,
+        text: TextSpan(
+            text: 'Already have an account? ',
+            style: TextStyle(color: Colors.black, fontSize: 18),
+            children: <TextSpan>[
+              TextSpan(
+                text: "Login",
+                style: const TextStyle(
+                  color: Colors.redAccent,
+                  fontWeight: FontWeight.normal,
+                  fontSize: 18,
+                ),
+                recognizer: TapGestureRecognizer()..onTap = () {},
+              )
+            ]));
   }
 }
