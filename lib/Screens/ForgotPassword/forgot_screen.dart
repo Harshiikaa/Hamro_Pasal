@@ -88,9 +88,17 @@ class _ForgotScreenState extends State<ForgotScreen> {
                             child: Center(
                               child: TextFormField(
                                 controller: passoword,
-                                validator: (String? value) {
-                                  if (value == null || value.isEmpty) {
-                                    return 'Password are required';
+                                validator: (PassCurrentValue) {
+                                  RegExp regex = RegExp(
+                                      r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
+                                  var passNonNullValue = PassCurrentValue ?? "";
+                                  if (passNonNullValue.isEmpty) {
+                                    return ("Password is required");
+                                  } else if (passNonNullValue.length < 6) {
+                                    return ("Password Must be more than 5 characters");
+                                  } else if (!regex
+                                      .hasMatch(passNonNullValue)) {
+                                    return ("Password should contain upper,lower,digit and Special character ");
                                   }
                                   return null;
                                 },
