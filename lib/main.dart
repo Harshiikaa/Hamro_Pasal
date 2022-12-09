@@ -1,10 +1,19 @@
-import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+
 import 'Screens/splashscreens/screen_one.dart';
 import 'constants/constants.dart';
+import 'firebase_options.dart';
 
-void main() {
+// void main() {
+//   runApp(const MyApp());
+// }
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+      name: "dev project", options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
 
@@ -35,11 +44,12 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(seconds: 3)).then((value){
+    Future.delayed(const Duration(seconds: 3)).then((value) {
       Navigator.of(context).pushReplacement(
-          CupertinoPageRoute(builder: (ctx) =>OnboardingScreenOne()));
+          CupertinoPageRoute(builder: (ctx) => OnboardingScreenOne()));
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,17 +57,17 @@ class _SplashScreenState extends State<SplashScreen> {
         width: double.infinity,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const[
+          children: const [
             Image(
               image: AssetImage('assets/images/HamroPasal.png'),
               width: 500,
             ),
-            SizedBox(height: 50,
+            SizedBox(
+              height: 50,
             ),
             SpinKitChasingDots(
               color: orange,
               size: 50.0,
-
             ),
           ],
         ),
@@ -65,5 +75,3 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   }
 }
-
-
