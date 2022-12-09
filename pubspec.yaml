@@ -38,6 +38,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_spinkit: ^5.1.0
   email_validator: ^2.1.17
+  password_field_validator: ^0.0.1
 
 dev_dependencies:
   flutter_test:
