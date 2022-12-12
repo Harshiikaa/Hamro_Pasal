@@ -85,28 +85,34 @@ class _SignupScreenState extends State<SignupScreen> {
   }
 
   Widget logo() {
-    return Container(
-      height: _height * 0.35,
-      child: Image.asset("assets/images/HamroPasal.png"),
+    return Expanded(
+      flex: 2,
+      child: Container(
+        height: _height * 0.35,
+        child: Image.asset("assets/images/HamroPasal.png"),
+      ),
     );
   }
 
   Widget form() {
-    return Container(
-      margin: EdgeInsets.all(20),
-      child: Form(
-        key: formkey,
-        child: Column(
-          children: <Widget>[
-            fullNameTextField(),
-            SizedBox(height: 20.0),
-            emailTextField(),
-            SizedBox(height: 20.0),
-            passwordTextField(),
-            SizedBox(height: 20.0),
-            confirmPasswordTextField(),
-            SizedBox(height: 5.0),
-          ],
+    return Expanded(
+      flex: 4,
+      child: Container(
+        margin: EdgeInsets.all(20),
+        child: Form(
+          key: formkey,
+          child: Column(
+            children: <Widget>[
+              fullNameTextField(),
+              SizedBox(height: 20.0),
+              emailTextField(),
+              SizedBox(height: 20.0),
+              passwordTextField(),
+              SizedBox(height: 20.0),
+              confirmPasswordTextField(),
+              SizedBox(height: 5.0),
+            ],
+          ),
         ),
       ),
     );
@@ -220,7 +226,7 @@ class _SignupScreenState extends State<SignupScreen> {
     return TextFormField(
         controller: confirmPasswordController,
         validator: (PassCurrentValue) {
-          if (passwordController != confirmPasswordController) {
+          if (passwordController.text != confirmPasswordController.text) {
             return "password and confirm password must be same";
           }
           return null;
@@ -248,31 +254,33 @@ class _SignupScreenState extends State<SignupScreen> {
   }
 
   Widget signup() {
-    return Container(
-      width: _width / 1.2,
-      margin: EdgeInsets.all(10),
-      child: ButtonOnHover(
-        child: ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              primary: Colors.deepOrange,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30.0)),
-            ),
-            onPressed: () {
-              if (formkey.currentState!.validate()) {
-                return;
-              } else {
-                ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text("Validation Unsuccessful")));
-              }
-            },
-            child: Padding(
-              padding: const EdgeInsets.all(18.0),
-              child: Text(
-                'Signup',
-                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+    return Expanded(
+      child: Container(
+        width: _width / 1.2,
+        margin: EdgeInsets.all(10),
+        child: ButtonOnHover(
+          child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                primary: Colors.deepOrange,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30.0)),
               ),
-            )),
+              onPressed: () {
+                if (formkey.currentState!.validate()) {
+                  return;
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text("Validation Unsuccessful")));
+                }
+              },
+              child: Padding(
+                padding: const EdgeInsets.all(18.0),
+                child: Text(
+                  'Signup',
+                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                ),
+              )),
+        ),
       ),
     );
   }
