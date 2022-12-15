@@ -30,6 +30,21 @@ class HomeScreen extends StatelessWidget {
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(30),
                 ),
+                child: Row(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(left: 4),
+                      height: 50,
+                      width: 300,
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: "Search your product...",
+                        ),
+                      ),
+                    )
+                  ],
+                ),
               ),
             ],
           ),
