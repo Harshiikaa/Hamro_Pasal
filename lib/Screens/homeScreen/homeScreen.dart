@@ -46,6 +46,17 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
+              Container(
+                alignment: Alignment.centerLeft,
+                margin: EdgeInsets.symmetric(vertical: 10,horizontal: 10),
+                child: Text("Categories",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 25,
+                    color: Colors.black54,
+                  ),
+                ),
+              ),
             ],
           ),
 
