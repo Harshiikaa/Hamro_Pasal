@@ -32,6 +32,17 @@ class _CategorySelectorState extends State<CategorySelector> {
                   selectedIndex=index;
                 });
               },
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                child: Text(
+                  categories[index],
+                  style: TextStyle(
+                      color: index==selectedIndex ? Colors.white : Colors.white60,
+                      fontSize: 24.0,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 1.2),
+                ),
+              ),
             );
           },
         )
