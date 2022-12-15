@@ -1,6 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
+import '../homeScreen/homeScreen.dart';
+
 class LoginScreens extends StatefulWidget {
   const LoginScreens({Key? key}) : super(key: key);
 
@@ -113,7 +115,14 @@ Widget build(BuildContext context) {
                         top: constraints.maxHeight * 0.01,
                       ),
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => HomeScreen(),
+                            ),
+                          );
+                        },
                         style: ElevatedButton.styleFrom(
                           primary: Colors.blue,
                           shape: RoundedRectangleBorder(
