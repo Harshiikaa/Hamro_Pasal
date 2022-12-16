@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "246223116346",
+    "project_id": "hamro-pasal-a8525",
+    "storage_bucket": "hamro-pasal-a8525.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:246223116346:android:2b81cb5d66a0557ee73d03",
+        "android_client_info": {
+          "package_name": "com.hamropasals.hamropasal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "246223116346-up2rsh8clrtn11qikbbrija19mbjjf2e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXAHX7IfM8gBsfDaPGoCtqxbRprIFLby8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "246223116346-up2rsh8clrtn11qikbbrija19mbjjf2e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

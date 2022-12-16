@@ -1,10 +1,15 @@
 import 'package:email_validator/email_validator.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import '../LoginScreen/login_screens.dart';
 import 'button_hover.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApps());
 }
 
@@ -32,17 +37,38 @@ class SignupScreen extends StatefulWidget {
 }
 
 class _SignupScreenState extends State<SignupScreen> {
-  TextEditingController emailController = TextEditingController();
+  TextEditingController email = TextEditingController();
   TextEditingController fullNameController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+  TextEditingController password = TextEditingController();
   TextEditingController confirmPasswordController = TextEditingController();
 
   final formkey = GlobalKey<FormState>();
 
   late double _height;
   late double _width;
-
   bool isVisible = false;
+
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  Future<void> register() async {
+    try {
+      final user = (await _auth.createUserWithEmailAndPassword(
+              email: email.text, password: password.text))
+          .user;
+      if (user != null) {
+        print("User created");
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            backgroundColor: Colors.green,
+            content: Text("Register success"),
+          ),
+        );
+        Navigator.of(context).pushReplacementNamed("/home");
+      }
+    } catch (e) {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text(e.toString())));
+    }
+  }
 
   Widget passwordVisibility() {
     return Padding(
@@ -96,7 +122,7 @@ class _SignupScreenState extends State<SignupScreen> {
 
   Widget form() {
     return Expanded(
-      flex: 4,
+      flex: 3,
       child: Container(
         margin: EdgeInsets.all(20),
         child: Form(
@@ -152,16 +178,16 @@ class _SignupScreenState extends State<SignupScreen> {
 
   Widget emailTextField() {
     return TextFormField(
-        controller: emailController,
-        validator: (value) {
-          if (value != null || value!.isEmpty) {
-            final bool isValid =
-                EmailValidator.validate(emailController.text.trim());
-            if (!isValid) {
-              return "Invalid email";
-            }
-          }
-        },
+        controller: email,
+        // validator: (value) {
+        //   if (value != null || value!.isEmpty) {
+        //     final bool isValid =
+        //         EmailValidator.validate(emailController.text.trim());
+        //     if (!isValid) {
+        //       return "Invalid email";
+        //     }
+        //   }
+        // },
         keyboardType: TextInputType.emailAddress,
         cursorColor: Colors.deepOrange,
         cursorHeight: 25,
@@ -185,20 +211,20 @@ class _SignupScreenState extends State<SignupScreen> {
 
   Widget passwordTextField() {
     return TextFormField(
-        controller: passwordController,
-        validator: (PassCurrentValue) {
-          RegExp regex = RegExp(
-              r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
-          var passNonNullValue = PassCurrentValue ?? "";
-          if (passNonNullValue.isEmpty) {
-            return ("Password is required");
-          } else if (passNonNullValue.length < 6) {
-            return ("Password Must be more than 5 characters");
-          } else if (!regex.hasMatch(passNonNullValue)) {
-            return ("Password should contain upper,lower,digit and Special character ");
-          }
-          return null;
-        },
+        controller: password,
+        // validator: (PassCurrentValue) {
+        //         //   RegExp regex = RegExp(
+        //         //       r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
+        //         //   var passNonNullValue = PassCurrentValue ?? "";
+        //         //   if (passNonNullValue.isEmpty) {
+        //         //     return ("Password is required");
+        //         //   } else if (passNonNullValue.length < 6) {
+        //         //     return ("Password Must be more than 5 characters");
+        //         //   } else if (!regex.hasMatch(passNonNullValue)) {
+        //         //     return ("Password should contain upper,lower,digit and Special character ");
+        //         //   }
+        //         //   return null;
+        //         // },
         keyboardType: TextInputType.text,
         cursorColor: Colors.deepOrange,
         cursorHeight: 25,
@@ -226,7 +252,7 @@ class _SignupScreenState extends State<SignupScreen> {
     return TextFormField(
         controller: confirmPasswordController,
         validator: (PassCurrentValue) {
-          if (passwordController.text != confirmPasswordController.text) {
+          if (password.text != confirmPasswordController.text) {
             return "password and confirm password must be same";
           }
           return null;
@@ -255,9 +281,12 @@ class _SignupScreenState extends State<SignupScreen> {
 
   Widget signup() {
     return Expanded(
+      flex: 1,
       child: Container(
-        width: _width / 1.2,
-        margin: EdgeInsets.all(10),
+        width: _width / 1.1,
+        height: 40,
+        margin: EdgeInsets.all(20),
+        padding: EdgeInsets.only(top: 0, bottom: 0),
         child: ButtonOnHover(
           child: ElevatedButton(
               style: ElevatedButton.styleFrom(
@@ -267,7 +296,7 @@ class _SignupScreenState extends State<SignupScreen> {
               ),
               onPressed: () {
                 if (formkey.currentState!.validate()) {
-                  return;
+                  register();
                 } else {
                   ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(content: Text("Validation Unsuccessful")));
@@ -299,7 +328,15 @@ class _SignupScreenState extends State<SignupScreen> {
                   fontWeight: FontWeight.normal,
                   fontSize: 18,
                 ),
-                recognizer: TapGestureRecognizer()..onTap = () {},
+                recognizer: TapGestureRecognizer()
+                  ..onTap = () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => LoginScreens(),
+                      ),
+                    );
+                  },
               )
             ]));
   }
