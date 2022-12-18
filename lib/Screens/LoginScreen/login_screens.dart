@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:hamropasal/Screens/SignUp/signup_screens.dart';
 
 import '../homeScreen/homeScreen.dart';
 
@@ -196,7 +197,15 @@ Widget build(BuildContext context) {
                               color: Colors.redAccent,
                               fontSize: 18,
                             ),
-                            recognizer: TapGestureRecognizer()..onTap = () {},
+                            recognizer: TapGestureRecognizer()..onTap = () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (_) => SignupScreen(),
+                                ),
+                              );
+
+                            },
                           )
                         ],
                       ),
