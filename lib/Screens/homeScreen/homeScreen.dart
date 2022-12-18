@@ -81,6 +81,20 @@ class _HomeScreenState extends State<HomeScreen>
                     ],
                   ),
                 ),
+                SizedBox(height: 10),
+                Container(
+                  alignment: Alignment.centerLeft,
+                  margin: EdgeInsets.symmetric(horizontal: 20),
+                  child: Text(
+                    "Categories",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 25,
+                      color: Colors.black54,
+                    ),
+                  ),
+                ),
+                SizedBox(height: 5),
               ],
             ),
           )
