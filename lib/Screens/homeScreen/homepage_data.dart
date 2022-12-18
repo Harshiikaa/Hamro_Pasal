@@ -321,3 +321,326 @@ List<SingleProductModel> shoesData = [
       productThirdImage:
           'https://www.efootwear.eu/media/catalog/product/cache/image/650x650/0/0/0000200438870_03_ts.jpg'),
 ];
+///////////////////////////// Bags........
+List<SingleProductModel> accessoriesData = [
+  SingleProductModel(
+      productImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/eb31ff6778fa42e89e57ac480039b8fd_9366/Classics_Archive_Backpack_Small_Black_GN7640.jpg',
+      productModel: 'Classic',
+      productName: 'Classics archive backpack',
+      productOldPrice: 70,
+      productPrice: 54,
+      productFourImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/4c3801f601b647279640aaca0105c7f1_9366/Classics_Archive_Backpack_Black_FL7045_04_standard.jpg',
+      productSecondImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/f509c6c223e947798d50ab3601497153_9366/Classics_Archive_Backpack_Black_GD1040_01_standard.jpg',
+      productThirdImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/53b4eac625434cffbfc1ab1400e1f2bc_9366/Classics_Archive_Backpack_White_FL7044_04_standard.jpg'),
+  SingleProductModel(
+      productImage:
+          'https://s.alicdn.com/@sc04/kf/Hbc6a69269b7941ef9f19fe9a3cd0c180j.jpg_720x720q50.jpg',
+      productModel: 'LifeStyle',
+      productName: 'Face covers xs/s 3 pack',
+      productOldPrice: 40,
+      productPrice: 20,
+      productFourImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/28ad64fa0e624ae4807eabb300a9d51f_9366/Face_Covers_M-L_3-Pack_Black_H18222_03_standard_hover.jpg',
+      productSecondImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/5d966e8e90b3438a9041abb300aa019e_9366/Face_Covers_M-L_3-Pack_Black_H18222_02_standard.jpg',
+      productThirdImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/e6d4f7d53fdf4382bf04abb300aa371d_9366/Face_Covers_M-L_3-Pack_Black_H18222_14_standard.jpg'),
+  SingleProductModel(
+      productImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/ec37efac818e47f2b522ab61014bccb2_9366/Active_Enhanced_Convertible_Grip_Bag_Grey_GN4963_02_standard_hover.jpg',
+      productModel: 'training',
+      productName: 'Active Enhanced Convertible Grip Bag',
+      productOldPrice: 85,
+      productPrice: 70,
+      productFourImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/9d2ce122e3bd4b838e9dabc100ea51b9_9366/Active_Enhanced_Convertible_Grip_Bag_Orange_GH0112_04_standard.jpg',
+      productSecondImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/dd709bb49870430bb2dfab0500bf9e76_9366/Active_Enhanced_Grip_Bag_Black_FQ5368_04_standard.jpg',
+      productThirdImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto:sensitive,fl_lossy/d280d49fa0e8400da15ca9880020b2e0_9366/Active_Enhanced_Grip_Bag_Large_Black_DU2968_04_standard.jpg'),
+  SingleProductModel(
+      productImage:
+          'https://assets.reebok.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy/33311a78deca4628a115abc9008e8034_9366/Training_Weave_Backpack_Black_GD0696_01_standard.jpg',
+      productModel: 'Training',
+      productName: 'Training weave backpack',
+      productOldPrice: 200,
+      productPrice: 150,
+      productFourImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/1fc379faa6b0473e8516ac8a010031b5_9366/Training_Weave_Backpack_Black_GT7686_04_standard.jpg',
+      productSecondImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/44df69de09e24e5db910abc100f3f30a_9366/Training_Weave_Backpack_Yellow_GH0037_04_standard.jpg',
+      productThirdImage:
+          'https://produkty.lionsport.cz/produkty_images/600/gh0099/gh0099.jpg'),
+  SingleProductModel(
+      productImage:
+          'https://res.cloudinary.com/dyfwfkx4t/image/upload/v1671268025/images_x9gjjf.jpg',
+      productModel: 'Classic',
+      productName: 'Classics Fold-over crew socks 3 packs',
+      productOldPrice: 30,
+      productPrice: 15,
+      productFourImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/fd3bfed25f844a3290b1ab460005826c_9366/Classics_Fold-Over_Crew_Socks_3_Pairs_Black_GG6683.jpg',
+      productSecondImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/e3b61214cede424e8f24ab45018a2d90_9366/Classics_Fold-Over_Crew_Socks_3_Pairs_Orange_GG6685_01_standard.jpg',
+      productThirdImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/321d0ba2df724de09b79ab2800e90cd1_9366/Classics_Crew_Socks_3_Pairs_White_FM9461_01_standard.jpg'),
+  SingleProductModel(
+      productImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/ec37efac818e47f2b522ab61014bccb2_9366/Active_Enhanced_Convertible_Grip_Bag_Grey_GN4963_02_standard_hover.jpg',
+      productModel: 'training',
+      productName: 'Active Enhanced Convertible Grip Bag',
+      productOldPrice: 85,
+      productPrice: 70,
+      productFourImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/9d2ce122e3bd4b838e9dabc100ea51b9_9366/Active_Enhanced_Convertible_Grip_Bag_Orange_GH0112_04_standard.jpg',
+      productSecondImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/dd709bb49870430bb2dfab0500bf9e76_9366/Active_Enhanced_Grip_Bag_Black_FQ5368_04_standard.jpg',
+      productThirdImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto:sensitive,fl_lossy/d280d49fa0e8400da15ca9880020b2e0_9366/Active_Enhanced_Grip_Bag_Large_Black_DU2968_04_standard.jpg'),
+  SingleProductModel(
+      productImage:
+          'https://s.alicdn.com/@sc04/kf/Hbc6a69269b7941ef9f19fe9a3cd0c180j.jpg_720x720q50.jpg',
+      productModel: 'LifeStyle',
+      productName: 'Face covers xs/s 3 pack',
+      productOldPrice: 40,
+      productPrice: 20,
+      productFourImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/28ad64fa0e624ae4807eabb300a9d51f_9366/Face_Covers_M-L_3-Pack_Black_H18222_03_standard_hover.jpg',
+      productSecondImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/5d966e8e90b3438a9041abb300aa019e_9366/Face_Covers_M-L_3-Pack_Black_H18222_02_standard.jpg',
+      productThirdImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/e6d4f7d53fdf4382bf04abb300aa371d_9366/Face_Covers_M-L_3-Pack_Black_H18222_14_standard.jpg'),
+  SingleProductModel(
+      productImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/eb31ff6778fa42e89e57ac480039b8fd_9366/Classics_Archive_Backpack_Small_Black_GN7640.jpg',
+      productModel: 'Classic',
+      productName: 'Classics archive backpack',
+      productOldPrice: 70,
+      productPrice: 54,
+      productFourImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/4c3801f601b647279640aaca0105c7f1_9366/Classics_Archive_Backpack_Black_FL7045_04_standard.jpg',
+      productSecondImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/f509c6c223e947798d50ab3601497153_9366/Classics_Archive_Backpack_Black_GD1040_01_standard.jpg',
+      productThirdImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/53b4eac625434cffbfc1ab1400e1f2bc_9366/Classics_Archive_Backpack_White_FL7044_04_standard.jpg'),
+];
+
+///////////////////////////// T_shirts........
+List<SingleProductModel> tshirtsData = [
+  SingleProductModel(
+      productImage:
+          'https://res.cloudinary.com/dyfwfkx4t/image/upload/v1671268443/H5c766c4219e24e4bb8008c5b4f12946bs.jpg_720x720q50_uumizh.jpg',
+      productModel: 'Classic',
+      productName: 'Classics archive backpack',
+      productOldPrice: 70,
+      productPrice: 54,
+      productFourImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/4c3801f601b647279640aaca0105c7f1_9366/Classics_Archive_Backpack_Black_FL7045_04_standard.jpg',
+      productSecondImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/f509c6c223e947798d50ab3601497153_9366/Classics_Archive_Backpack_Black_GD1040_01_standard.jpg',
+      productThirdImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/53b4eac625434cffbfc1ab1400e1f2bc_9366/Classics_Archive_Backpack_White_FL7044_04_standard.jpg'),
+  SingleProductModel(
+      productImage:
+          'https://res.cloudinary.com/dyfwfkx4t/image/upload/c_scale,w_720/v1671268800/Ha5f14e3df9374678933ee53446b84c00D.jpg_720x720q50_s26em3.png',
+      productModel: 'LifeStyle',
+      productName: 'Face covers xs/s 3 pack',
+      productOldPrice: 40,
+      productPrice: 20,
+      productFourImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/28ad64fa0e624ae4807eabb300a9d51f_9366/Face_Covers_M-L_3-Pack_Black_H18222_03_standard_hover.jpg',
+      productSecondImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/5d966e8e90b3438a9041abb300aa019e_9366/Face_Covers_M-L_3-Pack_Black_H18222_02_standard.jpg',
+      productThirdImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/e6d4f7d53fdf4382bf04abb300aa371d_9366/Face_Covers_M-L_3-Pack_Black_H18222_14_standard.jpg'),
+  SingleProductModel(
+      productImage:
+          'https://res.cloudinary.com/dyfwfkx4t/image/upload/v1671269009/HTB1J9koNNjaK1RjSZKzq6xVwXXaT.jpg_720x720q50_ssw814.jpg',
+      productModel: 'training',
+      productName: 'Active Enhanced Convertible Grip Bag',
+      productOldPrice: 85,
+      productPrice: 70,
+      productFourImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/9d2ce122e3bd4b838e9dabc100ea51b9_9366/Active_Enhanced_Convertible_Grip_Bag_Orange_GH0112_04_standard.jpg',
+      productSecondImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/dd709bb49870430bb2dfab0500bf9e76_9366/Active_Enhanced_Grip_Bag_Black_FQ5368_04_standard.jpg',
+      productThirdImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto:sensitive,fl_lossy/d280d49fa0e8400da15ca9880020b2e0_9366/Active_Enhanced_Grip_Bag_Large_Black_DU2968_04_standard.jpg'),
+  SingleProductModel(
+      productImage:
+          'https://res.cloudinary.com/dyfwfkx4t/image/upload/v1671269395/Ha07ee1360df445c49ecc6ebf1891e462U.jpg_720x720q50_mppixr.jpg',
+      productModel: 'Training',
+      productName: 'Training weave backpack',
+      productOldPrice: 200,
+      productPrice: 150,
+      productFourImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/1fc379faa6b0473e8516ac8a010031b5_9366/Training_Weave_Backpack_Black_GT7686_04_standard.jpg',
+      productSecondImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/44df69de09e24e5db910abc100f3f30a_9366/Training_Weave_Backpack_Yellow_GH0037_04_standard.jpg',
+      productThirdImage:
+          'https://produkty.lionsport.cz/produkty_images/600/gh0099/gh0099.jpg'),
+  SingleProductModel(
+      productImage:
+          'https://res.cloudinary.com/dyfwfkx4t/image/upload/v1671269109/H420b0fcb290246319bef105dd8121334w.jpg_300x300_gm7ujb.jpg',
+      productModel: 'Classic',
+      productName: 'Classics Fold-over crew socks 3 packs',
+      productOldPrice: 30,
+      productPrice: 15,
+      productFourImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/fd3bfed25f844a3290b1ab460005826c_9366/Classics_Fold-Over_Crew_Socks_3_Pairs_Black_GG6683.jpg',
+      productSecondImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/e3b61214cede424e8f24ab45018a2d90_9366/Classics_Fold-Over_Crew_Socks_3_Pairs_Orange_GG6685_01_standard.jpg',
+      productThirdImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/321d0ba2df724de09b79ab2800e90cd1_9366/Classics_Crew_Socks_3_Pairs_White_FM9461_01_standard.jpg'),
+  SingleProductModel(
+      productImage:
+          'https://res.cloudinary.com/dyfwfkx4t/image/upload/v1671269277/H47385fe328a7425e89c10bdba0943b8aw.jpg_720x720q50_g5hfup.jpg',
+      productModel: 'training',
+      productName: 'Active Enhanced Convertible Grip Bag',
+      productOldPrice: 85,
+      productPrice: 70,
+      productFourImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/9d2ce122e3bd4b838e9dabc100ea51b9_9366/Active_Enhanced_Convertible_Grip_Bag_Orange_GH0112_04_standard.jpg',
+      productSecondImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/dd709bb49870430bb2dfab0500bf9e76_9366/Active_Enhanced_Grip_Bag_Black_FQ5368_04_standard.jpg',
+      productThirdImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto:sensitive,fl_lossy/d280d49fa0e8400da15ca9880020b2e0_9366/Active_Enhanced_Grip_Bag_Large_Black_DU2968_04_standard.jpg'),
+  SingleProductModel(
+      productImage:
+          'https://res.cloudinary.com/dyfwfkx4t/image/upload/v1671269633/Hcd15e6d40d8d4772b9d48c255b826e46r.jpg_720x720q50_bewmkz.jpg',
+      productModel: 'LifeStyle',
+      productName: 'Face covers xs/s 3 pack',
+      productOldPrice: 40,
+      productPrice: 20,
+      productFourImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/28ad64fa0e624ae4807eabb300a9d51f_9366/Face_Covers_M-L_3-Pack_Black_H18222_03_standard_hover.jpg',
+      productSecondImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/5d966e8e90b3438a9041abb300aa019e_9366/Face_Covers_M-L_3-Pack_Black_H18222_02_standard.jpg',
+      productThirdImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/e6d4f7d53fdf4382bf04abb300aa371d_9366/Face_Covers_M-L_3-Pack_Black_H18222_14_standard.jpg'),
+  SingleProductModel(
+      productImage:
+          'https://res.cloudinary.com/dyfwfkx4t/image/upload/v1671269801/H40ca053b0ec743629f5a5d8848591fcfA.jpg_720x720q50_dlhtxx.jpg',
+      productModel: 'Classic',
+      productName: 'Classics archive backpack',
+      productOldPrice: 70,
+      productPrice: 54,
+      productFourImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/4c3801f601b647279640aaca0105c7f1_9366/Classics_Archive_Backpack_Black_FL7045_04_standard.jpg',
+      productSecondImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/f509c6c223e947798d50ab3601497153_9366/Classics_Archive_Backpack_Black_GD1040_01_standard.jpg',
+      productThirdImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/53b4eac625434cffbfc1ab1400e1f2bc_9366/Classics_Archive_Backpack_White_FL7044_04_standard.jpg'),
+];
+
+///////////////////////////// Pants........
+List<SingleProductModel> pantsData = [
+  SingleProductModel(
+      productImage:
+          'https://res.cloudinary.com/dyfwfkx4t/image/upload/v1671270096/H7546d87686ce43f2ae0b0f8435e0c1afH.jpg_720x720q50_frarka.jpg',
+      productModel: 'Classic',
+      productName: 'Classics archive backpack',
+      productOldPrice: 70,
+      productPrice: 54,
+      productFourImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/4c3801f601b647279640aaca0105c7f1_9366/Classics_Archive_Backpack_Black_FL7045_04_standard.jpg',
+      productSecondImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/f509c6c223e947798d50ab3601497153_9366/Classics_Archive_Backpack_Black_GD1040_01_standard.jpg',
+      productThirdImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/53b4eac625434cffbfc1ab1400e1f2bc_9366/Classics_Archive_Backpack_White_FL7044_04_standard.jpg'),
+  SingleProductModel(
+      productImage:
+          'https://res.cloudinary.com/dyfwfkx4t/image/upload/v1671270024/H3c37f47a0d244f1fad9e80f31326d6729.jpg_720x720q50_iwxwff.jpg',
+      productModel: 'training',
+      productName: 'Active Enhanced Convertible Grip Bag',
+      productOldPrice: 85,
+      productPrice: 70,
+      productFourImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/9d2ce122e3bd4b838e9dabc100ea51b9_9366/Active_Enhanced_Convertible_Grip_Bag_Orange_GH0112_04_standard.jpg',
+      productSecondImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/dd709bb49870430bb2dfab0500bf9e76_9366/Active_Enhanced_Grip_Bag_Black_FQ5368_04_standard.jpg',
+      productThirdImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto:sensitive,fl_lossy/d280d49fa0e8400da15ca9880020b2e0_9366/Active_Enhanced_Grip_Bag_Large_Black_DU2968_04_standard.jpg'),
+  SingleProductModel(
+      productImage:
+          'https://res.cloudinary.com/dyfwfkx4t/image/upload/v1671269949/Hb5b7e9778bb24350aa74482e089a24411.png_720x720q50_egwjgx.png',
+      productModel: 'LifeStyle',
+      productName: 'Face covers xs/s 3 pack',
+      productOldPrice: 40,
+      productPrice: 20,
+      productFourImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/28ad64fa0e624ae4807eabb300a9d51f_9366/Face_Covers_M-L_3-Pack_Black_H18222_03_standard_hover.jpg',
+      productSecondImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/5d966e8e90b3438a9041abb300aa019e_9366/Face_Covers_M-L_3-Pack_Black_H18222_02_standard.jpg',
+      productThirdImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/e6d4f7d53fdf4382bf04abb300aa371d_9366/Face_Covers_M-L_3-Pack_Black_H18222_14_standard.jpg'),
+  SingleProductModel(
+      productImage:
+          'https://res.cloudinary.com/dyfwfkx4t/image/upload/v1671270822/Hbef6f98461ab4df788baeab46a15db2bD.jpg_300x300_wulygy.jpg',
+      productModel: 'Training',
+      productName: 'Training weave backpack',
+      productOldPrice: 200,
+      productPrice: 150,
+      productFourImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/1fc379faa6b0473e8516ac8a010031b5_9366/Training_Weave_Backpack_Black_GT7686_04_standard.jpg',
+      productSecondImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/44df69de09e24e5db910abc100f3f30a_9366/Training_Weave_Backpack_Yellow_GH0037_04_standard.jpg',
+      productThirdImage:
+          'https://produkty.lionsport.cz/produkty_images/600/gh0099/gh0099.jpg'),
+  SingleProductModel(
+      productImage:
+          'https://res.cloudinary.com/dyfwfkx4t/image/upload/v1671270725/H6a66faf4788341bb9d0ecbabb1f3c4d6j.jpg_300x300_qiwsyj.jpg',
+      productModel: 'Classic',
+      productName: 'Classics Fold-over crew socks 3 packs',
+      productOldPrice: 30,
+      productPrice: 15,
+      productFourImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/fd3bfed25f844a3290b1ab460005826c_9366/Classics_Fold-Over_Crew_Socks_3_Pairs_Black_GG6683.jpg',
+      productSecondImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/e3b61214cede424e8f24ab45018a2d90_9366/Classics_Fold-Over_Crew_Socks_3_Pairs_Orange_GG6685_01_standard.jpg',
+      productThirdImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/321d0ba2df724de09b79ab2800e90cd1_9366/Classics_Crew_Socks_3_Pairs_White_FM9461_01_standard.jpg'),
+  SingleProductModel(
+      productImage:
+          'https://res.cloudinary.com/dyfwfkx4t/image/upload/v1671270673/Hecd43f51a4d049969f09b62ff4dc2a8b0.jpg_300x300_hm0uwc.jpg',
+      productModel: 'training',
+      productName: 'Active Enhanced Convertible Grip Bag',
+      productOldPrice: 85,
+      productPrice: 70,
+      productFourImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/9d2ce122e3bd4b838e9dabc100ea51b9_9366/Active_Enhanced_Convertible_Grip_Bag_Orange_GH0112_04_standard.jpg',
+      productSecondImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/dd709bb49870430bb2dfab0500bf9e76_9366/Active_Enhanced_Grip_Bag_Black_FQ5368_04_standard.jpg',
+      productThirdImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto:sensitive,fl_lossy/d280d49fa0e8400da15ca9880020b2e0_9366/Active_Enhanced_Grip_Bag_Large_Black_DU2968_04_standard.jpg'),
+  SingleProductModel(
+      productImage:
+          'https://res.cloudinary.com/dyfwfkx4t/image/upload/v1671270512/H934b76ca64254a858aa1d25ed942b013A.jpg_960x960_a9nki8.jpg',
+      productModel: 'LifeStyle',
+      productName: 'Face covers xs/s 3 pack',
+      productOldPrice: 40,
+      productPrice: 20,
+      productFourImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/28ad64fa0e624ae4807eabb300a9d51f_9366/Face_Covers_M-L_3-Pack_Black_H18222_03_standard_hover.jpg',
+      productSecondImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/5d966e8e90b3438a9041abb300aa019e_9366/Face_Covers_M-L_3-Pack_Black_H18222_02_standard.jpg',
+      productThirdImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/e6d4f7d53fdf4382bf04abb300aa371d_9366/Face_Covers_M-L_3-Pack_Black_H18222_14_standard.jpg'),
+  SingleProductModel(
+      productImage:
+          'https://res.cloudinary.com/dyfwfkx4t/image/upload/v1671270315/Hda1aa34eb6894f3788884ca65eda2a2fZ.jpg_720x720q50_gm40e7.jpg',
+      productModel: 'Classic',
+      productName: 'Classics archive backpack',
+      productOldPrice: 70,
+      productPrice: 54,
+      productFourImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/4c3801f601b647279640aaca0105c7f1_9366/Classics_Archive_Backpack_Black_FL7045_04_standard.jpg',
+      productSecondImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/f509c6c223e947798d50ab3601497153_9366/Classics_Archive_Backpack_Black_GD1040_01_standard.jpg',
+      productThirdImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/53b4eac625434cffbfc1ab1400e1f2bc_9366/Classics_Archive_Backpack_White_FL7044_04_standard.jpg'),
+];
