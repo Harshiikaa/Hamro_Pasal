@@ -37,4 +37,27 @@ class _HomeScreenState extends State<HomeScreen>
     tabController.dispose();
     super.dispose();
   }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: ListView(
+        children: [
+          HomeAppBar(),
+          Container(
+            //temporrary height
+            height: 800,
+            padding: EdgeInsets.only(top: 15),
+            decoration: BoxDecoration(
+              color: Color(0xFFF57C00),
+              borderRadius: BorderRadius.only(
+                topRight: Radius.circular(35),
+                topLeft: Radius.circular(35),
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
 }
