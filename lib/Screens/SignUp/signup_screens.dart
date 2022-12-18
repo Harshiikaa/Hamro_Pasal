@@ -2,6 +2,7 @@ import 'package:email_validator/email_validator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:hamropasal/Screens/LoginScreen/login_screens.dart';
 import 'button_hover.dart';
 
 void main() {
@@ -299,7 +300,14 @@ class _SignupScreenState extends State<SignupScreen> {
                   fontWeight: FontWeight.normal,
                   fontSize: 18,
                 ),
-                recognizer: TapGestureRecognizer()..onTap = () {},
+                recognizer: TapGestureRecognizer()..onTap = () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => LoginScreens(),
+                    ),
+                  );
+                },
               )
             ]));
   }
