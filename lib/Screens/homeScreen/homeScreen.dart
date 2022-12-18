@@ -95,6 +95,121 @@ class _HomeScreenState extends State<HomeScreen>
                   ),
                 ),
                 SizedBox(height: 5),
+                Container(
+                  width: MediaQuery.of(context).size.height,
+                  decoration: BoxDecoration(
+                      color: Colors.transparent,
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Column(
+                    children: [
+                      TabBar(
+                        labelPadding: EdgeInsets.symmetric(horizontal: 18),
+                        indicator: BoxDecoration(
+                          color: Colors.transparent,
+                        ),
+                        isScrollable: true,
+                        indicatorSize: TabBarIndicatorSize.tab,
+                        labelStyle: TextStyle(
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        unselectedLabelColor: Colors.white54,
+                        labelColor: Colors.white,
+                        indicatorWeight: 5,
+                        indicatorColor: Colors.white,
+                        indicatorPadding: EdgeInsets.all(10),
+                        controller: tabController,
+                        tabs: [
+                          Tab(
+                            text: 'All',
+                          ),
+                          Tab(
+                            text: 'Hoodies',
+                          ),
+                          Tab(
+                            text: 'Shoes',
+                          ),
+                          Tab(
+                            text: 'Bags',
+                          ),
+                          Tab(
+                            text: 'T-shirt',
+                          ),
+                          Tab(
+                            text: 'Pants',
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: TabBarView(
+                    controller: tabController,
+                    children: [
+                      ListView(
+                        physics: const BouncingScrollPhysics(),
+                        children: [
+                          ShowAllWidget(
+                            leftText: "Trending Products",
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 12.0,
+                            ),
+                            child: GridView.builder(
+                              shrinkWrap: true,
+                              primary: true,
+                              itemCount: sigleProductData.length,
+                              physics: NeverScrollableScrollPhysics(),
+                              gridDelegate:
+                                  SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 2,
+                                childAspectRatio: 0.7,
+                                mainAxisExtent: 350,
+                              ),
+                              itemBuilder: (context, index) {
+                                var arrivalDataStore = sigleProductData[index];
+
+                                return SingleProductWidget(
+                                  productImage: arrivalDataStore.productImage,
+                                  productModel: arrivalDataStore.productModel,
+                                  productName: arrivalDataStore.productName,
+                                  productOldPrice:
+                                      arrivalDataStore.productOldPrice,
+                                  productPrice: arrivalDataStore.productPrice,
+                                  onPressed: () {},
+                                  // onPressed: () {
+                                  //   PageRouting.goToNextPage(
+                                  //     context: context,
+                                  //     navigateTo: DetailScreen(
+                                  //       data: arrivalDataStore,
+                                  //     ),
+                                  //   );
+                                );
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                      TabBarBar(
+                        productData: colothsData,
+                      ),
+                      TabBarBar(
+                        productData: shoesData,
+                      ),
+                      TabBarBar(
+                        productData: accessoriesData,
+                      ),
+                      TabBarBar(
+                        productData: tshirtsData,
+                      ),
+                      TabBarBar(
+                        productData: pantsData,
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           )
