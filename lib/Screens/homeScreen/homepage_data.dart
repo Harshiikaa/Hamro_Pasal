@@ -214,3 +214,110 @@ List<SingleProductModel> colothsData = [
           'https://assets.reebok.com/images/w_600,f_auto,q_auto/af51c8a6349847c8ba7eaae001360973_9366/Classics_Mesh_Tank_Top_White_FJ3179.jpg'),
 ];
 ////////////////////////////// shoes.............
+List<SingleProductModel> shoesData = [
+  SingleProductModel(
+      productImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/284a6dbadf75425fa1dbacfd00767fdd_9366/Nano_X1_Lux_Shoes_White_FZ1418_02_standard.jpg',
+      productModel: 'Men Cross Training',
+      productName: 'Nano x1 lux',
+      productOldPrice: 180,
+      productPrice: 150,
+      productFourImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/6170e458cd8c4482bbf0acfd007686f8_9366/Nano_X1_Lux_Shoes_White_FZ1418_04_standard.jpg',
+      productSecondImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/0a602c2ee13e4c17ae86acfd0076b6fb_9366/Nano_X1_Lux_Shoes_White_FZ1418_52_standard.jpg',
+      productThirdImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/0282a9bac41d4619bae1acfd007670cb_9366/Nano_X1_Lux_Shoes_White_FZ1418_03_standard.jpg'),
+  SingleProductModel(
+      productImage:
+          'https://assets.reebok.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy/00c9b5ad52b945088aa9ad030158f6c9_9366/Braindead_Zig_Kinetica_II_Shoes_White_S23891_01_standard.jpg',
+      productModel: 'LifeStyle',
+      productName: 'Braindead zig kinetica ll shoes',
+      productOldPrice: 180,
+      productPrice: 160,
+      productFourImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/8341dba27cb34217a0f3ad0301579032_9366/Braindead_Zig_Kinetica_II_Shoes_White_S23891_04_standard.jpg',
+      productSecondImage:
+          'https://gcs.justfreshkicks.com/2021/03/e564fdfa-166083495_504084774305314_2289473542114589625_n.jpeg',
+      productThirdImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/3f352376526e487bb4eead0301593516_9366/Braindead_Zig_Kinetica_II_Shoes_White_S23891_06_standard_hover.jpg'),
+  SingleProductModel(
+      productImage:
+          'https://res.cloudinary.com/dyfwfkx4t/image/upload/c_scale,w_600/v1671112796/Hb2425dba219147068196a5f90494903dc.jpg_720x720q50_npipzp.jpg',
+      // 'https://s.alicdn.com/@sc04/kf/Hb2425dba219147068196a5f90494903dc.jpg_720x720q50.jpg',
+      productModel: 'Men Cross Training',
+      productName: 'Nano x1 lux',
+      productOldPrice: 180,
+      productPrice: 150,
+      productFourImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/6170e458cd8c4482bbf0acfd007686f8_9366/Nano_X1_Lux_Shoes_White_FZ1418_04_standard.jpg',
+      productSecondImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/0a602c2ee13e4c17ae86acfd0076b6fb_9366/Nano_X1_Lux_Shoes_White_FZ1418_52_standard.jpg',
+      productThirdImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/0282a9bac41d4619bae1acfd007670cb_9366/Nano_X1_Lux_Shoes_White_FZ1418_03_standard.jpg'),
+  SingleProductModel(
+      productImage:
+          'https://res.cloudinary.com/dyfwfkx4t/image/upload/v1671271383/H30d4e68e88864ab3a232c0605bfc4d95u.jpg_300x300_lxnhxw.jpg',
+      productModel: 'Sweat-Shirts',
+      productName: 'Myt crew sweatshirt',
+      productOldPrice: 50,
+      productPrice: 40,
+      productFourImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/6294704fdcd3493db788ac8a011f7433_9366/MYT_Crew_Sweatshirt_Green_GL3241_01_standard.jpg',
+      productSecondImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/065d4a51189d46eaa5f6ac8400ff9e39_9366/Jersey_de_cuello_redondo_MYT_Verde_GL3241_13_standard.jpg',
+      productThirdImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/97e2a8cffc3d4803bc6bac8a01202834_9366/MYT_Crew_Sweatshirt_Green_GL3241_07_detail.jpg'),
+  SingleProductModel(
+      productImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/7acf66da5f02449f94dcac70005d23f1_9366/Billionaire_Boys_Club_Instapump_Fury_BOOST_Shoes_Green_GZ5363_01_standard.jpg',
+      productModel: 'Classic',
+      productName: 'Billionaire boys club instapump fury boost shoes',
+      productOldPrice: 250,
+      productPrice: 200,
+      productFourImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/67ebc363781d4e65a881ac7000617a1f_9366/Billionaire_Boys_Club_Instapump_Fury_BOOST_Shoes_Green_GZ5363_06_standard_hover.jpg',
+      productSecondImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/7496a6fa3f4b4062b61bac700058b7e7_9366/Billionaire_Boys_Club_Instapump_Fury_BOOST_Shoes_Green_GZ5363_03_standard.jpg',
+      productThirdImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/7de7ee400cac4fdba0a8ac70005a1d5b_9366/Billionaire_Boys_Club_Instapump_Fury_BOOST_Shoes_Green_GZ5363_41_detail.jpg'),
+  SingleProductModel(
+      productImage:
+          'https://res.cloudinary.com/dyfwfkx4t/image/upload/v1671271540/H7f4c2004423f4941ba9e344e5be0ee9fg.jpg_300x300_wznx5w.jpg',
+      productModel: 'Classic',
+      productName: 'Billionaire boys club instapump fury boost shoes',
+      productOldPrice: 250,
+      productPrice: 200,
+      productFourImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/67ebc363781d4e65a881ac7000617a1f_9366/Billionaire_Boys_Club_Instapump_Fury_BOOST_Shoes_Green_GZ5363_06_standard_hover.jpg',
+      productSecondImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/7496a6fa3f4b4062b61bac700058b7e7_9366/Billionaire_Boys_Club_Instapump_Fury_BOOST_Shoes_Green_GZ5363_03_standard.jpg',
+      productThirdImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/7de7ee400cac4fdba0a8ac70005a1d5b_9366/Billionaire_Boys_Club_Instapump_Fury_BOOST_Shoes_Green_GZ5363_41_detail.jpg'),
+  SingleProductModel(
+      productImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/62bff960a63d4d98a7e6abc10008cd9e_9366/Club_C_Coast_Shoes_Black_FY5598_01_standard.jpg',
+      productModel: 'Classic',
+      productName: 'Club c coast shoes',
+      productOldPrice: 60,
+      productPrice: 40,
+      productFourImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto:sensitive,fl_lossy/49d14812ba6649f78d75aaf8014ee392_9366/Workout_Plus_Shoes_Black_CN2127_03_standard.jpg',
+      productSecondImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/c046fcd8e3fe4e3e8714a84d00e3f545_9366/Workout_Plus_Black_CN2127_52_standard.jpg',
+      productThirdImage:
+          'https://www.efootwear.eu/media/catalog/product/cache/image/650x650/0/0/0000200438870_03_ts.jpg'),
+  SingleProductModel(
+      productImage:
+          'https://res.cloudinary.com/dyfwfkx4t/image/upload/c_scale,w_600/v1671267809/H2b3008d3f7f4459c8bbaff5780509c6cb_hc9sic.jpg',
+      productModel: 'Classic',
+      productName: 'Club c coast shoes',
+      productOldPrice: 60,
+      productPrice: 40,
+      productFourImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto:sensitive,fl_lossy/49d14812ba6649f78d75aaf8014ee392_9366/Workout_Plus_Shoes_Black_CN2127_03_standard.jpg',
+      productSecondImage:
+          'https://assets.reebok.com/images/w_600,f_auto,q_auto/c046fcd8e3fe4e3e8714a84d00e3f545_9366/Workout_Plus_Black_CN2127_52_standard.jpg',
+      productThirdImage:
+          'https://www.efootwear.eu/media/catalog/product/cache/image/650x650/0/0/0000200438870_03_ts.jpg'),
+];
