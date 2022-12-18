@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:hamropasal/Screens/ForgotPassword/forgot_screen.dart';
 import 'package:hamropasal/Screens/SignUp/signup_screens.dart';
 
 import '../homeScreen/homeScreen.dart';
@@ -97,7 +98,14 @@ Widget build(BuildContext context) {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (_) => ForgotScreen(),
+                                ),
+                              );
+                            },
                             child: const Text(
                               'Forgot Password?',
                               style: TextStyle(color: Colors.redAccent),
