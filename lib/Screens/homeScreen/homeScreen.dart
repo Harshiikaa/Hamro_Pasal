@@ -5,6 +5,10 @@ import '../../widgets/Single_product_widget.dart';
 import '../../widgets/all_category.dart';
 import '../../widgets/homeappbar.dart';
 import '../../widgets/show_allwidgets.dart';
+import '../favorite/favoriteScreen.dart';
+import '../profile/profileScreen.dart';
+import '../qrScreen/QRScreen.dart';
+import '../shoppingCart/shoppingCart.dart';
 import 'homepage_data.dart';
 
 void main() {
@@ -39,7 +43,14 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   int currentTab = 0;
-
+  final List<Widget> screens = [
+    HomeScreen(),
+    ShoppingCart(),
+    FavoriteScreen(),
+    ProfileScreen(),
+  ];
+  final PageStorageBucket bucket = PageStorageBucket();
+  Widget currentScreen = HomeScreen();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -227,11 +238,11 @@ class _HomeScreenState extends State<HomeScreen>
             size: 40,
           ),
           onPressed: () {
-            // Navigator.of(context).push(
-            //   MaterialPageRoute(
-            //     builder: (BuildContext context) => QRCodeScreen(),
-            //   ),
-            // );
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (BuildContext context) => QRCodeScreen(),
+              ),
+            );
           },
         ),
       ),
@@ -254,6 +265,9 @@ class _HomeScreenState extends State<HomeScreen>
                       //   currentScreen = DashboardScreen();
                       //   currentTab = 0;
                       // });
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (BuildContext context) => HomeScreen(),
+                      ));
                     },
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -281,6 +295,9 @@ class _HomeScreenState extends State<HomeScreen>
                       //   currentScreen = ShoppingCart();
                       //   currentTab = 1;
                       // });
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (BuildContext context) => ShoppingCart(),
+                      ));
                     },
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -311,10 +328,13 @@ class _HomeScreenState extends State<HomeScreen>
                   MaterialButton(
                     minWidth: 40,
                     onPressed: () {
-                      setState(() {
-                        // currentScreen = FavoriteScreen();
-                        currentTab = 2;
-                      });
+                      // setState(() {
+                      //   // currentScreen = FavoriteScreen();
+                      //   currentTab = 2;
+                      // });
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (BuildContext context) => FavoriteScreen(),
+                      ));
                     },
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -338,10 +358,13 @@ class _HomeScreenState extends State<HomeScreen>
                   MaterialButton(
                     minWidth: 40,
                     onPressed: () {
-                      setState(() {
-                        // currentScreen = ProfileScreen();
-                        currentTab = 3;
-                      });
+                      // setState(() {
+                      //   // currentScreen = ProfileScreen();
+                      //   currentTab = 3;
+                      // });
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (BuildContext context) => ProfileScreen(),
+                      ));
                     },
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
