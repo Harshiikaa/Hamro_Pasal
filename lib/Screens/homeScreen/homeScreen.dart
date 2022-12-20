@@ -236,6 +236,138 @@ class _HomeScreenState extends State<HomeScreen>
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: BottomAppBar(
+        shape: CircularNotchedRectangle(),
+        notchMargin: 10,
+        child: Container(
+          height: 60,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  MaterialButton(
+                    minWidth: 40,
+                    onPressed: () {
+                      // setState(() {
+                      //   currentScreen = DashboardScreen();
+                      //   currentTab = 0;
+                      // });
+                    },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.home,
+                          color:
+                              currentTab == 0 ? Colors.deepOrange : Colors.grey,
+                        ),
+                        Text(
+                          "Dashboard",
+                          style: TextStyle(
+                              fontSize: 12,
+                              color: currentTab == 0
+                                  ? Colors.deepOrange
+                                  : Colors.grey),
+                        ),
+                      ],
+                    ),
+                  ),
+                  MaterialButton(
+                    minWidth: 40,
+                    onPressed: () {
+                      // setState(() {
+                      //   currentScreen = ShoppingCart();
+                      //   currentTab = 1;
+                      // });
+                    },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.shopping_cart,
+                          color:
+                              currentTab == 1 ? Colors.deepOrange : Colors.grey,
+                        ),
+                        Text(
+                          "Cart",
+                          style: TextStyle(
+                              fontSize: 12,
+                              color: currentTab == 1
+                                  ? Colors.deepOrange
+                                  : Colors.grey),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              // right tab bar icons
+              // Text("Scan and Pay"),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  MaterialButton(
+                    minWidth: 40,
+                    onPressed: () {
+                      setState(() {
+                        // currentScreen = FavoriteScreen();
+                        currentTab = 2;
+                      });
+                    },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.favorite,
+                          color:
+                              currentTab == 2 ? Colors.deepOrange : Colors.grey,
+                        ),
+                        Text(
+                          "Favorite",
+                          style: TextStyle(
+                              fontSize: 12,
+                              color: currentTab == 2
+                                  ? Colors.deepOrange
+                                  : Colors.grey),
+                        ),
+                      ],
+                    ),
+                  ),
+                  MaterialButton(
+                    minWidth: 40,
+                    onPressed: () {
+                      setState(() {
+                        // currentScreen = ProfileScreen();
+                        currentTab = 3;
+                      });
+                    },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.person,
+                          color:
+                              currentTab == 3 ? Colors.deepOrange : Colors.grey,
+                        ),
+                        Text(
+                          "Profile",
+                          style: TextStyle(
+                              fontSize: 12,
+                              color: currentTab == 3
+                                  ? Colors.deepOrange
+                                  : Colors.grey),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
