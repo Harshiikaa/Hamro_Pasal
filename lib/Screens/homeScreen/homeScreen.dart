@@ -38,6 +38,8 @@ class _HomeScreenState extends State<HomeScreen>
     super.dispose();
   }
 
+  int currentTab = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -215,6 +217,25 @@ class _HomeScreenState extends State<HomeScreen>
           )
         ],
       ),
+      floatingActionButton: SizedBox(
+        height: 65,
+        width: 65,
+        child: FloatingActionButton(
+          backgroundColor: Colors.deepOrange,
+          child: Icon(
+            Icons.qr_code,
+            size: 40,
+          ),
+          onPressed: () {
+            // Navigator.of(context).push(
+            //   MaterialPageRoute(
+            //     builder: (BuildContext context) => QRCodeScreen(),
+            //   ),
+            // );
+          },
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }
