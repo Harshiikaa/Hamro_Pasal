@@ -228,6 +228,7 @@ class _HomeScreenState extends State<HomeScreen>
           )
         ],
       ),
+      resizeToAvoidBottomInset: false,
       floatingActionButton: SizedBox(
         height: 65,
         width: 65,
