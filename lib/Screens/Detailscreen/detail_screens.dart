@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../Model/SingleProductModel.dart';
+import '../../Routes/routes.dart';
+import '../../widgets/Single_product_widget.dart';
 
 class DetailScreen extends StatefulWidget {
   final SingleProductModel data;
@@ -9,6 +11,16 @@ class DetailScreen extends StatefulWidget {
 }
 
 class _DetailScreenState extends State<DetailScreen> {
+  String dropdownvalue = 'Item 1';
+
+  // List of items in our dropdown menu
+  var items = [
+    'Item 1',
+    'Item 2',
+    'Item 3',
+    'Item 4',
+    'Item 5',
+  ];
   PreferredSize buildAppbar() {
     return PreferredSize(
       preferredSize: Size.fromHeight(70),
@@ -127,6 +139,58 @@ class _DetailScreenState extends State<DetailScreen> {
             ],
           )
         ],
+      ),
+    );
+  }
+
+  buildColorsAndSize() {
+    return Row(
+      children: [
+        Expanded(
+          child: DropdownButton(
+            // Initial Value
+            value: dropdownvalue,
+            // Down Arrow Icon
+            icon: const Icon(Icons.keyboard_arrow_down),
+
+            // Array list of items
+            items: items.map((String items) {
+              return DropdownMenuItem(
+                value: items,
+                child: Text(items),
+              );
+            }).toList(),
+            // After selecting the desired option,it will
+            // change button value to selected value
+            onChanged: (String? newValue) {
+              setState(() {
+                dropdownvalue = newValue!;
+              });
+            },
+          ),
+        )
+      ],
+    );
+  }
+
+  buildAddtoCart() {
+    return Padding(
+      padding: EdgeInsets.all(16.0),
+      child: MaterialButton(
+        elevation: 0,
+        height: 50,
+        color: Colors.orange,
+        shape: RoundedRectangleBorder(
+            side: BorderSide.none, borderRadius: BorderRadius.circular(5)),
+        onPressed: () {},
+        child: Text(
+          "Add to Cart",
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 18,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
       ),
     );
   }
