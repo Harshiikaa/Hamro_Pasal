@@ -131,6 +131,27 @@ class _DetailScreenState extends State<DetailScreen> {
     );
   }
 
+  buildMayLikeYou() {
+    return ListTile(
+      leading: Text(
+        "You may also like",
+        style: TextStyle(
+          color: Colors.black,
+          fontSize: 18,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
+      trailing: Text(
+        "Show All",
+        style: TextStyle(
+          color: Colors.black,
+          fontSize: 18,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
