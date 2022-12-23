@@ -16,11 +16,11 @@ class _DetailScreenState extends State<DetailScreen> {
 
   // List of items in our dropdown menu
   var items = [
-    'Item 1',
-    'Item 2',
-    'Item 3',
-    'Item 4',
-    'Item 5',
+    '39',
+    '40',
+    '41',
+    '42',
+    '43',
   ];
   PreferredSize buildAppbar() {
     return PreferredSize(
