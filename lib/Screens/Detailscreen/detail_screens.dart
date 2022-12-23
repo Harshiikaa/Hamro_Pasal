@@ -173,6 +173,40 @@ class _DetailScreenState extends State<DetailScreen> {
     );
   }
 
+  buildBottomGridView() {
+    return Container(
+      height: 240,
+      child: GridView.builder(
+        scrollDirection: Axis.horizontal,
+        shrinkWrap: true,
+        primary: true,
+        itemCount: detailScreenData.length,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 1,
+          childAspectRatio: 1.5,
+        ),
+        itemBuilder: (context, index) {
+          var data = detailScreenData[index];
+          return SingleProductWidget(
+            onPressed: () {
+              PageRouting.goToNextPage(
+                context: context,
+                navigateTo: DetailScreen(
+                  data,
+                ),
+              );
+            },
+            productImage: data.productImage,
+            productModel: data.productModel,
+            productName: data.productName,
+            productOldPrice: data.productOldPrice,
+            productPrice: data.productPrice,
+          );
+        },
+      ),
+    );
+  }
+
   buildAddtoCart() {
     return Padding(
       padding: EdgeInsets.all(16.0),
