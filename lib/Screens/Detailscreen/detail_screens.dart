@@ -27,6 +27,70 @@ class _DetailScreenState extends State<DetailScreen> {
     );
   }
 
+  buildListTile() {
+    return ListTile(
+      title: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "Description",
+            style: TextStyle(
+                color: Colors.orange,
+                fontSize: 25,
+                fontWeight: FontWeight.bold),
+          ),
+          SizedBox(
+            height: 5,
+          ),
+          Text(
+            widget.data.productName,
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 20,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          SizedBox(
+            height: 5,
+          ),
+          Text(
+            widget.data.productModel,
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 20,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+        ],
+      ),
+      trailing: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            widget.data.productPrice.toString(),
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 18,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          SizedBox(
+            height: 5,
+          ),
+          Text(
+            widget.data.productOldPrice.toString(),
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 18,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
