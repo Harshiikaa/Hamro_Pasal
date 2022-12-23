@@ -91,6 +91,46 @@ class _DetailScreenState extends State<DetailScreen> {
     );
   }
 
+  buildProductImages() {
+    return Padding(
+      padding: EdgeInsets.all(8.0),
+      child: Column(
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(10.0),
+            child: Image.network(
+              widget.data.productImage,
+              fit: BoxFit.cover,
+              width: 450,
+            ),
+          ),
+          Row(
+            children: [
+              Expanded(
+                child: Container(
+                  margin: EdgeInsets.only(right: 15, top: 15),
+                  child: Image.network(widget.data.productSecondImage),
+                ),
+              ),
+              Expanded(
+                child: Container(
+                  margin: EdgeInsets.only(right: 15, top: 15),
+                  child: Image.network(widget.data.productThirdImage),
+                ),
+              ),
+              Expanded(
+                child: Container(
+                  margin: EdgeInsets.only(right: 15, top: 15),
+                  child: Image.network(widget.data.productFourImage),
+                ),
+              ),
+            ],
+          )
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
