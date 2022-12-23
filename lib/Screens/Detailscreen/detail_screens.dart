@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../Model/SingleProductModel.dart';
 import '../../Routes/routes.dart';
 import '../../widgets/Single_product_widget.dart';
+import 'detail_screen_data.dart';
 
 class DetailScreen extends StatefulWidget {
   final SingleProductModel data;
@@ -254,6 +255,17 @@ class _DetailScreenState extends State<DetailScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppbar(),
+      body: ListView(
+        physics: BouncingScrollPhysics(),
+        children: [
+          buildProductImages(),
+          buildListTile(),
+          buildColorsAndSize(),
+          buildAddtoCart(),
+          buildMayLikeYou(),
+          buildBottomGridView(),
+        ],
+      ),
     );
     ;
   }
