@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../Model/SingleProductModel.dart';
 import '../../Routes/routes.dart';
 import '../../widgets/Single_product_widget.dart';
-import 'detail_screen_data.dart';
+import 'detailscreen_data.dart';
 
 class DetailScreen extends StatefulWidget {
   final SingleProductModel data;
