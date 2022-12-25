@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../Model/SingleProductModel.dart';
+import '../Routes/routes.dart';
+import '../Screens/Detailscreen/detail_screens.dart';
 import 'Single_product_widget.dart';
 
 class TabBarBar extends StatelessWidget {
@@ -20,10 +22,10 @@ class TabBarBar extends StatelessWidget {
         var data = productData[index];
         return SingleProductWidget(
           onPressed: () {
-            // PageRouting.goToNextPage(
-            //   context: context,
-            //   navigateTo: DetailScreen(data: data),
-            // );
+            PageRouting.goToNextPage(
+              context: context,
+              navigateTo: DetailScreen(data),
+            );
           },
           productImage: data.productImage,
           productModel: data.productModel,

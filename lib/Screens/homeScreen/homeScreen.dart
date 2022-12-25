@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 import '../../Model/SingleProductModel.dart';
+import '../../Routes/routes.dart';
 import '../../widgets/Single_product_widget.dart';
 import '../../widgets/all_category.dart';
 import '../../widgets/homeappbar.dart';
 import '../../widgets/show_allwidgets.dart';
+import '../Detailscreen/detail_screens.dart';
 import '../favorite/favoriteScreen.dart';
 import '../profile/profileScreen.dart';
 import '../qrScreen/QRScreen.dart';
@@ -185,21 +187,20 @@ class _HomeScreenState extends State<HomeScreen>
                                 var arrivalDataStore = sigleProductData[index];
 
                                 return SingleProductWidget(
-                                  productImage: arrivalDataStore.productImage,
-                                  productModel: arrivalDataStore.productModel,
-                                  productName: arrivalDataStore.productName,
-                                  productOldPrice:
-                                      arrivalDataStore.productOldPrice,
-                                  productPrice: arrivalDataStore.productPrice,
-                                  onPressed: () {},
-                                  // onPressed: () {
-                                  //   PageRouting.goToNextPage(
-                                  //     context: context,
-                                  //     navigateTo: DetailScreen(
-                                  //       data: arrivalDataStore,
-                                  //     ),
-                                  //   );
-                                );
+                                    productImage: arrivalDataStore.productImage,
+                                    productModel: arrivalDataStore.productModel,
+                                    productName: arrivalDataStore.productName,
+                                    productOldPrice:
+                                        arrivalDataStore.productOldPrice,
+                                    productPrice: arrivalDataStore.productPrice,
+                                    onPressed: () {
+                                      PageRouting.goToNextPage(
+                                        context: context,
+                                        navigateTo: DetailScreen(
+                                          arrivalDataStore,
+                                        ),
+                                      );
+                                    });
                               },
                             ),
                           ),
