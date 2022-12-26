@@ -183,9 +183,9 @@ class _DetailScreenState extends State<DetailScreen> {
           Expanded(
             child: DropdownButtonHideUnderline(
               child: DropdownButton(
-                value: dropdownvalue,
+                value: sizevalue,
                 icon: const Icon(Icons.keyboard_arrow_down),
-                items: items.map((String items) {
+                items: items1.map((String items) {
                   return DropdownMenuItem(
                     value: items,
                     child: Text(items),
@@ -193,7 +193,7 @@ class _DetailScreenState extends State<DetailScreen> {
                 }).toList(),
                 onChanged: (String? newValue) {
                   setState(() {
-                    dropdownvalue = newValue!;
+                    sizevalue = newValue!;
                   });
                 },
                 borderRadius: BorderRadius.circular(18),
