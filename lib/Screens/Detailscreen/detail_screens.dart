@@ -148,7 +148,31 @@ class _DetailScreenState extends State<DetailScreen> {
   buildColorsAndSize() {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 20),
-      
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Expanded(
+            child: DropdownButtonHideUnderline(
+              child: DropdownButton(
+                value: dropdownvalue,
+                icon: const Icon(Icons.keyboard_arrow_down),
+                items: items.map((String items) {
+                  return DropdownMenuItem(
+                    value: items,
+                    child: Text(items),
+                  );
+                }).toList(),
+                onChanged: (String? newValue) {
+                  setState(() {
+                    dropdownvalue = newValue!;
+                  });
+                },
+                
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 
