@@ -180,6 +180,9 @@ class _DetailScreenState extends State<DetailScreen> {
               ),
             ),
           ),
+          Expanded(
+            child: DropdownButtonHideUnderline(),
+          ),
         ],
       ),
     );
