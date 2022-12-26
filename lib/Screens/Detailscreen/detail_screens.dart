@@ -46,7 +46,10 @@ class _DetailScreenState extends State<DetailScreen> {
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.favorite),
+            icon: Icon(
+              Icons.favorite,
+              size: 20,
+            ),
             onPressed: () {},
           ),
         ],
@@ -59,14 +62,6 @@ class _DetailScreenState extends State<DetailScreen> {
       title: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(
-            height: 5,
-          ),
-          FavoriteButton(
-            valueChanged: (_isFavorite) {
-              print('Is Favorite $_isFavorite)');
-            },
-          ),
           Text(
             "Description",
             style: TextStyle(
