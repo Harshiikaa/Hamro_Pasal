@@ -145,7 +145,8 @@ class _DetailScreenState extends State<DetailScreen> {
     );
   }
 
-
+  buildColorsAndSize() {
+  }
 
   buildBottomGridView() {
     return Container(
@@ -233,7 +234,7 @@ class _DetailScreenState extends State<DetailScreen> {
         children: [
           buildProductImages(),
           buildListTile(),
-       
+          buildColorsAndSize(),
           buildAddtoCart(),
           buildMayLikeYou(),
           buildBottomGridView(),
