@@ -59,6 +59,11 @@ class _DetailScreenState extends State<DetailScreen> {
       title: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          FavoriteButton(
+            valueChanged: (_isFavorite) {
+              print('Is Favorite $_isFavorite)');
+            },
+          ),
           Text(
             "Description",
             style: TextStyle(
