@@ -1,5 +1,6 @@
 import 'package:favorite_button/favorite_button.dart';
 import 'package:flutter/material.dart';
+
 import '../../Model/SingleProductModel.dart';
 import '../../Routes/routes.dart';
 import '../../widgets/Single_product_widget.dart';
@@ -13,6 +14,25 @@ class DetailScreen extends StatefulWidget {
 }
 
 class _DetailScreenState extends State<DetailScreen> {
+  String dropdownvalue = 'Colors';
+  String sizevalue = 'Size';
+  // List of items in our dropdown menu
+  var items1 = [
+    'Size',
+    'S',
+    'M',
+    'L',
+    'XL',
+    'XXL',
+  ];
+  var items = [
+    'Colors',
+    'Red',
+    'Green',
+    'Blue',
+    'White',
+    'Black',
+  ];
   PreferredSize buildAppbar() {
     return PreferredSize(
       preferredSize: Size.fromHeight(70),
@@ -138,6 +158,57 @@ class _DetailScreenState extends State<DetailScreen> {
     );
   }
 
+  buildColorsAndSize() {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 20),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Expanded(
+            child: DropdownButtonHideUnderline(
+              child: DropdownButton(
+                value: dropdownvalue,
+                icon: const Icon(Icons.keyboard_arrow_down),
+                items: items.map((String items) {
+                  return DropdownMenuItem(
+                    value: items,
+                    child: Text(items),
+                  );
+                }).toList(),
+                onChanged: (String? newValue) {
+                  setState(() {
+                    dropdownvalue = newValue!;
+                  });
+                },
+                borderRadius: BorderRadius.circular(18),
+              ),
+            ),
+          ),
+          Expanded(
+            child: DropdownButtonHideUnderline(
+              child: DropdownButton(
+                value: sizevalue,
+                icon: const Icon(Icons.keyboard_arrow_down),
+                items: items1.map((String items) {
+                  return DropdownMenuItem(
+                    value: items,
+                    child: Text(items),
+                  );
+                }).toList(),
+                onChanged: (String? newValue) {
+                  setState(() {
+                    sizevalue = newValue!;
+                  });
+                },
+                borderRadius: BorderRadius.circular(18),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   buildBottomGridView() {
     return Container(
       height: 240,
@@ -224,6 +295,7 @@ class _DetailScreenState extends State<DetailScreen> {
         children: [
           buildProductImages(),
           buildListTile(),
+          buildColorsAndSize(),
           buildAddtoCart(),
           buildMayLikeYou(),
           buildBottomGridView(),
