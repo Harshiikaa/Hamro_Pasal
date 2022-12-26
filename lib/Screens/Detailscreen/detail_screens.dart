@@ -146,6 +146,10 @@ class _DetailScreenState extends State<DetailScreen> {
   }
 
   buildColorsAndSize() {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 20),
+      
+    );
   }
 
   buildBottomGridView() {
