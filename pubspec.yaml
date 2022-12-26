@@ -40,6 +40,7 @@ dependencies:
   email_validator: ^2.1.17
   password_field_validator: ^0.0.1
   badges: ^2.0.3
+  favorite_button: ^0.0.3
 
 dev_dependencies:
   flutter_test:

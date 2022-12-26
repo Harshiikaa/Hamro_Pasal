@@ -1,3 +1,4 @@
+import 'package:favorite_button/favorite_button.dart';
 import 'package:flutter/material.dart';
 import '../../Model/SingleProductModel.dart';
 import '../../Routes/routes.dart';
@@ -12,16 +13,6 @@ class DetailScreen extends StatefulWidget {
 }
 
 class _DetailScreenState extends State<DetailScreen> {
-  String dropdownvalue = 'Item 1';
-
-  // List of items in our dropdown menu
-  var items = [
-    'Item 1',
-    'Item 2',
-    'Item 3',
-    'Item 4',
-    'Item 5',
-  ];
   PreferredSize buildAppbar() {
     return PreferredSize(
       preferredSize: Size.fromHeight(70),
@@ -29,7 +20,10 @@ class _DetailScreenState extends State<DetailScreen> {
         backgroundColor: Colors.orange,
         elevation: 0,
         centerTitle: true,
-        title: Text("HamroPasal"),
+        title: Text(
+          "HamroPasal",
+          style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+        ),
         actions: [
           IconButton(
             icon: Icon(Icons.favorite),
@@ -144,36 +138,6 @@ class _DetailScreenState extends State<DetailScreen> {
     );
   }
 
-  buildColorsAndSize() {
-    return Row(
-      children: [
-        Expanded(
-          child: DropdownButton(
-            // Initial Value
-            value: dropdownvalue,
-            // Down Arrow Icon
-            icon: const Icon(Icons.keyboard_arrow_down),
-
-            // Array list of items
-            items: items.map((String items) {
-              return DropdownMenuItem(
-                value: items,
-                child: Text(items),
-              );
-            }).toList(),
-            // After selecting the desired option,it will
-            // change button value to selected value
-            onChanged: (String? newValue) {
-              setState(() {
-                dropdownvalue = newValue!;
-              });
-            },
-          ),
-        )
-      ],
-    );
-  }
-
   buildBottomGridView() {
     return Container(
       height: 240,
@@ -260,7 +224,6 @@ class _DetailScreenState extends State<DetailScreen> {
         children: [
           buildProductImages(),
           buildListTile(),
-          buildColorsAndSize(),
           buildAddtoCart(),
           buildMayLikeYou(),
           buildBottomGridView(),
