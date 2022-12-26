@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../Model/SingleProductModel.dart';
 import '../../Routes/routes.dart';
 import '../../widgets/Single_product_widget.dart';
@@ -12,9 +13,16 @@ class DetailScreen extends StatefulWidget {
 }
 
 class _DetailScreenState extends State<DetailScreen> {
-
   String dropdownvalue = 'Colors';
   // List of items in our dropdown menu
+  var items1 = [
+    'Size',
+    'S',
+    'M',
+    'L',
+    'XL',
+    'XXL',
+  ];
   var items = [
     'Colors',
     'Red',
