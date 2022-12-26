@@ -14,6 +14,7 @@ class DetailScreen extends StatefulWidget {
 
 class _DetailScreenState extends State<DetailScreen> {
   String dropdownvalue = 'Colors';
+  String sizevalue = 'Size';
   // List of items in our dropdown menu
   var items1 = [
     'Size',
