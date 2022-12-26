@@ -15,7 +15,14 @@ class _DetailScreenState extends State<DetailScreen> {
 
   String dropdownvalue = 'Colors';
   // List of items in our dropdown menu
-
+  var items = [
+    'Colors',
+    'Red',
+    'Green',
+    'Blue',
+    'White',
+    'Black',
+  ];
   PreferredSize buildAppbar() {
     return PreferredSize(
       preferredSize: Size.fromHeight(70),
@@ -226,6 +233,7 @@ class _DetailScreenState extends State<DetailScreen> {
         children: [
           buildProductImages(),
           buildListTile(),
+       
           buildAddtoCart(),
           buildMayLikeYou(),
           buildBottomGridView(),
