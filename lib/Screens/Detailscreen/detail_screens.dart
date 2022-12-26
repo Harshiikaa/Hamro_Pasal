@@ -167,7 +167,7 @@ class _DetailScreenState extends State<DetailScreen> {
                     dropdownvalue = newValue!;
                   });
                 },
-                
+                borderRadius: BorderRadius.circular(18),
               ),
             ),
           ),
