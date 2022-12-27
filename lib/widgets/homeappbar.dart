@@ -1,6 +1,8 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 
+import '../Screens/Search/search.dart';
+
 class HomeAppBar extends StatelessWidget {
   const HomeAppBar({Key? key}) : super(key: key);
 
@@ -32,6 +34,9 @@ class HomeAppBar extends StatelessWidget {
                   color: Color(0xFFF57C00)),
             ),
             Spacer(),
+            IconButton(onPressed: (){
+              Navigator.of(context).push(MaterialPageRoute(builder: (_)=>SearchPage()));
+            }, icon: Icon(Icons.search,size: 30,color: Color(0xFFF57C00),)),
             Badge(
               badgeColor: Colors.red,
               padding: EdgeInsets.all(7),

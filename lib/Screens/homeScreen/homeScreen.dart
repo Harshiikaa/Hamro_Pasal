@@ -72,30 +72,6 @@ class _HomeScreenState extends State<HomeScreen>
             ),
             child: Column(
               children: [
-                Container(
-                  margin: EdgeInsets.symmetric(horizontal: 10),
-                  padding: EdgeInsets.symmetric(horizontal: 10),
-                  height: 50,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  child: Row(
-                    children: [
-                      Container(
-                        margin: EdgeInsets.all(10),
-                        height: 50,
-                        width: 300,
-                        child: TextFormField(
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                            hintText: "Search your product...",
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
                 SizedBox(height: 10),
                 Container(
                   alignment: Alignment.centerLeft,
