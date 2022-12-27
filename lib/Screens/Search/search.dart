@@ -42,6 +42,66 @@ class _SearchPageState extends State<SearchPage> {
         title: Text("Search"),
         backgroundColor: Colors.deepOrange,
       ),
+      body: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child:Column(
+          children: [
+            TextFormField(
+              onChanged: (value){
+                _searchQuery = value;
+                _filterProducts(_searchQuery);
+              },
+              decoration: InputDecoration(
+                  contentPadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                  hintText: 'Search.....',
+                  suffixIcon: const Icon(Icons.search),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                    borderSide: const BorderSide(),
+                  )
+              ),
+            ),
+            SizedBox(height: 20,
+            ),
+
+          ],
+        ),
+      ),
     );
+  }
+
+  void _filterProducts(String query) {
+    List<SingleProductModel> filteredSingleProductData = sigleProductData
+        .where((product) =>
+        product.productName.toLowerCase().contains(query.toLowerCase()))
+        .toList();
+    List<SingleProductModel> filteredClothsData = colothsData
+        .where((product) =>
+        product.productName.toLowerCase().contains(query.toLowerCase()))
+        .toList();
+    List<SingleProductModel> filteredShoesData = shoesData
+        .where((product) =>
+        product.productName.toLowerCase().contains(query.toLowerCase()))
+        .toList();
+    List<SingleProductModel> filteredAccessoriesData = accessoriesData
+        .where((product) =>
+        product.productName.toLowerCase().contains(query.toLowerCase()))
+        .toList();
+    List<SingleProductModel> filteredTshirtsData = tshirtsData
+        .where((product) =>
+        product.productName.toLowerCase().contains(query.toLowerCase()))
+        .toList();
+    List<SingleProductModel> filteredPantsData = pantsData
+        .where((product) =>
+        product.productName.toLowerCase().contains(query.toLowerCase()))
+        .toList();
+    setState(() {
+      _filteredProducts = filteredSingleProductData +
+          filteredClothsData +
+          filteredShoesData +
+          filteredAccessoriesData +
+          filteredTshirtsData +
+          filteredPantsData;
+    });
   }
 }
