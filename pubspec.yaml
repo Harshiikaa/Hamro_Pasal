@@ -41,6 +41,7 @@ dependencies:
   password_field_validator: ^0.0.1
   badges: ^2.0.3
   favorite_button: ^0.0.3
+  qr_code_scanner: ^1.0.1
 
 dev_dependencies:
   flutter_test:
