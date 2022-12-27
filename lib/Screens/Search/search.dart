@@ -63,7 +63,39 @@ class _SearchPageState extends State<SearchPage> {
             ),
             SizedBox(height: 20,
             ),
-
+            Expanded(
+              child: _searchQuery.isEmpty
+                  ? Container()
+                  : _filteredProducts.length == 0
+                  ? Text(
+                'No result found Please try with different items',
+                style: TextStyle(fontSize: 24),
+              )
+                  : ListView.builder(
+                itemCount: _filteredProducts.length,
+                itemBuilder: (context, index) => Card(
+                  elevation: 1,
+                  margin: const EdgeInsets.symmetric(vertical: 2),
+                  child: ListTile(
+                    onTap: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => DetailScreen(_filteredProducts[index]),
+                        ),
+                      );
+                    },
+                    leading: CircleAvatar(
+                      radius: 30.0,
+                      backgroundImage:NetworkImage(_filteredProducts[index].productImage),
+                      backgroundColor: Colors.transparent,
+                    ),
+                    title: Text(_filteredProducts[index].productName),
+                    subtitle: Text('Price: ${_filteredProducts[index].productPrice}'),
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
