@@ -68,8 +68,8 @@ import 'package:hamropasal/Screens/Detailscreen/detailscreen_data.dart';
 // }
 
 class FavoriteScreen extends StatefulWidget {
-  final SingleProductModel? data;
-  FavoriteScreen(this.data);
+  // final SingleProductModel? data;
+  // FavoriteScreen(this.data);
 
   // const FavoriteScreen({Key? key, this.data}) : super(key: key);
 
