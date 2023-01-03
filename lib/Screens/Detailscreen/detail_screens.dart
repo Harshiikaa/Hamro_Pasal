@@ -1,5 +1,6 @@
 import 'package:favorite_button/favorite_button.dart';
 import 'package:flutter/material.dart';
+import 'package:hamropasal/Screens/favorite/favoriteScreen.dart';
 
 import '../../Model/SingleProductModel.dart';
 import '../../Routes/routes.dart';
@@ -33,6 +34,9 @@ class _DetailScreenState extends State<DetailScreen> {
     'White',
     'Black',
   ];
+
+  bool isFavourite = false;
+
   PreferredSize buildAppbar() {
     return PreferredSize(
       preferredSize: Size.fromHeight(70),
@@ -44,15 +48,15 @@ class _DetailScreenState extends State<DetailScreen> {
           "HamroPasal",
           style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
         ),
-        actions: [
-          IconButton(
-            icon: Icon(
-              Icons.favorite,
-              size: 20,
-            ),
-            onPressed: () {},
-          ),
-        ],
+        // actions: [
+        //   IconButton(
+        //     icon: Icon(
+        //       Icons.favorite,
+        //       size: 20,
+        //     ),
+        //     onPressed: () {},
+        //   ),
+        // ],
       ),
     );
   }
@@ -128,11 +132,33 @@ class _DetailScreenState extends State<DetailScreen> {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(10.0),
-            child: Image.network(
-              widget.data.productImage,
-              fit: BoxFit.cover,
-              width: 450,
-            ),
+            child: Stack(children: <Widget>[
+              Image.network(
+                widget.data.productImage,
+                fit: BoxFit.cover,
+                width: 450,
+              ),
+              Positioned(
+                top: 10,
+                right: 10,
+                child: IconButton(
+                  icon: Icon(
+                    Icons.favorite,
+                    size: 30,
+                    color: isFavourite ? Colors.deepOrange : Colors.black45,
+                  ),
+                  onPressed: () {
+                    // FavoriteScreen(widget.data);
+                    // ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                    //     content:
+                    //         Text("product added in favourite successfully")));
+                    setState(() {
+                      isFavourite = !isFavourite;
+                    });
+                  },
+                ),
+              ),
+            ]),
           ),
           Row(
             children: [
