@@ -83,7 +83,39 @@ class _ProfileScreenState extends State<ProfileScreen> {
               onTap: () {},
             ),
             divider(),
-
+            ListTile(
+              leading: Container(
+                child: Icon(Icons.password_outlined, color: Colors.pink),
+                height: 45,
+                width: 45,
+                decoration: BoxDecoration(
+                  color: Colors.pink.withOpacity(0.09),
+                  borderRadius: BorderRadius.circular(18),
+                ),
+              ),
+              title: Text("Change your password",
+                  style: TextStyle(fontWeight: FontWeight.w700)),
+              trailing: Icon(Icons.arrow_forward_ios,
+                  color: Colors.deepOrange, size: 20),
+              onTap: () {},
+            ),
+            divider(),
+            ListTile(
+              leading: Container(
+                child: Icon(Icons.location_city, color: Colors.orange),
+                height: 45,
+                width: 45,
+                decoration: BoxDecoration(
+                  color: Colors.orange.withOpacity(0.09),
+                  borderRadius: BorderRadius.circular(18),
+                ),
+              ),
+              title: Text("Change your address",
+                  style: TextStyle(fontWeight: FontWeight.w700)),
+              trailing: Icon(Icons.arrow_forward_ios,
+                  color: Colors.deepOrange, size: 20),
+              onTap: () {},
+            ),
           ],
         ),
       ),
