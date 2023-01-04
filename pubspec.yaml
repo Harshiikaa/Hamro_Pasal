@@ -42,6 +42,7 @@ dependencies:
   badges: ^2.0.3
   favorite_button: ^0.0.3
   qr_code_scanner: ^1.0.1
+  font_awesome_flutter: ^10.3.0
 
 dev_dependencies:
   flutter_test:
