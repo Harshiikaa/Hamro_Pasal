@@ -9,18 +9,55 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+
+  bool _notificationEnabled = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text("Profile"),
+        title: Text("Your Profile"),
         backgroundColor: Colors.deepOrange,
       ),
-      body: Center(
-        child: Text(
-          "Profile Screen",
-          style: TextStyle(fontSize: 40),
+      body: Container(
+        color: Color(0xFFD6D6D6),
+        child: ListView(
+          children: [
+
+          ],
+        ),
+      ),
+      bottomNavigationBar: logoutButton(),
+    );
+  }
+
+
+
+
+  Widget logoutButton() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
+      child: SizedBox(
+        width: double.infinity,
+        height: 70,
+        child: ElevatedButton(
+          onPressed: () {
+            // Add your code for logging out here
+          },
+          style: ElevatedButton.styleFrom(
+            primary: Colors.deepOrange,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(28),
+            ),
+          ),
+          child: const Text(
+            "Log out",
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 22,
+              color: Colors.white,
+            ),
+          ),
         ),
       ),
     );
