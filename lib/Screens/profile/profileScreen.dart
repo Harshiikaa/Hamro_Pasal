@@ -175,7 +175,22 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
             ),
             divider(),
-
+            ListTile(
+              leading: Container(
+                child: Icon(Icons.info_outline, color: color),
+                height: 45,
+                width: 45,
+                decoration: BoxDecoration(
+                  color: Colors.black.withOpacity(0.09),
+                  borderRadius: BorderRadius.circular(18),
+                ),
+              ),
+              title:
+              Text("FAQ's", style: TextStyle(fontWeight: FontWeight.w700)),
+              trailing: Icon(Icons.arrow_forward_ios,
+                  color: Colors.deepOrange, size: 20),
+              onTap: () {},
+            ),
 
           ],
         ),
