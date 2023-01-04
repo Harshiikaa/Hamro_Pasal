@@ -9,7 +9,14 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-
+  Widget divider() {
+    return Padding(
+      padding: const EdgeInsets.all(0.5),
+      child: Divider(
+        thickness: 1.5,
+      ),
+    );
+  }
   bool _notificationEnabled = false;
   @override
   Widget build(BuildContext context) {
@@ -23,15 +30,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
         color: Color(0xFFD6D6D6),
         child: ListView(
           children: [
-
           ],
         ),
       ),
       bottomNavigationBar: logoutButton(),
     );
   }
-
-
 
 
   Widget logoutButton() {
