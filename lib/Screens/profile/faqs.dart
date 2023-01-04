@@ -70,6 +70,33 @@ class _ExpansionPanelDemoState extends State<ExpansionPanelDemo> {
       ),
     );
   }
+
+  List<ItemModel> itemData = <ItemModel>[
+    ItemModel(
+      headerItem: 'What is HamroPasal',
+      discription:
+          "HamroPasal is a online platform to sell clothes of different categories.",
+      colorsItem: Colors.green,
+    ),
+    ItemModel(
+      headerItem: 'What are the services provided by HamroPasal',
+      discription:
+          "1. Buy clothes online. \n 2. Categoreis of clothers. \n 3. Password reset",
+      colorsItem: Colors.green,
+    ),
+    ItemModel(
+      headerItem: 'How can I register Hamropasal?',
+      discription:
+          "HamroPasal is a online platform to sell clothes of different categories.",
+      colorsItem: Colors.green,
+    ),
+    ItemModel(
+      headerItem: ' How to order/ buy?',
+      discription:
+          "This was probably the most popular question asked by people. Although we put a how to buy/ order tutorial button on every single product page with detailed step by step walk-through as well as video, yet that didn’t stop the customers from asking the question. As I have said earlier, Malaysian people were not used to the concept of e-shopping. They just simply hand over the money and get their choice of product. So, putting a lot of details and completing a set of steps for e-shopping seemed a bit hassling to them.",
+      colorsItem: Colors.green,
+    ),
+  ];
 }
 
 // import 'package:flutter/cupertino.dart';
