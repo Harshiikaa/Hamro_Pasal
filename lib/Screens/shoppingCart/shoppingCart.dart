@@ -1,28 +1,27 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hamropasal/Model/SingleProductModel.dart';
 
-class ShoppingCart extends StatefulWidget {
-  const ShoppingCart({Key? key}) : super(key: key);
+class CartScreen extends StatefulWidget {
+  SingleProductModel data;
+  CartScreen(this.data);
+
+  void setName(data) {
+    this.data = data;
+  }
 
   @override
-  State<ShoppingCart> createState() => _ShoppingCartState();
+  State<CartScreen> createState() => _CartScreenState();
 }
 
-class _ShoppingCartState extends State<ShoppingCart> {
+class _CartScreenState extends State<CartScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text("Shopping Cart"),
-        backgroundColor: Colors.deepOrange,
-      ),
-      body: Center(
-        child: Text(
-          "ShoppingCart Screen",
-          style: TextStyle(fontSize: 40),
+        appBar: AppBar(
+          title: Text("Cart Section"),
         ),
-      ),
-    );
+        body: ListView(
+          children: [],
+        ));
   }
 }
