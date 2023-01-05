@@ -92,6 +92,19 @@ class _CartScreenState extends State<CartScreen> {
                       ),
                     ),
                   ),
+                  Expanded(
+                    child: Container(
+                      padding: EdgeInsets.all(10.0),
+                      child: CircleAvatar(
+                        radius: 25,
+                        backgroundColor: Colors.orange,
+                        child: Icon(
+                          Icons.delete,
+                          color: Colors.white54,
+                        ),
+                      ),
+                    ),
+                  )
                 ],
               ),
             ),
