@@ -14,6 +14,17 @@ class CartScreen extends StatefulWidget {
 }
 
 class _CartScreenState extends State<CartScreen> {
+  buildcartsection() {
+    return Card(
+      child: Container(
+        height: 200,
+        child: Column(
+          children: [],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +32,9 @@ class _CartScreenState extends State<CartScreen> {
           title: Text("Cart Section"),
         ),
         body: ListView(
-          children: [],
+          children: [
+            buildcartsection(),
+          ],
         ));
   }
 }
