@@ -114,6 +114,28 @@ class _CartScreenState extends State<CartScreen> {
     );
   }
 
+  buildcheckout() {
+    return Padding(
+      padding: EdgeInsets.all(16.0),
+      child: MaterialButton(
+        elevation: 0,
+        height: 50,
+        color: Colors.orange,
+        shape: RoundedRectangleBorder(
+            side: BorderSide.none, borderRadius: BorderRadius.circular(5)),
+        onPressed: () {},
+        child: Text(
+          "Checkout",
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 18,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
