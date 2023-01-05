@@ -16,6 +16,7 @@ class DetailScreen extends StatefulWidget {
 class _DetailScreenState extends State<DetailScreen> {
   String dropdownvalue = 'Colors';
   String sizevalue = 'Size';
+  int _count = 0;
   // List of items in our dropdown menu
   var items1 = [
     'Size',
@@ -206,6 +207,48 @@ class _DetailScreenState extends State<DetailScreen> {
                 borderRadius: BorderRadius.circular(18),
               ),
             ),
+          ),
+          Row(
+            children: [
+              SizedBox(
+                height: 25,
+                width: 25,
+                child: FloatingActionButton(
+                    backgroundColor: Colors.white,
+                    child: Icon(
+                      CupertinoIcons.minus,
+                      size: 20,
+                      color: Colors.black,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        if (_count > 0) _count--;
+                      });
+                    }),
+              ),
+              SizedBox(
+                child: Text(
+                  "$_count",
+                  style: TextStyle(fontSize: 18),
+                ),
+              ),
+              SizedBox(
+                height: 25,
+                width: 25,
+                child: FloatingActionButton(
+                    backgroundColor: Colors.white,
+                    child: Icon(
+                      CupertinoIcons.plus,
+                      size: 20,
+                      color: Colors.black,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        _count++;
+                      });
+                    }),
+              ),
+            ],
           ),
         ],
       ),
