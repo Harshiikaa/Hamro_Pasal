@@ -187,6 +187,27 @@ class _CartScreenState extends State<CartScreen> {
     );
   }
 
+  buildsubtotal() {
+    return ListTile(
+      leading: Text(
+        "Subtotal",
+        style: TextStyle(
+          color: Colors.black,
+          fontSize: 18,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
+      trailing: Text(
+        "Rs. 600",
+        style: TextStyle(
+          color: Colors.black,
+          fontSize: 18,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
