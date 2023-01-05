@@ -19,7 +19,29 @@ class _CartScreenState extends State<CartScreen> {
       child: Container(
         height: 200,
         child: Column(
-          children: [],
+          children: [
+            Expanded(
+              flex: 2,
+              child: Row(
+                children: [
+                  Expanded(
+                    flex: 2,
+                    child: Padding(
+                      padding: EdgeInsets.all(12.0),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(10.0),
+                        child: Image.network(
+                          widget.data.productImage,
+                          fit: BoxFit.cover,
+                          width: 150,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );
