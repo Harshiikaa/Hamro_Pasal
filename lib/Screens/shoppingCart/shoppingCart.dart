@@ -217,6 +217,11 @@ class _CartScreenState extends State<CartScreen> {
         body: ListView(
           children: [
             buildcartsection(),
+            buildcartsection(),
+            buildcartsection(),
+            buildothers(),
+            buildsubtotal(),
+            buildcheckout(),
           ],
         ));
   }
