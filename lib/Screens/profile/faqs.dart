@@ -27,6 +27,7 @@ class _ExpansionPanelDemoState extends State<ExpansionPanelDemo> {
               elevation: 1,
               children: [
                 ExpansionPanel(
+                  canTapOnHeader: true,
                   body: Container(
                     padding: EdgeInsets.all(10),
                     child: Column(
@@ -76,25 +77,54 @@ class _ExpansionPanelDemoState extends State<ExpansionPanelDemo> {
       headerItem: 'What is HamroPasal',
       discription:
           "HamroPasal is a online platform to sell clothes of different categories.",
-      colorsItem: Colors.green,
+      colorsItem: Colors.black54,
     ),
     ItemModel(
       headerItem: 'What are the services provided by HamroPasal',
       discription:
           "1. Buy clothes online. \n 2. Categoreis of clothers. \n 3. Password reset",
-      colorsItem: Colors.green,
+      colorsItem: Colors.black54,
     ),
     ItemModel(
       headerItem: 'How can I register Hamropasal?',
       discription:
           "HamroPasal is a online platform to sell clothes of different categories.",
-      colorsItem: Colors.green,
+      colorsItem: Colors.black54,
     ),
     ItemModel(
       headerItem: ' How to order/ buy?',
       discription:
-          "This was probably the most popular question asked by people. Although we put a how to buy/ order tutorial button on every single product page with detailed step by step walk-through as well as video, yet that didn’t stop the customers from asking the question. As I have said earlier, Malaysian people were not used to the concept of e-shopping. They just simply hand over the money and get their choice of product. So, putting a lot of details and completing a set of steps for e-shopping seemed a bit hassling to them.",
-      colorsItem: Colors.green,
+          "This was probably the most popular question asked by people."
+          " Although we put a how to buy/ order tutorial button on"
+          " every single product page with detailed step by step "
+          "walk-through as well as video, yet that didn’t stop "
+          "the customers from asking the question. As I have said earlier, Malaysian people were not used to the concept of e-shopping. They just simply hand over the money and get their choice of product. So, putting a lot of details and completing a set of steps for e-shopping seemed a bit hassling to them.",
+      colorsItem: Colors.black54,
+    ),
+    ItemModel(
+      headerItem: ' Can orders be placed using Hamropasal App?',
+      discription:
+          "Yes, Orders can be place with Hamropasal app.D-Force has to educate the customer first on how to use the app then provide them with a link and ask them to make purchase/download app from the given link.",
+      colorsItem: Colors.black54,
+    ),
+    ItemModel(
+      headerItem: ' Order procedure?',
+      discription:
+          "Download Hamropsaal app in your phone or log in from website.  1. Select any category you want to shop from. 2. Open the product that you want to purchase 3. Add to cart 4. Click checkout 5.Add your details (name, contact number, address etc.)Select the payment optionClick submitYour order has been placed and will be delivered to your doorstep within 3-10 days.",
+      colorsItem: Colors.black54,
+    ),
+    ItemModel(
+      headerItem:
+          'Is it important for me to educate the customer before placing order? ',
+      discription:
+          " Yes, it is essential that you first educate your customer and tell them how to place the order, how to change the order, and how to return it as well. You have to guide them properly because the better you guide and convince them, the greater is the chance of them making purchase from Daraz.",
+      colorsItem: Colors.black54,
+    ),
+    ItemModel(
+      headerItem: ' Why my orders get canceled?',
+      discription:
+          "Orders get canceled because of following reasons:Cancelation from customer side.Product is out of stock.System recognizes it as a fraud order.",
+      colorsItem: Colors.black54,
     ),
   ];
 }
@@ -112,7 +142,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          primarySwatch: Colors.teal,
+          primarySwatch: Colors.orange,
         ),
         home: ExpansionPanelDemo());
   }
