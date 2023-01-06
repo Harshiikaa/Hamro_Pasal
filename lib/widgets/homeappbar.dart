@@ -34,9 +34,16 @@ class HomeAppBar extends StatelessWidget {
                   color: Color(0xFFF57C00)),
             ),
             Spacer(),
-            IconButton(onPressed: (){
-              Navigator.of(context).push(MaterialPageRoute(builder: (_)=>SearchPage()));
-            }, icon: Icon(Icons.search,size: 30,color: Color(0xFFF57C00),)),
+            IconButton(
+                onPressed: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (_) => SearchPage()));
+                },
+                icon: Icon(
+                  Icons.search,
+                  size: 30,
+                  color: Color(0xFFF57C00),
+                )),
             Badge(
               badgeColor: Colors.red,
               padding: EdgeInsets.all(7),

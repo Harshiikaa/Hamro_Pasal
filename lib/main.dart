@@ -1,11 +1,19 @@
-import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:hamropasal/Screens/ForgotPassword/forgot_screen.dart';
+
 import 'Screens/splashscreens/screen_one.dart';
 import 'constants/constants.dart';
+import 'firebase_options.dart';
 
-void main() {
+// void main() {
+//   runApp(const MyApp());
+// }
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+      name: "dev project", options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
 
@@ -55,8 +63,10 @@ class _SplashScreenState extends State<SplashScreen> {
               image: AssetImage('assets/images/HamroPasal.png'),
               width: 500,
             ),
-            SizedBox(
-              height: 50,
+            SizedBox(),
+            SpinKitChasingDots(
+              color: orange,
+              size: 50.0,
             ),
             SpinKitChasingDots(color: orange, size: 50.0),
           ],
