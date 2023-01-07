@@ -60,7 +60,7 @@ class _FAQsScreenState extends State<FAQsScreen> {
                   isExpanded: itemData[index].expanded,
                 )
               ],
-              expansionCallback: (int item, bool status) {
+              expansionCallback: (item, status) {
                 setState(() {
                   itemData[index].expanded = !itemData[index].expanded;
                 });
