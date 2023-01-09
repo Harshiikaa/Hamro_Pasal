@@ -228,7 +228,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   style: TextStyle(fontWeight: FontWeight.w700)),
               trailing: Icon(Icons.arrow_forward_ios,
                   color: Colors.deepOrange, size: 20),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context, showPopUpRatingDialog(context));
+              },
             ),
           ],
         ),
@@ -294,11 +296,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
                 Positioned(
                     top: -100,
-                    child: Image.network(
-                        "https://mpng.subpng.com/20180812/xqs/kisspng-emoticon-clip-art-thumb-signal-smiley-emoji-emoticon-smile-free-download-clip-art-carwad-net-5b701a5b9642f4.3139906515340734356155.jpg",
-                        width: 150,
-                        height: 150))
-                createRating(),
+                    child: Image.asset('assets/images/thankyou.png',
+                        width: 150, height: 150))
+                // createRating(),
               ],
             ),
             actions: [
