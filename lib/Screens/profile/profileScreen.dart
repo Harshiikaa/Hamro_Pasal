@@ -236,6 +236,42 @@ class _ProfileScreenState extends State<ProfileScreen> {
     );
   }
 
+  showPopUpRatingDialog(BuildContext context) => showCupertinoDialog(
+      context: context,
+      builder: (context) => CupertinoAlertDialog(
+            title: Text("Your opinion matters to us!"),
+            content: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Container(
+                  padding: EdgeInsets.fromLTRB(0, 20, 0, 20),
+                  // padding: EdgeInsets.symmetric(horizontal: 0),
+                  child: Align(
+                    alignment: Alignment.topCenter,
+                    child: Text(
+                        "If you enjoy using our app, would you mind rating?",
+                        style: TextStyle(fontSize: 18),
+                        textAlign: TextAlign.center),
+                  ),
+                ),
+                createRating(),
+              ],
+            ),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                  // Navigator.push(context, showPopUpThankYouDialog(context));
+                },
+                child: Text(
+                  "OK",
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+            ],
+          ));
+
   Widget logoutButton() {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
