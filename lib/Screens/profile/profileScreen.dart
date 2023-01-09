@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -9,6 +10,26 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  double rating = 0;
+  createRating() {
+    return SizedBox(
+      child: RatingBar.builder(
+        initialRating: rating,
+        minRating: 1,
+        itemSize: 35,
+        itemPadding: EdgeInsets.symmetric(horizontal: 1),
+        itemBuilder: (context, _) => Icon(
+          CupertinoIcons.heart_fill,
+          color: Colors.redAccent,
+        ),
+        updateOnDrag: true,
+        onRatingUpdate: (rating) => setState(() {
+          this.rating = rating;
+        }),
+      ),
+    );
+  }
+
   Widget divider() {
     return Padding(
       padding: const EdgeInsets.all(0.5),
@@ -17,6 +38,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       ),
     );
   }
+
   bool _notificationEnabled = false;
   @override
   Widget build(BuildContext context) {
@@ -186,7 +208,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
               ),
               title:
-              Text("FAQ's", style: TextStyle(fontWeight: FontWeight.w700)),
+                  Text("FAQ's", style: TextStyle(fontWeight: FontWeight.w700)),
               trailing: Icon(Icons.arrow_forward_ios,
                   color: Colors.deepOrange, size: 20),
               onTap: () {},
