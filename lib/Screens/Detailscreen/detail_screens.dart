@@ -5,6 +5,7 @@ import 'package:hamropasal/Screens/favorite/favoriteScreen.dart';
 import '../../Model/SingleProductModel.dart';
 import '../../Routes/routes.dart';
 import '../../widgets/Single_product_widget.dart';
+import '../shoppingCart/shoppingCart.dart';
 import 'detailscreen_data.dart';
 
 class DetailScreen extends StatefulWidget {
@@ -281,7 +282,16 @@ class _DetailScreenState extends State<DetailScreen> {
         color: Colors.orange,
         shape: RoundedRectangleBorder(
             side: BorderSide.none, borderRadius: BorderRadius.circular(5)),
-        onPressed: () {},
+        onPressed: () {
+          // CartScreen cartScreen = CartScreen();
+          // cartScreen.setName(widget.data);
+          // ScaffoldMessenger.of(context).showSnackBar(
+          //     SnackBar(content: Text("Data added to cart successfully")));
+          PageRouting.goToNextPage(
+            context: context,
+            navigateTo: CartScreen(widget.data),
+          );
+        },
         child: Text(
           "Add to Cart",
           style: TextStyle(

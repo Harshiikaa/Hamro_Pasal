@@ -6,6 +6,7 @@ import '../../widgets/Single_product_widget.dart';
 import '../../widgets/all_category.dart';
 import '../../widgets/homeappbar.dart';
 import '../../widgets/show_allwidgets.dart';
+import '../Cart/addtocart.dart';
 import '../Detailscreen/detail_screens.dart';
 import '../favorite/favoriteScreen.dart';
 import '../profile/profileScreen.dart';
@@ -31,6 +32,7 @@ class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
   static SingleProductModel? signleProductModel;
   late TabController tabController;
+  late SingleProductModel data;
 
   @override
   void initState() {
@@ -47,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen>
   int currentTab = 0;
   final List<Widget> screens = [
     HomeScreen(),
-    ShoppingCart(),
+    // Addtocart(),
     FavoriteScreen(),
     ProfileScreen(),
   ];
@@ -269,12 +271,12 @@ class _HomeScreenState extends State<HomeScreen>
                   MaterialButton(
                     minWidth: 40,
                     onPressed: () {
-                      // setState(() {
-                      //   currentScreen = ShoppingCart();
-                      //   currentTab = 1;
-                      // });
+                      setState(() {
+                        currentScreen = CartScreen(data);
+                        currentTab = 1;
+                      });
                       Navigator.of(context).push(MaterialPageRoute(
-                        builder: (BuildContext context) => ShoppingCart(),
+                        builder: (BuildContext context) => CartScreen(data),
                       ));
                     },
                     child: Column(
