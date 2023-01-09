@@ -99,8 +99,9 @@ class _CartScreenState extends State<CartScreen> {
                         radius: 25,
                         backgroundColor: Colors.orange,
                         child: Icon(
-                          Icons.delete,
+                          Icons.delete_rounded,
                           color: Colors.white54,
+                          size: 10,
                         ),
                       ),
                     ),
