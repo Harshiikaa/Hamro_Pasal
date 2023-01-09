@@ -49,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen>
   int currentTab = 0;
   final List<Widget> screens = [
     HomeScreen(),
-    Addtocart(),
+    // Addtocart(),
     FavoriteScreen(),
     ProfileScreen(),
   ];
@@ -272,11 +272,11 @@ class _HomeScreenState extends State<HomeScreen>
                     minWidth: 40,
                     onPressed: () {
                       setState(() {
-                        currentScreen = Addtocart();
+                        currentScreen = CartScreen(data);
                         currentTab = 1;
                       });
                       Navigator.of(context).push(MaterialPageRoute(
-                        builder: (BuildContext context) => Addtocart(),
+                        builder: (BuildContext context) => CartScreen(data),
                       ));
                     },
                     child: Column(

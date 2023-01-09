@@ -139,6 +139,7 @@ class _CartScreenState extends State<CartScreen> {
   buildothers() {
     return Expanded(
       child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 20),
         child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
