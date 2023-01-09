@@ -262,7 +262,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               TextButton(
                 onPressed: () {
                   Navigator.pop(context);
-                  // Navigator.push(context, showPopUpThankYouDialog(context));
+                  Navigator.push(context, showPopUpThankYouDialog(context));
                 },
                 child: Text(
                   "OK",
@@ -292,13 +292,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         textAlign: TextAlign.center),
                   ),
                 ),
-                // Positioned(
-                //     top: -100,
-                //     child: Image.network(
-                //         "https://mpng.subpng.com/20180812/xqs/kisspng-emoticon-clip-art-thumb-signal-smiley-emoji-emoticon-smile-free-download-clip-art-carwad-net-5b701a5b9642f4.3139906515340734356155.jpg",
-                //         width: 150,
-                //         height: 150))
-                // createRating(),
+                Positioned(
+                    top: -100,
+                    child: Image.network(
+                        "https://mpng.subpng.com/20180812/xqs/kisspng-emoticon-clip-art-thumb-signal-smiley-emoji-emoticon-smile-free-download-clip-art-carwad-net-5b701a5b9642f4.3139906515340734356155.jpg",
+                        width: 150,
+                        height: 150))
+                createRating(),
               ],
             ),
             actions: [
