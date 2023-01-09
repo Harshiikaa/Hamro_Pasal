@@ -54,6 +54,7 @@ class _HomeScreenState extends State<HomeScreen>
     ProfileScreen(),
   ];
   final PageStorageBucket bucket = PageStorageBucket();
+
   Widget currentScreen = HomeScreen();
   @override
   Widget build(BuildContext context) {
