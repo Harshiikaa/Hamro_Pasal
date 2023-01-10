@@ -49,6 +49,24 @@ class _DetailScreenState extends State<DetailScreen> {
           "HamroPasal",
           style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
         ),
+        actions: [
+          Icon(
+            Icons.favorite,
+            size: 25,
+            color: Colors.white,
+          ),
+          SizedBox(
+            width: 10,
+          ),
+          Icon(
+            Icons.share,
+            size: 25,
+            color: Colors.white,
+          ),
+          SizedBox(
+            width: 10,
+          )
+        ],
         // actions: [
         //   IconButton(
         //     icon: Icon(
@@ -96,20 +114,6 @@ class _DetailScreenState extends State<DetailScreen> {
               fontSize: 20,
               fontWeight: FontWeight.w600,
             ),
-          ),
-        ],
-      ),
-      subtitle: Row(
-        children: [
-          Icon(
-            Icons.favorite,
-            size: 20,
-            color: Colors.orange,
-          ),
-          Icon(
-            Icons.share,
-            size: 20,
-            color: Colors.orange,
           ),
         ],
       ),
