@@ -99,6 +99,20 @@ class _DetailScreenState extends State<DetailScreen> {
           ),
         ],
       ),
+      subtitle: Row(
+        children: [
+          Icon(
+            Icons.favorite,
+            size: 20,
+            color: Colors.orange,
+          ),
+          Icon(
+            Icons.share,
+            size: 20,
+            color: Colors.orange,
+          ),
+        ],
+      ),
       trailing: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
