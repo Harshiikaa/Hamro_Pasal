@@ -264,7 +264,24 @@ class _ProfileScreenState extends State<ProfileScreen> {
               TextButton(
                 onPressed: () {
                   Navigator.pop(context);
-                  Navigator.push(context, showPopUpThankYouDialog(context));
+                  // Navigator.push(context);
+                },
+                child: Text(
+                  "Cancel",
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+              TextButton(
+                onPressed: () {
+                  if (rating == 0) {
+                    Navigator.pop(context);
+                  } else {
+                    Navigator.pop(context);
+                    Navigator.push(context, showPopUpThankYouDialog(context));
+                    setState(() {
+                      rating = 0;
+                    });
+                  }
                 },
                 child: Text(
                   "OK",
