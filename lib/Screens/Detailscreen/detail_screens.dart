@@ -1,6 +1,7 @@
 import 'package:favorite_button/favorite_button.dart';
 import 'package:flutter/material.dart';
 import 'package:hamropasal/Screens/favorite/favoriteScreen.dart';
+import 'package:share_plus/share_plus.dart';
 
 import '../../Model/SingleProductModel.dart';
 import '../../Routes/routes.dart';
@@ -58,10 +59,13 @@ class _DetailScreenState extends State<DetailScreen> {
           SizedBox(
             width: 10,
           ),
-          Icon(
-            Icons.share,
-            size: 25,
-            color: Colors.white,
+          GestureDetector(
+            onTap: () => Share.share(widget.data.productImage),
+            child: Icon(
+              Icons.share,
+              size: 25,
+              color: Colors.white,
+            ),
           ),
           SizedBox(
             width: 10,
@@ -151,33 +155,11 @@ class _DetailScreenState extends State<DetailScreen> {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(10.0),
-            child: Stack(children: <Widget>[
-              Image.network(
-                widget.data.productImage,
-                fit: BoxFit.cover,
-                width: 450,
-              ),
-              Positioned(
-                top: 10,
-                right: 10,
-                child: IconButton(
-                  icon: Icon(
-                    Icons.favorite,
-                    size: 30,
-                    color: isFavourite ? Colors.deepOrange : Colors.black45,
-                  ),
-                  onPressed: () {
-                    // FavoriteScreen(widget.data);
-                    // ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                    //     content:
-                    //         Text("product added in favourite successfully")));
-                    setState(() {
-                      isFavourite = !isFavourite;
-                    });
-                  },
-                ),
-              ),
-            ]),
+            child: Image.network(
+              widget.data.productImage,
+              fit: BoxFit.cover,
+              width: 450,
+            ),
           ),
           Row(
             children: [
