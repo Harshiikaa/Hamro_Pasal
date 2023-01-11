@@ -28,4 +28,26 @@ class AuthRepository {
       rethrow;
     }
   }
+
+  Future<UserCredential> login(String email, String password) async {
+    try {
+      UserCredential _uc = await FirebaseService.firebaseAuth
+          .signInWithEmailAndPassword(email: email, password: password);
+      return _uc;
+    } catch (err) {
+      rethrow;
+    }
+  }
+
+  Future<UserModel> getUserDetail(String id) async {
+    try {
+      final respose = await userRef.where("id", isEqualTo: id).get();
+      var user = respose.docs.single.data();
+      // user.fcm = "";
+      await userRef.doc(user.id).set(user);
+      return user;
+    } catch (err) {
+      rethrow;
+    }
+  }
 }
