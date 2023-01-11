@@ -22,4 +22,15 @@ class AuthViewModel with ChangeNotifier {
       rethrow;
     }
   }
+
+  Future<void> register(UserModel user) async {
+    try {
+      var response = await AuthRepository().register(user);
+      _user = response!.user;
+      _loggedInUser = await AuthRepository().getUserDetail(_user!.uid);
+      notifyListeners();
+    } catch (err) {
+      rethrow;
+    }
+  }
 }

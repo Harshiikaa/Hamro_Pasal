@@ -2,7 +2,11 @@ import 'package:email_validator/email_validator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:hamropasal/Screens/LoginScreen/login_screens.dart';
+import 'package:provider/provider.dart';
+import '../../Model/user_model.dart';
+import '../../view_models/auth_view_model.dart';
+import '../../view_models/global_auth_view_model.dart';
+import '../LoginScreen/login_screens.dart';
 import 'button_hover.dart';
 
 void main() {
@@ -37,6 +41,40 @@ class _SignupScreenState extends State<SignupScreen> {
   TextEditingController fullNameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController confirmPasswordController = TextEditingController();
+
+  late GlobalUIViewModel _ui;
+  late AuthViewModel _auth;
+
+  @override
+  void initState() {
+    _ui = Provider.of<GlobalUIViewModel>(context, listen: false);
+    _auth = Provider.of<AuthViewModel>(context, listen: false);
+    super.initState();
+  }
+
+  void register() async {
+    if (formkey.currentState == null || !formkey.currentState!.validate()) {
+      return;
+    }
+    _ui.loadState(true);
+    try {
+      await _auth
+          .register(UserModel(
+              email: emailController.text,
+              password: passwordController.text,
+              fullname: fullNameController.text))
+          .then((value) {
+        Navigator.of(context).pushReplacementNamed("/dashboard");
+      }).catchError((e) {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text(e.message.toString())));
+      });
+    } catch (err) {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text(err.toString())));
+    }
+    _ui.loadState(false);
+  }
 
   final formkey = GlobalKey<FormState>();
 
@@ -267,12 +305,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     borderRadius: BorderRadius.circular(30.0)),
               ),
               onPressed: () {
-                if (formkey.currentState!.validate()) {
-                  return;
-                } else {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text("Validation Unsuccessful")));
-                }
+                register();
               },
               child: Padding(
                 padding: const EdgeInsets.all(18.0),
@@ -300,14 +333,15 @@ class _SignupScreenState extends State<SignupScreen> {
                   fontWeight: FontWeight.normal,
                   fontSize: 18,
                 ),
-                recognizer: TapGestureRecognizer()..onTap = () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) => LoginScreens(),
-                    ),
-                  );
-                },
+                recognizer: TapGestureRecognizer()
+                  ..onTap = () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => LoginScreens(),
+                      ),
+                    );
+                  },
               )
             ]));
   }
