@@ -80,6 +80,30 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ],
             ),
+            Padding(
+              padding: EdgeInsets.only(left: 10, right: 10),
+              child: Card(
+                child: Column(
+                  children: const [
+                    ListTile(
+                      leading: Icon(Icons.person_outline),
+                      title: Text("Full name"),
+                      subtitle: Text("Rabin Shahi"),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.email_outlined),
+                      title: Text("Email"),
+                      subtitle: Text("rabinshahi@gmail.com"),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.lock_open),
+                      title: Text("Password"),
+                      subtitle: Text("adfafddafere"),
+                    )
+                  ],
+                ),
+              ),
+            )
           ],
         ));
   }
