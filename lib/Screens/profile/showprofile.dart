@@ -50,7 +50,32 @@ class _MyHomePageState extends State<MyHomePage> {
                 Stack(
                   alignment: Alignment.center,
                   children: [
-
+                    CircleAvatar(
+                      radius: 100,
+                      backgroundColor: Colors.white,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: _image != null
+                            ? Image.file(
+                          _image!,
+                          fit: BoxFit.cover,
+                        )
+                            : Image.network(
+                          "https://imgs.search.brave.com/VfOlmssamn3NTAP14DFpqr1z9pxdR7P4czo10TKxRuk/rs:fit:860:681:1/g:ce/aHR0cHM6Ly93d3cu/cG5naXRlbS5jb20v/cGltZ3MvbS8xNDYt/MTQ2ODQ3OV9teS1w/cm9maWxlLWljb24t/YmxhbmstcHJvZmls/ZS1waWN0dXJlLWNp/cmNsZS1oZC5wbmc",
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      top: 125,
+                      left: 100,
+                      width: 90,
+                      height: 30,
+                      child: ActionChip(
+                        label: Text("Change"),
+                        onPressed: () => getImage(ImageSource.gallery),
+                      ),
+                    ),
                   ],
                 ),
               ],
