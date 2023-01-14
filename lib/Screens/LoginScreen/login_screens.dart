@@ -163,7 +163,7 @@ Widget build(BuildContext context) {
                           child: TextButton(
                             onPressed: () {},
                             child: Image.asset(
-                              'images/2.png',
+                              'assets/images/2.png',
                               height: 60,
                             ),
                           ),
@@ -172,7 +172,7 @@ Widget build(BuildContext context) {
                           child: TextButton(
                             onPressed: () {},
                             child: Image.asset(
-                              'images/1.png',
+                              'assets/images/google.png',
                               height: 60,
                             ),
                           ),
@@ -181,7 +181,7 @@ Widget build(BuildContext context) {
                           child: TextButton(
                             onPressed: () {},
                             child: Image.asset(
-                              'images/3.png',
+                              'assets/images/twitter.png',
                               height: 60,
                             ),
                           ),
