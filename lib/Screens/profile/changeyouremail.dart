@@ -35,24 +35,32 @@ class _ChangeEmailState extends State<ChangeEmail> {
           ],
         ),
       ),
-      bottomNavigationBar: logoutButton(),
+      bottomNavigationBar: SubmitButtons(),
     );
   }
   Widget colorTiles() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 50),
-      child: Container(
-        decoration: BoxDecoration(
+      padding: const EdgeInsets.symmetric
+        (horizontal: 10,
+          vertical: 50),
+      child:
+      Container(
+        decoration:
+        BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(20),
+          borderRadius:
+          BorderRadius.circular(20),
         ),
         child: Column(
           children: [
             Container(
-              padding: EdgeInsets.only(top: 20),
+              padding: EdgeInsets.only
+                (top: 20),
               child: Column(
-                children: <Widget>[
-                  Text("Previous Email:", style: TextStyle(
+                children: <Widget>
+                [
+                  Text("Previous Email:",
+                    style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                     color:Colors.black,
@@ -98,13 +106,16 @@ class _ChangeEmailState extends State<ChangeEmail> {
               padding: EdgeInsets.only(top: 10),
               child: Column(
                 children:<Widget>[
-                  Text("New Email:", style: TextStyle(
+                  Text("New Email:",
+                    style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                     color:Colors.black,
                   ),),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 30),
+                    padding: const
+                    EdgeInsets.symmetric
+                      (horizontal: 15, vertical: 30),
                     child: TextFormField(
                         controller: emailController,
                         validator: (value) {
@@ -144,20 +155,25 @@ class _ChangeEmailState extends State<ChangeEmail> {
             Container(
               padding: EdgeInsets.only(top: 10),
               child: Column(
-                children: <Widget>[
-                  Text("Confirm-Email:", style: TextStyle(
+                children: <Widget>
+                [
+                  Text("Confirm-Email:",
+                    style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                     color:Colors.black,
                   ),),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 30),
+                    padding: const
+                    EdgeInsets.symmetric
+                      (horizontal: 15, vertical: 30),
                     child: TextFormField(
                         controller: emailController,
                         validator: (value) {
                           if (value != null || value!.isEmpty) {
                             final bool isValid =
-                            EmailValidator.validate(emailController.text.trim());
+                            EmailValidator.validate
+                              (emailController.text.trim());
                             if (!isValid) {
                               return "Invalid email";
                             }
@@ -193,5 +209,33 @@ class _ChangeEmailState extends State<ChangeEmail> {
       ),
     );
   }
-
+  Widget SubmitButtons() {
+    return Padding(
+      padding: const EdgeInsets.symmetric
+        (horizontal: 50, vertical: 10),
+      child: SizedBox(
+        width: double.infinity,
+        height: 70,
+        child: ElevatedButton(
+          onPressed: () {
+            // Add your code for logging out here
+          },
+          style: ElevatedButton.styleFrom(
+            primary: Colors.deepOrange,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(28),
+            ),
+          ),
+          child: const Text(
+            "Submit",
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 22,
+              color: Colors.white,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 }
