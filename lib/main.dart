@@ -79,7 +79,6 @@ class _SplashScreenState extends State<SplashScreen> {
               color: orange,
               size: 50.0,
             ),
-            SpinKitChasingDots(color: orange, size: 50.0),
           ],
         ),
       ),
