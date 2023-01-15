@@ -96,5 +96,38 @@ class _ePaymentState extends State<ePayment> {
       ),
     );
   }
+  khaltiWallet() {
+    KhaltiScope.of(context).pay(
+      config: PaymentConfig(
+          amount: 1000,
+          productIdentity: "1",
+          productName: "Hamro pasal product",
+          mobile: "9843347967"),
+      preferences: [PaymentPreference.khalti,PaymentPreference.connectIPS,PaymentPreference.eBanking] ,
+      onSuccess: onSuccess,
+      
+    );
+  }
+
+  // mentod to handle success
+  void onSuccess(PaymentSuccessModel success) {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Text("Success"),
+            content: Text("Payment successful"),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text("OK"),
+              ),
+            ],
+          );
+        });
+  }
+
 
 }
