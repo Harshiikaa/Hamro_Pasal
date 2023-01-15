@@ -105,7 +105,8 @@ class _ePaymentState extends State<ePayment> {
           mobile: "9843347967"),
       preferences: [PaymentPreference.khalti,PaymentPreference.connectIPS,PaymentPreference.eBanking] ,
       onSuccess: onSuccess,
-      
+      onFailure: onFailure,
+      onCancel: onCanceled,
     );
   }
 
@@ -129,5 +130,42 @@ class _ePaymentState extends State<ePayment> {
         });
   }
 
+  // method to handle failure
+  void onFailure(PaymentFailureModel failure) {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Text("Failure"),
+            content: Text("Payment failed"),
+            actions: [
+              TextButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text("OK"))
+            ],
+          );
+        });
+  }
 
+  // method to handle onCanceled
+
+  void onCanceled() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Text("Canceled"),
+            content: Text("Payment canceled"),
+            actions: [
+              TextButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text("OK"))
+            ],
+          );
+        });
+  }
 }
