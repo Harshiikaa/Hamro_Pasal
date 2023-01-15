@@ -48,6 +48,8 @@ dependencies:
   firebase_core: ^2.4.1
 
   font_awesome_flutter: ^10.3.0
+  khalti_flutter: ^2.1.0
+  velocity_x: ^3.4.0
 
 
 dev_dependencies:
