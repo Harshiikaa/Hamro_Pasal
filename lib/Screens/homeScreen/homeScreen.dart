@@ -66,6 +66,21 @@ class _HomeScreenState extends State<HomeScreen>
       "assets/images/2.png",
       "assets/images/3.png",
     ];
+    final List<Widget> imageSliders = imgList
+        .map((item) => Container(
+              child: Container(
+                margin: EdgeInsets.all(5.0),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                  child: Stack(
+                    children: <Widget>[
+                      Image.asset(item, fit: BoxFit.cover),
+                    ],
+                  ),
+                ),
+              ),
+            ))
+        .toList();
     return Scaffold(
       body: ListView(
         children: [
