@@ -99,6 +99,21 @@ class _HomeScreenState extends State<HomeScreen>
             child: Column(
               children: [
                 SizedBox(
+                  height: 10,
+                ),
+                Container(
+                    child: CarouselSlider(
+                  options: CarouselOptions(
+                    height: 200,
+                    aspectRatio: 16 / 9,
+                    viewportFraction: 1,
+                    enlargeCenterPage: true,
+                    enableInfiniteScroll: false,
+                    autoPlay: true,
+                  ),
+                  items: imageSliders,
+                )),
+                SizedBox(
                   height: 5,
                 ),
                 Container(
