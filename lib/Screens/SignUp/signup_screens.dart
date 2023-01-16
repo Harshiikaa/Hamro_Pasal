@@ -3,6 +3,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:hamropasal/Screens/LoginScreen/login_screens.dart';
+import 'package:provider/provider.dart';
+
+import '../google-auth/googleAuthentication.dart';
 import 'button_hover.dart';
 
 void main() {
@@ -255,33 +258,57 @@ class _SignupScreenState extends State<SignupScreen> {
   }
 
   Widget signup() {
-    return Expanded(
-      child: Container(
-        width: _width / 1.2,
-        margin: EdgeInsets.all(10),
-        child: ButtonOnHover(
-          child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                primary: Colors.deepOrange,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30.0)),
-              ),
+    return SafeArea(
+      child: Column(
+        children: [
+          Text("or sign up with"),
+          TextButton(
+            onPressed: () {
+              final provider =
+                  Provider.of<GoogleSignInProvider>(context, listen: false);
+              provider.googleLogin(context);
+            },
+            child: Image.asset(
+              'assets/images/google.png',
+              height: 30,
+            ),
+          ),
+          TextButton(
               onPressed: () {
-                if (formkey.currentState!.validate()) {
-                  return;
-                } else {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text("Validation Unsuccessful")));
-                }
+                final provider =
+                    Provider.of<GoogleSignInProvider>(context, listen: false);
+                provider.logout();
               },
-              child: Padding(
-                padding: const EdgeInsets.all(18.0),
-                child: Text(
-                  'Signup',
-                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-                ),
-              )),
-        ),
+              child: Text("Google")),
+          Container(
+            width: _width / 1.2,
+            margin: EdgeInsets.all(10),
+            child: ButtonOnHover(
+              child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.deepOrange,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30.0)),
+                  ),
+                  onPressed: () {
+                    if (formkey.currentState!.validate()) {
+                      return;
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text("Validation Unsuccessful")));
+                    }
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Text(
+                      'Signup',
+                      style:
+                          TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                    ),
+                  )),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -300,14 +327,15 @@ class _SignupScreenState extends State<SignupScreen> {
                   fontWeight: FontWeight.normal,
                   fontSize: 18,
                 ),
-                recognizer: TapGestureRecognizer()..onTap = () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) => LoginScreens(),
-                    ),
-                  );
-                },
+                recognizer: TapGestureRecognizer()
+                  ..onTap = () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => LoginScreens(),
+                      ),
+                    );
+                  },
               )
             ]));
   }
