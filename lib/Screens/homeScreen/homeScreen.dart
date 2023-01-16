@@ -60,6 +60,12 @@ class _HomeScreenState extends State<HomeScreen>
   Widget currentScreen = HomeScreen();
   @override
   Widget build(BuildContext context) {
+    final List<String> imgList = [
+      "assets/images/4.png",
+      "assets/images/1.png",
+      "assets/images/2.png",
+      "assets/images/3.png",
+    ];
     return Scaffold(
       body: ListView(
         children: [
