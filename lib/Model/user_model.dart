@@ -23,7 +23,7 @@ class UserModel {
           DocumentSnapshot<Map<String, dynamic>> json) =>
       UserModel(
         id: json.id,
-        fullname: json["fullName"],
+        fullname: json["fullname"],
         email: json["email"],
         password: json["password"],
       );

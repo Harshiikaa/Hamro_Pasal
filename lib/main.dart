@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
         useDefaultLoading: false,
         overlayWidget: Center(
           child: Image.asset(
-            "assets/images/loader.gif",
+            "assets/images/loading.gif",
             height: 100,
             width: 100,
           ),
@@ -69,7 +69,7 @@ class MyApp extends StatelessWidget {
             routes: {
               "/login": (BuildContext context) => LoginScreens(),
               "/splash": (BuildContext context) => SplashScreen(),
-              "/register": (BuildContext context) => HomeScreen(),
+              "/register": (BuildContext context) => SignupScreen(),
               "/forget-password": (BuildContext context) => ForgotScreen(),
               "/dashboard": (BuildContext context) => HomeScreen(),
             },

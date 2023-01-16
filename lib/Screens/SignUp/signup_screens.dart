@@ -9,26 +9,6 @@ import '../../view_models/global_auth_view_model.dart';
 import '../LoginScreen/login_screens.dart';
 import 'button_hover.dart';
 
-void main() {
-  runApp(const MyApps());
-}
-
-class MyApps extends StatelessWidget {
-  const MyApps({super.key});
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Hamro-Pasal',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: SignupScreen(),
-    );
-  }
-}
-
 class SignupScreen extends StatefulWidget {
   const SignupScreen({Key? key}) : super(key: key);
 

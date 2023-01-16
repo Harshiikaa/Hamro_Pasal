@@ -15,7 +15,7 @@ class AuthRepository {
   Future<UserCredential?> register(UserModel user) async {
     try {
       final response =
-          await userRef.where("email", isEqualTo: user.email!).get();
+          await userRef.where("email", isEqualTo: user.fullname!).get();
       if (response.size != 0) throw Exception("User email already exit");
       UserCredential _uc = await FirebaseService.firebaseAuth
           .createUserWithEmailAndPassword(
