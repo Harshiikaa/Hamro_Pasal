@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 import '../../Model/SingleProductModel.dart';
@@ -53,6 +54,7 @@ class _HomeScreenState extends State<HomeScreen>
     FavoriteScreen(),
     ProfileScreen(),
   ];
+
   final PageStorageBucket bucket = PageStorageBucket();
 
   Widget currentScreen = HomeScreen();
@@ -64,8 +66,8 @@ class _HomeScreenState extends State<HomeScreen>
           HomeAppBar(),
           Container(
             //temporrary height
-            height: 800,
-            padding: EdgeInsets.only(top: 15),
+            height: 900,
+            // padding: EdgeInsets.only(top: 15),
             decoration: BoxDecoration(
               color: Color(0xFFF57C00),
               borderRadius: BorderRadius.only(
@@ -75,7 +77,9 @@ class _HomeScreenState extends State<HomeScreen>
             ),
             child: Column(
               children: [
-                SizedBox(height: 10),
+                SizedBox(
+                  height: 5,
+                ),
                 Container(
                   alignment: Alignment.centerLeft,
                   margin: EdgeInsets.symmetric(horizontal: 20),
