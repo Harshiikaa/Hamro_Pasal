@@ -163,7 +163,7 @@ class _LoginScreensState extends State<LoginScreens> {
                             child: TextButton(
                               onPressed: () {},
                               child: Image.asset(
-                                'images/f.png',
+                                'assets/images/2.png',
                                 height: 60,
                               ),
                             ),
@@ -172,7 +172,7 @@ class _LoginScreensState extends State<LoginScreens> {
                             child: TextButton(
                               onPressed: () {},
                               child: Image.asset(
-                                'images/1.png',
+                                'assets/images/google.png',
                                 height: 60,
                               ),
                             ),
@@ -181,7 +181,7 @@ class _LoginScreensState extends State<LoginScreens> {
                             child: TextButton(
                               onPressed: () {},
                               child: Image.asset(
-                                'images/3.png',
+                                'assets/images/twitter.png',
                                 height: 60,
                               ),
                             ),
@@ -218,92 +218,12 @@ class _LoginScreensState extends State<LoginScreens> {
                           ],
                         ),
                       ),
-<<<<<<< HEAD
-                    ),
-                    SizedBox(
-                      height: constraints.maxHeight * 0.02,
-                    ),
-                    Text(
-                      "or Login with ",
-                      style: TextStyle(fontSize: 18),
-                    ),
-                    SizedBox(
-                      height: constraints.maxHeight * 0.02,
-                    ),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: TextButton(
-                            onPressed: () {},
-                            child: Image.asset(
-                              'assets/images/2.png',
-                              height: 60,
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          child: TextButton(
-                            onPressed: () {},
-                            child: Image.asset(
-                              'assets/images/google.png',
-                              height: 60,
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          child: TextButton(
-                            onPressed: () {},
-                            child: Image.asset(
-                              'assets/images/twitter.png',
-                              height: 60,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: constraints.maxHeight * 0.02,
-                    ),
-                    RichText(
-                      text: TextSpan(
-                        text: "Dont have account? ",
-                        style: const TextStyle(
-                          color: Colors.black,
-                          fontSize: 18,
-                        ),
-                        children: [
-                          TextSpan(
-                            text: "Sign Up",
-                            style: const TextStyle(
-                              color: Colors.redAccent,
-                              fontSize: 18,
-                            ),
-                            recognizer: TapGestureRecognizer()..onTap = () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (_) => SignupScreen(),
-                                ),
-                              );
-
-                            },
-                          )
-                        ],
-                      ),
-                    ),
-                  ],
-                );
-              }),
-            )
-          ],
-=======
                     ],
                   );
                 }),
               )
             ],
           ),
->>>>>>> imageslider
         ),
       ),
     );

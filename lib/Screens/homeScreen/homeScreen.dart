@@ -54,10 +54,9 @@ class _HomeScreenState extends State<HomeScreen>
     FavoriteScreen(),
     ProfileScreen(),
   ];
-
   final PageStorageBucket bucket = PageStorageBucket();
-
   Widget currentScreen = HomeScreen();
+
   @override
   Widget build(BuildContext context) {
     final List<String> imgList = [
@@ -87,8 +86,8 @@ class _HomeScreenState extends State<HomeScreen>
           HomeAppBar(),
           Container(
             //temporrary height
-            height: 900,
-            // padding: EdgeInsets.only(top: 15),
+            height: 800,
+            padding: EdgeInsets.only(top: 15),
             decoration: BoxDecoration(
               color: Color(0xFFF57C00),
               borderRadius: BorderRadius.only(
@@ -98,9 +97,6 @@ class _HomeScreenState extends State<HomeScreen>
             ),
             child: Column(
               children: [
-                SizedBox(
-                  height: 10,
-                ),
                 Container(
                     child: CarouselSlider(
                   options: CarouselOptions(
@@ -113,9 +109,7 @@ class _HomeScreenState extends State<HomeScreen>
                   ),
                   items: imageSliders,
                 )),
-                SizedBox(
-                  height: 5,
-                ),
+                SizedBox(height: 10),
                 Container(
                   alignment: Alignment.centerLeft,
                   margin: EdgeInsets.symmetric(horizontal: 20),
