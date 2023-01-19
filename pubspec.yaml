@@ -50,6 +50,7 @@ dependencies:
   khalti_flutter: ^2.1.0
   velocity_x: ^3.4.0
   carousel_slider: ^4.2.1
+  flutter_rating_bar: ^4.0.1
 
 
 dev_dependencies:

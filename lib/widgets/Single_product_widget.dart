@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class SingleProductWidget extends StatefulWidget {
   final String productImage;
@@ -23,6 +24,7 @@ class SingleProductWidget extends StatefulWidget {
 
 class _SingleProductWidgetState extends State<SingleProductWidget> {
   bool isFave = false;
+  double rating = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -105,25 +107,15 @@ class _SingleProductWidgetState extends State<SingleProductWidget> {
                   SizedBox(
                     height: 8,
                   ),
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.star,
-                        color: Colors.amber,
-                      ),
-                      Icon(
-                        Icons.star,
-                        color: Colors.amber,
-                      ),
-                      Icon(
-                        Icons.star,
-                        color: Colors.amber,
-                      ),
-                      Icon(
-                        Icons.star_half,
-                        color: Colors.amber,
-                      ),
-                    ],
+                  RatingBar.builder(
+                    minRating: 1,
+                    itemBuilder: (context, _) => Icon(
+                      Icons.star,
+                      color: Colors.amber,
+                    ),
+                    onRatingUpdate: (rating) => setState(() {
+                      this.rating = rating;
+                    }),
                   )
                 ],
               ),
