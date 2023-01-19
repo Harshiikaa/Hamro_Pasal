@@ -11,12 +11,11 @@ class _ForgotScreenState extends State<ForgotScreen> {
   var _isVisible = false;
 
   TextEditingController email = TextEditingController();
-  TextEditingController passoword = TextEditingController();
+
   final form = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     final deviceHeight = MediaQuery.of(context).size.height;
-    final deviceWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -84,54 +83,6 @@ class _ForgotScreenState extends State<ForgotScreen> {
                             ),
                           ),
                           SizedBox(height: constraints.maxHeight * 0.04),
-                          Container(
-                            child: Center(
-                              child: TextFormField(
-                                controller: passoword,
-                                validator: (PassCurrentValue) {
-                                  RegExp regex = RegExp(
-                                      r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
-                                  var passNonNullValue = PassCurrentValue ?? "";
-                                  if (passNonNullValue.isEmpty) {
-                                    return ("Password is required");
-                                  } else if (passNonNullValue.length < 6) {
-                                    return ("Password Must be more than 5 characters");
-                                  } else if (!regex
-                                      .hasMatch(passNonNullValue)) {
-                                    return ("Password should contain upper,lower,digit and Special character ");
-                                  }
-                                  return null;
-                                },
-                                obscureText: _isVisible ? false : true,
-                                decoration: InputDecoration(
-                                    filled: true,
-                                    fillColor: Colors.grey[350],
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(30),
-                                      borderSide: BorderSide.none,
-                                    ),
-                                    prefixIcon: const Icon(
-                                      Icons.lock,
-                                      color: Color(0xFFF57C00),
-                                      size: 25,
-                                    ),
-                                    suffixIcon: IconButton(
-                                      onPressed: () {
-                                        setState(() {
-                                          _isVisible = !_isVisible;
-                                        });
-                                      },
-                                      icon: Icon(
-                                        _isVisible
-                                            ? Icons.visibility
-                                            : Icons.visibility_off,
-                                        color: Colors.grey,
-                                      ),
-                                    ),
-                                    hintText: "Enter new password"),
-                              ),
-                            ),
-                          ),
                           Container(
                             width: 300,
                             height: constraints.maxHeight * 0.14,

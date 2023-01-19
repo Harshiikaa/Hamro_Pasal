@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 import '../../Model/SingleProductModel.dart';
@@ -55,8 +56,30 @@ class _HomeScreenState extends State<HomeScreen>
   ];
   final PageStorageBucket bucket = PageStorageBucket();
   Widget currentScreen = HomeScreen();
+
   @override
   Widget build(BuildContext context) {
+    final List<String> imgList = [
+      "assets/images/4.png",
+      "assets/images/1.png",
+      "assets/images/2.png",
+      "assets/images/3.png",
+    ];
+    final List<Widget> imageSliders = imgList
+        .map((item) => Container(
+              child: Container(
+                margin: EdgeInsets.all(5.0),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                  child: Stack(
+                    children: <Widget>[
+                      Image.asset(item, fit: BoxFit.cover),
+                    ],
+                  ),
+                ),
+              ),
+            ))
+        .toList();
     return Scaffold(
       body: ListView(
         children: [
@@ -74,6 +97,18 @@ class _HomeScreenState extends State<HomeScreen>
             ),
             child: Column(
               children: [
+                Container(
+                    child: CarouselSlider(
+                  options: CarouselOptions(
+                    height: 200,
+                    aspectRatio: 16 / 9,
+                    viewportFraction: 1,
+                    enlargeCenterPage: true,
+                    enableInfiniteScroll: false,
+                    autoPlay: true,
+                  ),
+                  items: imageSliders,
+                )),
                 SizedBox(height: 10),
                 Container(
                   alignment: Alignment.centerLeft,
