@@ -108,6 +108,7 @@ class _SingleProductWidgetState extends State<SingleProductWidget> {
                     height: 8,
                   ),
                   RatingBar.builder(
+                    itemSize: 21,
                     minRating: 1,
                     itemBuilder: (context, _) => Icon(
                       Icons.star,
