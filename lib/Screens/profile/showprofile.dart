@@ -4,36 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 
-void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class ProfileInfo extends StatefulWidget {
+  ProfileInfo({Key? key}) : super(key: key);
+
 
   @override
-  Widget build(BuildContext context) {
-    return  MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'My first app',
-        theme: ThemeData(
-          primarySwatch: Colors.red,
-        ),
-        home: MyHomePage(
-          title: 'profile page',
-        ),
-      );
-  }
+  _ProfileInfoState createState() => _ProfileInfoState();
 }
 
-
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, required this.title}) : super(key: key);
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
+class _ProfileInfoState extends State<ProfileInfo> {
   File? _image;
   Future<void> getImage(ImageSource source) async {
     final image = await ImagePicker().pickImage(source: source);
@@ -51,7 +31,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(widget.title),
+          title: Text("Profile Information"),
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.start,

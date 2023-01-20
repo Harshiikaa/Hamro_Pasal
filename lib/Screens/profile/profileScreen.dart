@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hamropasal/Screens/profile/showprofile.dart';
+import 'package:hamropasal/main.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -63,7 +65,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   style: TextStyle(fontWeight: FontWeight.w700)),
               trailing: Icon(Icons.arrow_forward_ios,
                   color: Colors.deepOrange, size: 20),
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) => ProfileInfo(),
+                ));
+              },
             ),
             divider(),
             ListTile(
