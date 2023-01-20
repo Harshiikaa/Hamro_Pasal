@@ -20,6 +20,26 @@ class _LoginScreensState extends State<LoginScreens> {
   TextEditingController _passwordController = TextEditingController();
 
   final _formKey = GlobalKey<FormState>();
+  void login() async {
+    if (_formKey.currentState == null || !_formKey.currentState!.validate()) {
+      return;
+    }
+    _ui.loadState(true);
+    try {
+      await _auth
+          .login(_emailController.text, _passwordController.text)
+          .then((value) {
+        Navigator.of(context).pushReplacementNamed('/dashboard');
+      }).catchError((e) {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text(e.message.toString())));
+      });
+    } catch (err) {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text(err.toString())));
+    }
+    _ui.loadState(false);
+  }
 
   late GlobalUIViewModel _ui;
   late AuthViewModel _auth;
