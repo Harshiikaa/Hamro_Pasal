@@ -8,9 +8,6 @@ import 'Screens/splashscreens/screen_one.dart';
 import 'constants/constants.dart';
 import 'firebase_options.dart';
 
-// void main() {
-//   runApp(const MyApp());
-// }
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -25,7 +22,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return KhaltiScope(
-      //use your public/test key here
+        //use your public/test key here
         publicKey: 'test_public_key_99795ae72a0147538c5928d21d792775',
         enabledDebugging: true,
         builder: (context, navKey) {
@@ -40,8 +37,7 @@ class MyApp extends StatelessWidget {
               localizationsDelegates: const [
                 KhaltiLocalizations.delegate,
               ]);
-        }
-    );
+        });
   }
 }
 
