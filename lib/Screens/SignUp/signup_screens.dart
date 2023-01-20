@@ -305,12 +305,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     borderRadius: BorderRadius.circular(30.0)),
               ),
               onPressed: () {
-                if (formkey.currentState!.validate()) {
-                  return;
-                } else {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text("Validation Unsuccessful")));
-                }
+                register();
               },
               child: Padding(
                 padding: const EdgeInsets.all(18.0),
