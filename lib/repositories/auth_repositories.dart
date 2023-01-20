@@ -50,4 +50,22 @@ class AuthRepository {
       rethrow;
     }
   }
+
+  Future<bool> resetPassword(String email) async {
+    try {
+      var res = await FirebaseService.firebaseAuth
+          .sendPasswordResetEmail(email: email);
+      return true;
+    } catch (err) {
+      rethrow;
+    }
+  }
+
+  Future<void> logout() async {
+    try {
+      await FirebaseService.firebaseAuth.signOut();
+    } catch (err) {
+      rethrow;
+    }
+  }
 }

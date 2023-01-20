@@ -54,6 +54,7 @@ class MyApp extends StatelessWidget {
               enabledDebugging: true,
               builder: (context, navKey) {
                 return MaterialApp(
+                    debugShowCheckedModeBanner: true,
                     title: 'Flutter Demo',
                     theme: ThemeData(
                       primarySwatch: Colors.blue,

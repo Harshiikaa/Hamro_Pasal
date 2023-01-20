@@ -33,4 +33,34 @@ class AuthViewModel with ChangeNotifier {
       rethrow;
     }
   }
+
+  Future<void> resetPassword(String email) async {
+    try {
+      await AuthRepository().resetPassword(email);
+      notifyListeners();
+    } catch (err) {
+      rethrow;
+    }
+  }
+
+  Future<void> checkLogin() async {
+    try {
+      _loggedInUser = await AuthRepository().getUserDetail(_user!.uid);
+      notifyListeners();
+    } catch (err) {
+      _user = null;
+      AuthRepository().logout();
+      rethrow;
+    }
+  }
+
+  Future<void> logout() async {
+    try {
+      await AuthRepository().logout();
+      _user = null;
+      notifyListeners();
+    } catch (e) {
+      rethrow;
+    }
+  }
 }
