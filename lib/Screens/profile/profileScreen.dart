@@ -7,6 +7,9 @@ import '../LoginScreen/login_screens.dart';
 import '../google-auth/googleAuthentication.dart';
 import 'changePassword.dart';
 import 'changeyouremail.dart';
+import 'package:hamropasal/Screens/profile/showprofile.dart';
+import 'package:hamropasal/main.dart';
+
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -91,7 +94,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   style: TextStyle(fontWeight: FontWeight.w700)),
               trailing: Icon(Icons.arrow_forward_ios,
                   color: Colors.deepOrange, size: 20),
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) => ProfileInfo(),
+                ));
+              },
             ),
             divider(),
             ListTile(
