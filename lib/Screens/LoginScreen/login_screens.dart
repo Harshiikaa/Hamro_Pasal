@@ -2,7 +2,10 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:hamropasal/Screens/ForgotPassword/forgot_screen.dart';
 import 'package:hamropasal/Screens/SignUp/signup_screens.dart';
+import 'package:provider/provider.dart';
 
+import '../../view_models/auth_view_model.dart';
+import '../../view_models/global_auth_view_model.dart';
 import '../homeScreen/homeScreen.dart';
 
 class LoginScreens extends StatefulWidget {
@@ -13,6 +16,20 @@ class LoginScreens extends StatefulWidget {
 }
 
 class _LoginScreensState extends State<LoginScreens> {
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
+
+  final _formKey = GlobalKey<FormState>();
+
+  late GlobalUIViewModel _ui;
+  late AuthViewModel _auth;
+  @override
+  void initState() {
+    _ui = Provider.of<GlobalUIViewModel>(context, listen: false);
+    _auth = Provider.of<AuthViewModel>(context, listen: false);
+    super.initState();
+  }
+
   var _isVisible = false;
   @override
   Widget build(BuildContext context) {
@@ -49,10 +66,11 @@ class _LoginScreensState extends State<LoginScreens> {
                         decoration: BoxDecoration(
                             color: Color(0xffB4B4B4).withOpacity(0.4),
                             borderRadius: BorderRadius.circular(16)),
-                        child: const Padding(
+                        child: Padding(
                           padding: EdgeInsets.only(left: 15),
                           child: Center(
-                            child: TextField(
+                            child: TextFormField(
+                              controller: _emailController,
                               decoration: InputDecoration(
                                 border: InputBorder.none,
                                 hintText: 'test@gmail.com',
@@ -70,7 +88,8 @@ class _LoginScreensState extends State<LoginScreens> {
                         child: Padding(
                           padding: const EdgeInsets.only(left: 15),
                           child: Center(
-                            child: TextField(
+                            child: TextFormField(
+                              controller: _passwordController,
                               obscureText: _isVisible ? false : true,
                               decoration: InputDecoration(
                                   suffixIcon: IconButton(
@@ -125,12 +144,7 @@ class _LoginScreensState extends State<LoginScreens> {
                         ),
                         child: ElevatedButton(
                           onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (_) => HomeScreen(),
-                              ),
-                            );
+                            login();
                           },
                           style: ElevatedButton.styleFrom(
                             primary: Colors.blue,
@@ -163,7 +177,7 @@ class _LoginScreensState extends State<LoginScreens> {
                             child: TextButton(
                               onPressed: () {},
                               child: Image.asset(
-                                'assets/images/2.png',
+                                'images/2.png',
                                 height: 60,
                               ),
                             ),
@@ -172,7 +186,7 @@ class _LoginScreensState extends State<LoginScreens> {
                             child: TextButton(
                               onPressed: () {},
                               child: Image.asset(
-                                'assets/images/google.png',
+                                'images/1.png',
                                 height: 60,
                               ),
                             ),
@@ -181,7 +195,7 @@ class _LoginScreensState extends State<LoginScreens> {
                             child: TextButton(
                               onPressed: () {},
                               child: Image.asset(
-                                'assets/images/twitter.png',
+                                'images/3.png',
                                 height: 60,
                               ),
                             ),
@@ -207,12 +221,7 @@ class _LoginScreensState extends State<LoginScreens> {
                               ),
                               recognizer: TapGestureRecognizer()
                                 ..onTap = () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (_) => SignupScreen(),
-                                    ),
-                                  );
+                                  Navigator.of(context).pushNamed("/register");
                                 },
                             )
                           ],

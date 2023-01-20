@@ -16,9 +16,6 @@ import 'Screens/splashscreens/screen_one.dart';
 import 'constants/constants.dart';
 import 'firebase_options.dart';
 
-// void main() {
-//   runApp(const MyApp());
-// }
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -29,7 +26,6 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -81,32 +77,6 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-// class MyApp extends StatelessWidget {
-//   const MyApp({super.key});
-//
-//   // This widget is the root of your application.
-//   @override
-//   Widget build(BuildContext context) {
-//     return KhaltiScope(
-//       //use your public/test key here
-//         publicKey: 'test_public_key_99795ae72a0147538c5928d21d792775',
-//         enabledDebugging: true,
-//         builder: (context, navKey) {
-//           return MaterialApp(
-//               debugShowCheckedModeBanner: false,
-//               title: 'Hamro-Pasal',
-//               theme: ThemeData(
-//                 primarySwatch: Colors.blue,
-//               ),
-//               home: SplashScreen(),
-//               navigatorKey: navKey,
-//               localizationsDelegates: const [
-//                 KhaltiLocalizations.delegate,
-//               ]);
-//         }
-//     );
-//   }
-// }
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
