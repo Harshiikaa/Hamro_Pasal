@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:provider/provider.dart';
 
+import '../LoginScreen/login_screens.dart';
+import '../google-auth/googleAuthentication.dart';
 import 'changePassword.dart';
 import 'changeyouremail.dart';
 
@@ -356,7 +359,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
         height: 70,
         child: ElevatedButton(
           onPressed: () {
-            // Add your code for logging out here
+            final provider =
+                Provider.of<GoogleSignInProvider>(context, listen: false);
+            provider.logout();
+            Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => LoginScreens(),
+                ),
+                (Route<dynamic> route) => false);
           },
           style: ElevatedButton.styleFrom(
             primary: Colors.deepOrange,
