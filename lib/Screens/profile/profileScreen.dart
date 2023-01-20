@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
+import 'changePassword.dart';
 import 'changeyouremail.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -128,7 +129,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   style: TextStyle(fontWeight: FontWeight.w700)),
               trailing: Icon(Icons.arrow_forward_ios,
                   color: Colors.deepOrange, size: 20),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => ChangePasswordScreen(),
+                  ),
+                );
+              },
             ),
             divider(),
             ListTile(

@@ -2,7 +2,9 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:hamropasal/Screens/ForgotPassword/forgot_screen.dart';
 import 'package:hamropasal/Screens/SignUp/signup_screens.dart';
+import 'package:provider/provider.dart';
 
+import '../google-auth/googleAuthentication.dart';
 import '../homeScreen/homeScreen.dart';
 
 class LoginScreens extends StatefulWidget {
@@ -168,9 +170,27 @@ class _LoginScreensState extends State<LoginScreens> {
                               ),
                             ),
                           ),
+                          // Expanded(
+                          //   child: TextButton(
+                          //     onPressed: () {},
+                          // Expanded(
+                          //   child: TextButton(
+                          //     onPressed: () {},
+                          //     child: Image.asset(
+                          //       'assets/images/2.png',
+                          //       height: 60,
+                          //     ),
+                          //   ),
+                          // ),
+
                           Expanded(
                             child: TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                final provider =
+                                    Provider.of<GoogleSignInProvider>(context,
+                                        listen: false);
+                                provider.googleLogin(context);
+                              },
                               child: Image.asset(
                                 'assets/images/google.png',
                                 height: 60,
@@ -186,6 +206,15 @@ class _LoginScreensState extends State<LoginScreens> {
                               ),
                             ),
                           ),
+                          // Expanded(
+                          //   child: TextButton(
+                          //     onPressed: () {},
+                          //     child: Image.asset(
+                          //       'assets/images/twitter.png',
+                          //       height: 60,
+                          //     ),
+                          //   ),
+                          // ),
                         ],
                       ),
                       SizedBox(
