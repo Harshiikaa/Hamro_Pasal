@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 import 'changeyouremail.dart';
 
@@ -11,6 +12,26 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  double rating = 0;
+  createRating() {
+    return SizedBox(
+      child: RatingBar.builder(
+        initialRating: rating,
+        minRating: 1,
+        itemSize: 35,
+        itemPadding: EdgeInsets.symmetric(horizontal: 1),
+        itemBuilder: (context, _) => Icon(
+          CupertinoIcons.heart_fill,
+          color: Colors.redAccent,
+        ),
+        updateOnDrag: true,
+        onRatingUpdate: (rating) => setState(() {
+          this.rating = rating;
+        }),
+      ),
+    );
+  }
+
   Widget divider() {
     return Padding(
       padding: const EdgeInsets.all(0.5),
@@ -19,6 +40,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       ),
     );
   }
+
   bool _notificationEnabled = false;
   @override
   Widget build(BuildContext context) {
@@ -195,7 +217,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
               ),
               title:
-              Text("FAQ's", style: TextStyle(fontWeight: FontWeight.w700)),
+                  Text("FAQ's", style: TextStyle(fontWeight: FontWeight.w700)),
               trailing: Icon(Icons.arrow_forward_ios,
                   color: Colors.deepOrange, size: 20),
               onTap: () {},
@@ -215,13 +237,108 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   style: TextStyle(fontWeight: FontWeight.w700)),
               trailing: Icon(Icons.arrow_forward_ios,
                   color: Colors.deepOrange, size: 20),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context, showPopUpRatingDialog(context));
+              },
             ),
           ],
         ),
       ),
     );
   }
+
+  showPopUpRatingDialog(BuildContext context) => showCupertinoDialog(
+      context: context,
+      builder: (context) => CupertinoAlertDialog(
+            title: Text("Your opinion matters to us!"),
+            content: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Container(
+                  padding: EdgeInsets.fromLTRB(0, 20, 0, 20),
+                  // padding: EdgeInsets.symmetric(horizontal: 0),
+                  child: Align(
+                    alignment: Alignment.topCenter,
+                    child: Text(
+                        "If you enjoy using our app, would you mind rating?",
+                        style: TextStyle(fontSize: 18),
+                        textAlign: TextAlign.center),
+                  ),
+                ),
+                createRating(),
+              ],
+            ),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                  // Navigator.push(context);
+                },
+                child: Text(
+                  "Cancel",
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+              TextButton(
+                onPressed: () {
+                  if (rating == 0) {
+                    Navigator.pop(context);
+                  } else {
+                    Navigator.pop(context);
+                    Navigator.push(context, showPopUpThankYouDialog(context));
+                    setState(() {
+                      rating = 0;
+                    });
+                  }
+                },
+                child: Text(
+                  "OK",
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+            ],
+          ));
+
+  showPopUpThankYouDialog(BuildContext context) => showCupertinoDialog(
+      context: context,
+      builder: (context) => CupertinoAlertDialog(
+            title: Text("Thank You!"),
+            content: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Container(
+                  // height: 100,
+                  // width: 50,
+                  padding: EdgeInsets.fromLTRB(0, 20, 0, 20),
+                  // padding: EdgeInsets.symmetric(horizontal: 0),
+                  child: Align(
+                    alignment: Alignment.topCenter,
+                    child: Text("For rating our app",
+                        style: TextStyle(fontSize: 18),
+                        textAlign: TextAlign.center),
+                  ),
+                ),
+                Positioned(
+                    top: -100,
+                    child: Image.asset('assets/images/thankyou.png',
+                        width: 150, height: 150))
+                // createRating(),
+              ],
+            ),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text(
+                  "OK",
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+            ],
+          ));
 
   Widget logoutButton() {
     return Padding(
