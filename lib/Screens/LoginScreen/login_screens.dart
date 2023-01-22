@@ -31,10 +31,12 @@ class _LoginScreensState extends State<LoginScreens> {
           .then((value) {
         Navigator.of(context).pushReplacementNamed('/dashboard');
       }).catchError((e) {
+        print("error1");
         ScaffoldMessenger.of(context)
             .showSnackBar(SnackBar(content: Text(e.message.toString())));
       });
     } catch (err) {
+      print("error2");
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text(err.toString())));
     }

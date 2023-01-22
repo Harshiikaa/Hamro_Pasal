@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../view_models/auth_view_model.dart';
+import '../../view_models/global_auth_view_model.dart';
 
 class ForgotScreen extends StatefulWidget {
   const ForgotScreen({Key? key}) : super(key: key);
@@ -10,9 +14,35 @@ class ForgotScreen extends StatefulWidget {
 class _ForgotScreenState extends State<ForgotScreen> {
   var _isVisible = false;
 
-  TextEditingController email = TextEditingController();
+  TextEditingController _emailController = TextEditingController();
 
-  final form = GlobalKey<FormState>();
+  void resetPassword() async {
+    _ui.loadState(true);
+    try {
+      await _auth.resetPassword(_emailController.text).then((value) {
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+            content: Text("Password reset link has been sent to your email.")));
+        Navigator.of(context).pop();
+      }).catchError((e) {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text(e.message.toString())));
+      });
+    } catch (err) {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text(err.toString())));
+    }
+    _ui.loadState(false);
+  }
+
+  late GlobalUIViewModel _ui;
+  late AuthViewModel _auth;
+  @override
+  void initState() {
+    _ui = Provider.of<GlobalUIViewModel>(context, listen: false);
+    _auth = Provider.of<AuthViewModel>(context, listen: false);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     final deviceHeight = MediaQuery.of(context).size.height;
@@ -24,7 +54,6 @@ class _ForgotScreenState extends State<ForgotScreen> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Form(
-            key: form,
             child: Column(
               children: [
                 Container(
@@ -56,7 +85,7 @@ class _ForgotScreenState extends State<ForgotScreen> {
                           Container(
                             child: Center(
                               child: TextFormField(
-                                controller: email,
+                                controller: _emailController,
                                 validator: (String? value) {
                                   if (value!.isEmpty ||
                                       !RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
@@ -91,15 +120,7 @@ class _ForgotScreenState extends State<ForgotScreen> {
                             ),
                             child: ElevatedButton(
                               onPressed: () {
-                                if (form.currentState!.validate()) {
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
-                                      content: Text("Reset successfully"),
-                                    ),
-                                  );
-                                } else {
-                                  print("Invalid Form");
-                                }
+                                resetPassword();
                               },
                               style: ElevatedButton.styleFrom(
                                 primary: Color(0xFFF57C00),

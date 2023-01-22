@@ -15,7 +15,7 @@ class AuthRepository {
   Future<UserCredential?> register(UserModel user) async {
     try {
       final response =
-          await userRef.where("email", isEqualTo: user.fullname!).get();
+          await userRef.where("email", isEqualTo: user.email!).get();
       if (response.size != 0) throw Exception("User email already exit");
       UserCredential _uc = await FirebaseService.firebaseAuth
           .createUserWithEmailAndPassword(
@@ -51,11 +51,11 @@ class AuthRepository {
     }
   }
 
-  Future<bool> resetPassword(String email) async {
+  Future<void> resetPassword(String email) async {
     try {
       var res = await FirebaseService.firebaseAuth
           .sendPasswordResetEmail(email: email);
-      return true;
+      return res;
     } catch (err) {
       rethrow;
     }
