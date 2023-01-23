@@ -3,6 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:hamropasal/Model/user_model.dart';
 import 'package:hamropasal/repositories/auth_repositories.dart';
 
+import '../Model/favorite_model.dart';
+import '../repositories/favorite_repository.dart';
 import '../services/service_management.dart';
 
 class AuthViewModel with ChangeNotifier {
@@ -10,7 +12,7 @@ class AuthViewModel with ChangeNotifier {
   User? get user => _user;
 
   UserModel? _loggedInUser;
-  UserModel? get LoggedInUser => _loggedInUser;
+  UserModel? get loggedInUser => _loggedInUser;
 
   Future<void> login(String email, String password) async {
     try {
@@ -61,6 +63,52 @@ class AuthViewModel with ChangeNotifier {
       notifyListeners();
     } catch (e) {
       rethrow;
+    }
+  }
+
+  FavoriteRepository _favoriteRepository = FavoriteRepository();
+  List<FavoriteModel> _favorites = [];
+  List<FavoriteModel> get favorites => _favorites;
+
+  List<ProductModel>? _favoriteProduct;
+  List<ProductModel>? get favoriteProduct => _favoriteProduct;
+
+  Future<void> getFavoritesUser() async {
+    try {
+      var response =
+          await _favoriteRepository.getFavoritesUser(loggedInUser!.userId!);
+      _favorites = [];
+      for (var element in response) {
+        _favorites.add(element.data());
+      }
+      _favoriteProduct = [];
+      if (_favorites.isNotEmpty) {
+        var productResponse = await ProductRepository()
+            .getProductFromList(_favorites.map((e) => e.productId).toList());
+        for (var element in productResponse) {
+          _favoriteProduct!.add(element.data());
+        }
+      }
+
+      notifyListeners();
+    } catch (e) {
+      print(e);
+      _favorites = [];
+      _favoriteProduct = null;
+      notifyListeners();
+    }
+  }
+
+  Future<void> favoriteAction(
+      FavoriteModel? isFavorite, String productId) async {
+    try {
+      await _favoriteRepository.favorite(
+          isFavorite, productId, loggedInUser!.userId!);
+      await getFavoritesUser();
+      notifyListeners();
+    } catch (e) {
+      _favorites = [];
+      notifyListeners();
     }
   }
 }
