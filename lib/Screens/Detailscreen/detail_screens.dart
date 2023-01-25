@@ -1,7 +1,6 @@
 import 'package:favorite_button/favorite_button.dart';
 import 'package:flutter/material.dart';
 import 'package:hamropasal/Model/favorite_model.dart';
-import 'package:hamropasal/Screens/favorite/favoriteScreen.dart';
 import 'package:provider/provider.dart';
 
 import '../../Model/SingleProductModel.dart';
@@ -9,7 +8,6 @@ import '../../Routes/routes.dart';
 import '../../view_models/auth_view_model.dart';
 import '../../view_models/global_auth_view_model.dart';
 import '../../widgets/Single_product_widget.dart';
-import '../shoppingCart/shoppingCart.dart';
 import 'detailscreen_data.dart';
 
 class DetailScreen extends StatefulWidget {
@@ -41,7 +39,33 @@ class _DetailScreenState extends State<DetailScreen> {
   ];
 
   bool isFavourite = false;
-  void saveProductToFavorite() async {
+  late GlobalUIViewModel _ui;
+  late AuthViewModel _authViewModel;
+  String? productId;
+  @override
+  void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _authViewModel = Provider.of<AuthViewModel>(context, listen: false);
+      _ui = Provider.of<GlobalUIViewModel>(context, listen: false);
+      final args = ModalRoute.of(context)!.settings.arguments.toString();
+      setState(() {
+        productId = args;
+      });
+      print(args);
+      getData(args);
+    });
+    super.initState();
+  }
+
+  Future<void> getData(String productId) async {
+    _ui.loadState(true);
+    try {
+      await _authViewModel.getFavoritesUser();
+    } catch (e) {}
+    _ui.loadState(false);
+  }
+
+  Future<void> favoritePressed() async {
     _ui.loadState(true);
     try {
       final FavoriteModel data = FavoriteModel(
@@ -50,46 +74,35 @@ class _DetailScreenState extends State<DetailScreen> {
         productPrice: widget.data.productPrice.toString(),
         userId: _authViewModel.loggedInUser!.userId,
       );
-      await _authViewModel.addMyProductFavorite(data);
+      await _authViewModel.favoriteAction(data);
       ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text("Success to favorite")));
-      Navigator.of(context).pop();
+          .showSnackBar(SnackBar(content: Text("Favorite updated.")));
     } catch (e) {
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text("Error")));
+      ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text("Something went wrong. Please try again.")));
+      print(e);
     }
     _ui.loadState(false);
   }
 
-  void saveProductToCart() async {
+  Future<void> addToCart() async {
     _ui.loadState(true);
     try {
       final SingleProductModel data = SingleProductModel(
         productImage: widget.data.productImage,
-        productName: widget.data.productName!,
+        productName: widget.data.productName,
         productPrice: widget.data.productPrice,
         userId: _authViewModel.loggedInUser!.userId,
       );
       await _authViewModel.addMyProductToCart(data);
       ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text("Success to cart")));
-      Navigator.of(context).pop();
+          .showSnackBar(SnackBar(content: Text("Added to cart.")));
     } catch (e) {
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text("Error")));
+      ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text("Something went wrong. Please try again.")));
+      print(e);
     }
     _ui.loadState(false);
-  }
-
-  late GlobalUIViewModel _ui;
-  late AuthViewModel _authViewModel;
-  @override
-  void initState() {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      _ui = Provider.of<GlobalUIViewModel>(context, listen: false);
-      _authViewModel = Provider.of<AuthViewModel>(context, listen: false);
-    });
-    super.initState();
   }
 
   PreferredSize buildAppbar() {
@@ -107,11 +120,11 @@ class _DetailScreenState extends State<DetailScreen> {
           IconButton(
             icon: Icon(
               Icons.favorite,
-              size: 20,
+              size: 30,
               color: isFavourite != null ? Colors.redAccent : Colors.white,
             ),
             onPressed: () {
-              saveProductToFavorite();
+              favoritePressed();
             },
           ),
         ],
@@ -320,7 +333,7 @@ class _DetailScreenState extends State<DetailScreen> {
         shape: RoundedRectangleBorder(
             side: BorderSide.none, borderRadius: BorderRadius.circular(5)),
         onPressed: () {
-          saveProductToCart();
+          addToCart();
         },
         child: Text(
           "Add to Cart",

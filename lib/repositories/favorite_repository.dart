@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:hamropasal/Model/SingleProductModel.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import '../Model/favorite_model.dart';
 import '../services/service_management.dart';
 
@@ -11,7 +11,6 @@ class FavoriteRepository {
             },
             toFirestore: (model, _) => model.toJson(),
           );
-
   Future<List<QueryDocumentSnapshot<FavoriteModel>>> getFavorites(
       String productId, String userId) async {
     try {
@@ -39,27 +38,12 @@ class FavoriteRepository {
     }
   }
 
-  Future<bool?> addProductsFavorite({required FavoriteModel product}) async {
+  Future<bool> favorite({required FavoriteModel product}) async {
     try {
-      final response = await favoriteRef.add(product);
+      await favoriteRef.add(product);
       return true;
     } catch (err) {
-      return false;
+      rethrow;
     }
   }
-
-  // Future<bool> favorite(FavoriteModel product, FavoriteModel? isFavorite,
-  //     String productId, String userId) async {
-  //   try {
-  //     if (isFavorite == null) {
-  //       await favoriteRef.add(FavoriteModel(
-  //           product: product, userId: userId, productId: productId));
-  //     } else {
-  //       await favoriteRef.doc(isFavorite.id).delete();
-  //     }
-  //     return true;
-  //   } catch (err) {
-  //     rethrow;
-  //   }
-  // }
 }

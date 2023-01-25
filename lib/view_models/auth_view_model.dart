@@ -72,75 +72,36 @@ class AuthViewModel with ChangeNotifier {
   List<FavoriteModel> _favorites = [];
   List<FavoriteModel> get favorites => _favorites;
 
-  List<SingleProductModel>? _favoriteProduct;
-  List<SingleProductModel>? get favoriteProduct => _favoriteProduct;
-
-  // Future<void> getFavoritesUser() async {
-  //   try {
-  //     var response =
-  //         await _favoriteRepository.getFavoritesUser(loggedInUser!.userId!);
-  //     _favorites = [];
-  //     for (var element in response) {
-  //       _favorites.add(element.data());
-  //     }
-  //     _favoriteProduct = [];
-  //     if (_favorites.isNotEmpty) {
-  //       var productResponse = await FavoriteRepository()
-  //           .getProductFromList(_favorites.map((e) => e.productId).toList());
-  //       for (var element in productResponse) {
-  //         _favoriteProduct!.add(element.data());
-  //       }
-  //     }
-  //
-  //     notifyListeners();
-  //   } catch (e) {
-  //     print(e);
-  //     _favorites = [];
-  //     _favoriteProduct = null;
-  //     notifyListeners();
-  //   }
-  // }
-  //
-  // Future<void> favoriteAction(SingleProductModel? product,
-  //     FavoriteModel? isFavorite, String productId) async {
-  //   try {
-  //     await _favoriteRepository.favorite(
-  //          isFavorite, productId, loggedInUser!.userId!);
-  //     await getFavoritesUser();
-  //     notifyListeners();
-  //   } catch (e) {
-  //     _favorites = [];
-  //     notifyListeners();
-  //   }
-  // }
-
-  Future<void> addMyProductFavorite(FavoriteModel product) async {
+  Future<void> getFavoritesUser() async {
     try {
-      await FavoriteRepository().addProductsFavorite(product: product);
+      var response =
+          await _favoriteRepository.getFavoritesUser(loggedInUser!.userId!);
+      _favorites = [];
+      for (var element in response) {
+        _favorites.add(element.data());
+      }
 
-      // await getMyProductsFromFavorite();
       notifyListeners();
-    } catch (e) {}
+    } catch (e) {
+      print(e);
+      _favorites = [];
+      notifyListeners();
+    }
+  }
+
+  Future<void> favoriteAction(FavoriteModel data) async {
+    try {
+      await _favoriteRepository.favorite(product: data);
+      await getFavoritesUser();
+      notifyListeners();
+    } catch (e) {
+      _favorites = [];
+      notifyListeners();
+    }
   }
 
   List<SingleProductModel>? _myProduct;
   List<SingleProductModel>? get myProduct => _myProduct;
-
-  // Future<void> getMyProductsFromFavorite() async {
-  //   try {
-  //     var productResponse =
-  //         await FavoriteRepository().getMyProducts(loggedInUser!.userId!);
-  //     _myProduct = [];
-  //     for (var element in productResponse) {
-  //       _myProduct!.add(element.data());
-  //     }
-  //     notifyListeners();
-  //   } catch (e) {
-  //     print(e);
-  //     _myProduct = null;
-  //     notifyListeners();
-  //   }
-  // }
 
   // Cart
   Future<void> getMyProductsFromCart() async {
