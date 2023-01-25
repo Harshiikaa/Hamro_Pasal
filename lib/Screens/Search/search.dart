@@ -20,9 +20,9 @@ class _SearchPageState extends State<SearchPage> {
     // TODO: implement initState
     super.initState();
     for (SingleProductModel product in _filteredProducts) {
-      String productName = product.productName;
-      String productImage = product.productImage;
-      double productPrice = product.productPrice;
+      String productName = product.productName!;
+      String productImage = product.productImage!;
+      double productPrice = product.productPrice!;
     }
     _filteredProducts = sigleProductData +
         colothsData +
@@ -88,10 +88,11 @@ class _SearchPageState extends State<SearchPage> {
                               leading: CircleAvatar(
                                 radius: 30.0,
                                 backgroundImage: NetworkImage(
-                                    _filteredProducts[index].productImage),
+                                    _filteredProducts[index].productImage!),
                                 backgroundColor: Colors.transparent,
                               ),
-                              title: Text(_filteredProducts[index].productName),
+                              title:
+                                  Text(_filteredProducts[index].productName!),
                               subtitle: Text(
                                   'Price: ${_filteredProducts[index].productPrice}'),
                             ),
@@ -107,27 +108,27 @@ class _SearchPageState extends State<SearchPage> {
   void _filterProducts(String query) {
     List<SingleProductModel> filteredSingleProductData = sigleProductData
         .where((product) =>
-            product.productName.toLowerCase().contains(query.toLowerCase()))
+            product.productName!.toLowerCase().contains(query.toLowerCase()))
         .toList();
     List<SingleProductModel> filteredClothsData = colothsData
         .where((product) =>
-            product.productName.toLowerCase().contains(query.toLowerCase()))
+            product.productName!.toLowerCase().contains(query.toLowerCase()))
         .toList();
     List<SingleProductModel> filteredShoesData = shoesData
         .where((product) =>
-            product.productName.toLowerCase().contains(query.toLowerCase()))
+            product.productName!.toLowerCase().contains(query.toLowerCase()))
         .toList();
     List<SingleProductModel> filteredAccessoriesData = accessoriesData
         .where((product) =>
-            product.productName.toLowerCase().contains(query.toLowerCase()))
+            product.productName!.toLowerCase().contains(query.toLowerCase()))
         .toList();
     List<SingleProductModel> filteredTshirtsData = tshirtsData
         .where((product) =>
-            product.productName.toLowerCase().contains(query.toLowerCase()))
+            product.productName!.toLowerCase().contains(query.toLowerCase()))
         .toList();
     List<SingleProductModel> filteredPantsData = pantsData
         .where((product) =>
-            product.productName.toLowerCase().contains(query.toLowerCase()))
+            product.productName!.toLowerCase().contains(query.toLowerCase()))
         .toList();
 
     setState(() {

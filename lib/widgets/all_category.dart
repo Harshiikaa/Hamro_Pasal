@@ -27,11 +27,11 @@ class TabBarBar extends StatelessWidget {
               navigateTo: DetailScreen(data),
             );
           },
-          productImage: data.productImage,
-          productModel: data.productModel,
-          productName: data.productName,
-          productOldPrice: data.productOldPrice,
-          productPrice: data.productPrice,
+          productImage: data.productImage!,
+          productModel: data.productModel!,
+          productName: data.productName!,
+          productOldPrice: data.productOldPrice!,
+          productPrice: data.productPrice!,
         );
       },
     );

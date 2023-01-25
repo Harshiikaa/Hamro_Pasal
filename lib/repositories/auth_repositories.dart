@@ -15,12 +15,12 @@ class AuthRepository {
   Future<UserCredential?> register(UserModel user) async {
     try {
       final response =
-          await userRef.where("email", isEqualTo: user.fullname!).get();
+          await userRef.where("email", isEqualTo: user.email!).get();
       if (response.size != 0) throw Exception("User email already exit");
       UserCredential _uc = await FirebaseService.firebaseAuth
           .createUserWithEmailAndPassword(
               email: user.email!, password: user.password!);
-      user.id = _uc.user!.uid;
+      user.userId = _uc.user!.uid;
 
       await FirebaseService.db.collection("users").add(user.toJson());
       return _uc;
@@ -41,11 +41,29 @@ class AuthRepository {
 
   Future<UserModel> getUserDetail(String id) async {
     try {
-      final respose = await userRef.where("id", isEqualTo: id).get();
+      final respose = await userRef.where("user_id", isEqualTo: id).get();
       var user = respose.docs.single.data();
       // user.fcm = "";
       await userRef.doc(user.id).set(user);
       return user;
+    } catch (err) {
+      rethrow;
+    }
+  }
+
+  Future<void> resetPassword(String email) async {
+    try {
+      var res = await FirebaseService.firebaseAuth
+          .sendPasswordResetEmail(email: email);
+      return res;
+    } catch (err) {
+      rethrow;
+    }
+  }
+
+  Future<void> logout() async {
+    try {
+      await FirebaseService.firebaseAuth.signOut();
     } catch (err) {
       rethrow;
     }

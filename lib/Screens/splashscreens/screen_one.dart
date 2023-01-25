@@ -2,9 +2,45 @@ import 'package:flutter/material.dart';
 import 'package:hamropasal/Screens/LoginScreen/login_screens.dart';
 import 'package:hamropasal/Screens/splashscreens/screen_two.dart';
 import 'package:hamropasal/constants/constants.dart';
+import 'package:provider/provider.dart';
+import '../../view_models/auth_view_model.dart';
 import '../components/slanding_clipper.dart';
 
-class OnboardingScreenOne extends StatelessWidget {
+class OnboardingScreenOne extends StatefulWidget {
+  @override
+  State<OnboardingScreenOne> createState() => _OnboardingScreenOneState();
+}
+
+class _OnboardingScreenOneState extends State<OnboardingScreenOne> {
+  late AuthViewModel _authViewModel;
+
+  void checkLogin() async {
+    await Future.delayed(Duration(seconds: 2));
+    // check for user detail first
+    try {
+      await _authViewModel.checkLogin();
+      if (_authViewModel.user == null) {
+        Navigator.of(context).pushReplacementNamed("/login");
+      } else {
+        // NotificationService.display(
+        //   title: "Welcome back",
+        //   body:
+        //       "Hello ${_authViewModel.loggedInUser?.name},\n We have been waiting for you.",
+        // );
+        Navigator.of(context).pushReplacementNamed("/dashboard");
+      }
+    } catch (e) {
+      Navigator.of(context).pushReplacementNamed("/login");
+    }
+  }
+
+  @override
+  void initState() {
+    _authViewModel = Provider.of<AuthViewModel>(context, listen: false);
+    checkLogin();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     //it will helps to return the size of the screen
@@ -108,7 +144,7 @@ class OnboardingScreenOne extends StatelessWidget {
                 children: [
                   Container(
                     alignment: Alignment.centerRight,
-                    child: TextButton (
+                    child: TextButton(
                       onPressed: () {
                         Navigator.push(
                           context,

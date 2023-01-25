@@ -31,7 +31,7 @@ class _CartScreenState extends State<CartScreen> {
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(10.0),
                         child: Image.network(
-                          widget.data.productImage,
+                          widget.data.productImage!,
                           fit: BoxFit.cover,
                           width: 150,
                         ),
@@ -48,7 +48,7 @@ class _CartScreenState extends State<CartScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Text(
-                            widget.data.productName,
+                            widget.data.productName!,
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
                               color: Colors.black,
@@ -57,7 +57,7 @@ class _CartScreenState extends State<CartScreen> {
                             ),
                           ),
                           Text(
-                            widget.data.productModel,
+                            widget.data.productModel!,
                             style: TextStyle(
                               color: Colors.black,
                               fontSize: 20,
@@ -96,9 +96,9 @@ class _CartScreenState extends State<CartScreen> {
                     child: Container(
                       padding: EdgeInsets.all(10.0),
                       child: InkWell(
-                        onTap: (){setState(() {
-
-                        });},
+                        onTap: () {
+                          setState(() {});
+                        },
                         child: CircleAvatar(
                           radius: 25,
                           backgroundColor: Colors.orange,

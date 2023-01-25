@@ -1,11 +1,13 @@
 import 'package:favorite_button/favorite_button.dart';
 import 'package:flutter/material.dart';
-import 'package:hamropasal/Screens/favorite/favoriteScreen.dart';
+import 'package:hamropasal/Model/favorite_model.dart';
+import 'package:provider/provider.dart';
 
 import '../../Model/SingleProductModel.dart';
 import '../../Routes/routes.dart';
+import '../../view_models/auth_view_model.dart';
+import '../../view_models/global_auth_view_model.dart';
 import '../../widgets/Single_product_widget.dart';
-import '../shoppingCart/shoppingCart.dart';
 import 'detailscreen_data.dart';
 
 class DetailScreen extends StatefulWidget {
@@ -37,6 +39,71 @@ class _DetailScreenState extends State<DetailScreen> {
   ];
 
   bool isFavourite = false;
+  late GlobalUIViewModel _ui;
+  late AuthViewModel _authViewModel;
+  String? productId;
+  @override
+  void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _authViewModel = Provider.of<AuthViewModel>(context, listen: false);
+      _ui = Provider.of<GlobalUIViewModel>(context, listen: false);
+      final args = ModalRoute.of(context)!.settings.arguments.toString();
+      setState(() {
+        productId = args;
+      });
+      print(args);
+      getData(args);
+    });
+    super.initState();
+  }
+
+  Future<void> getData(String productId) async {
+    _ui.loadState(true);
+    try {
+      await _authViewModel.getFavoritesUser();
+    } catch (e) {}
+    _ui.loadState(false);
+  }
+
+  Future<void> favoritePressed() async {
+    _ui.loadState(true);
+    try {
+      final FavoriteModel data = FavoriteModel(
+        productImage: widget.data.productImage,
+        productName: widget.data.productName,
+        productPrice: widget.data.productPrice.toString(),
+        userId: _authViewModel.loggedInUser!.userId,
+      );
+      await _authViewModel.favoriteAction(data);
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text("Favorite updated.")));
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text("Something went wrong. Please try again.")));
+      print(e);
+    }
+    _ui.loadState(false);
+  }
+
+  Future<void> addToCart() async {
+    _ui.loadState(true);
+    try {
+      final SingleProductModel data = SingleProductModel(
+        productImage: widget.data.productImage,
+        productName: widget.data.productName,
+        productPrice: widget.data.productPrice,
+        userId: _authViewModel.loggedInUser!.userId,
+      );
+      await _authViewModel.addMyProductToCart(data);
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text("Added to cart.")));
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text("Something went wrong. Please try again.")));
+      print(e);
+    }
+    _ui.loadState(false);
+  }
 
   PreferredSize buildAppbar() {
     return PreferredSize(
@@ -49,15 +116,18 @@ class _DetailScreenState extends State<DetailScreen> {
           "HamroPasal",
           style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
         ),
-        // actions: [
-        //   IconButton(
-        //     icon: Icon(
-        //       Icons.favorite,
-        //       size: 20,
-        //     ),
-        //     onPressed: () {},
-        //   ),
-        // ],
+        actions: [
+          IconButton(
+            icon: Icon(
+              Icons.favorite,
+              size: 30,
+              color: isFavourite != null ? Colors.redAccent : Colors.white,
+            ),
+            onPressed: () {
+              favoritePressed();
+            },
+          ),
+        ],
       ),
     );
   }
@@ -78,7 +148,7 @@ class _DetailScreenState extends State<DetailScreen> {
             height: 5,
           ),
           Text(
-            widget.data.productName,
+            widget.data.productName!,
             overflow: TextOverflow.ellipsis,
             style: TextStyle(
               color: Colors.black,
@@ -90,7 +160,7 @@ class _DetailScreenState extends State<DetailScreen> {
             height: 5,
           ),
           Text(
-            widget.data.productModel,
+            widget.data.productModel!,
             style: TextStyle(
               color: Colors.black,
               fontSize: 20,
@@ -135,29 +205,9 @@ class _DetailScreenState extends State<DetailScreen> {
             borderRadius: BorderRadius.circular(10.0),
             child: Stack(children: <Widget>[
               Image.network(
-                widget.data.productImage,
+                widget.data.productImage!,
                 fit: BoxFit.cover,
                 width: 450,
-              ),
-              Positioned(
-                top: 10,
-                right: 10,
-                child: IconButton(
-                  icon: Icon(
-                    Icons.favorite,
-                    size: 30,
-                    color: isFavourite ? Colors.deepOrange : Colors.black45,
-                  ),
-                  onPressed: () {
-                    // FavoriteScreen(widget.data);
-                    // ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                    //     content:
-                    //         Text("product added in favourite successfully")));
-                    setState(() {
-                      isFavourite = !isFavourite;
-                    });
-                  },
-                ),
               ),
             ]),
           ),
@@ -166,19 +216,19 @@ class _DetailScreenState extends State<DetailScreen> {
               Expanded(
                 child: Container(
                   margin: EdgeInsets.only(right: 15, top: 15),
-                  child: Image.network(widget.data.productSecondImage),
+                  child: Image.network(widget.data.productSecondImage!),
                 ),
               ),
               Expanded(
                 child: Container(
                   margin: EdgeInsets.only(right: 15, top: 15),
-                  child: Image.network(widget.data.productThirdImage),
+                  child: Image.network(widget.data.productThirdImage!),
                 ),
               ),
               Expanded(
                 child: Container(
                   margin: EdgeInsets.only(right: 15, top: 15),
-                  child: Image.network(widget.data.productFourImage),
+                  child: Image.network(widget.data.productFourImage!),
                 ),
               ),
             ],
@@ -262,11 +312,11 @@ class _DetailScreenState extends State<DetailScreen> {
                 ),
               );
             },
-            productImage: data.productImage,
-            productModel: data.productModel,
-            productName: data.productName,
-            productOldPrice: data.productOldPrice,
-            productPrice: data.productPrice,
+            productImage: data.productImage!,
+            productModel: data.productModel!,
+            productName: data.productName!,
+            productOldPrice: data.productOldPrice!,
+            productPrice: data.productPrice!,
           );
         },
       ),
@@ -283,14 +333,7 @@ class _DetailScreenState extends State<DetailScreen> {
         shape: RoundedRectangleBorder(
             side: BorderSide.none, borderRadius: BorderRadius.circular(5)),
         onPressed: () {
-          // CartScreen cartScreen = CartScreen();
-          // cartScreen.setName(widget.data);
-          // ScaffoldMessenger.of(context).showSnackBar(
-          //     SnackBar(content: Text("Data added to cart successfully")));
-          PageRouting.goToNextPage(
-            context: context,
-            navigateTo: CartScreen(widget.data),
-          );
+          addToCart();
         },
         child: Text(
           "Add to Cart",
