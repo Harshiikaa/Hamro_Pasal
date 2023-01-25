@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../../view_models/auth_view_model.dart';
+import '../../view_models/global_auth_view_model.dart';
 import 'changeyouremail.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -11,6 +14,31 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  void logout() async {
+    _ui.loadState(true);
+    try {
+      await _auth.logout().then((value) {
+        Navigator.of(context).pushReplacementNamed('/login');
+      }).catchError((e) {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text(e.message.toString())));
+      });
+    } catch (err) {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text(err.toString())));
+    }
+    _ui.loadState(false);
+  }
+
+  late GlobalUIViewModel _ui;
+  late AuthViewModel _auth;
+  @override
+  void initState() {
+    _ui = Provider.of<GlobalUIViewModel>(context, listen: false);
+    _auth = Provider.of<AuthViewModel>(context, listen: false);
+    super.initState();
+  }
+
   Widget divider() {
     return Padding(
       padding: const EdgeInsets.all(0.5),
@@ -19,6 +47,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       ),
     );
   }
+
   bool _notificationEnabled = false;
   @override
   Widget build(BuildContext context) {
@@ -195,7 +224,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
               ),
               title:
-              Text("FAQ's", style: TextStyle(fontWeight: FontWeight.w700)),
+                  Text("FAQ's", style: TextStyle(fontWeight: FontWeight.w700)),
               trailing: Icon(Icons.arrow_forward_ios,
                   color: Colors.deepOrange, size: 20),
               onTap: () {},
@@ -231,6 +260,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         height: 70,
         child: ElevatedButton(
           onPressed: () {
+            logout();
             // Add your code for logging out here
           },
           style: ElevatedButton.styleFrom(

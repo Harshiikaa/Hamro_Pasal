@@ -2,7 +2,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:hamropasal/Model/user_model.dart';
 import 'package:hamropasal/repositories/auth_repositories.dart';
+import 'package:hamropasal/repositories/cart_repository.dart';
 
+import '../Model/SingleProductModel.dart';
 import '../Model/favorite_model.dart';
 import '../repositories/favorite_repository.dart';
 import '../services/service_management.dart';
@@ -70,44 +72,110 @@ class AuthViewModel with ChangeNotifier {
   List<FavoriteModel> _favorites = [];
   List<FavoriteModel> get favorites => _favorites;
 
-  List<ProductModel>? _favoriteProduct;
-  List<ProductModel>? get favoriteProduct => _favoriteProduct;
+  List<SingleProductModel>? _favoriteProduct;
+  List<SingleProductModel>? get favoriteProduct => _favoriteProduct;
 
-  Future<void> getFavoritesUser() async {
+  // Future<void> getFavoritesUser() async {
+  //   try {
+  //     var response =
+  //         await _favoriteRepository.getFavoritesUser(loggedInUser!.userId!);
+  //     _favorites = [];
+  //     for (var element in response) {
+  //       _favorites.add(element.data());
+  //     }
+  //     _favoriteProduct = [];
+  //     if (_favorites.isNotEmpty) {
+  //       var productResponse = await FavoriteRepository()
+  //           .getProductFromList(_favorites.map((e) => e.productId).toList());
+  //       for (var element in productResponse) {
+  //         _favoriteProduct!.add(element.data());
+  //       }
+  //     }
+  //
+  //     notifyListeners();
+  //   } catch (e) {
+  //     print(e);
+  //     _favorites = [];
+  //     _favoriteProduct = null;
+  //     notifyListeners();
+  //   }
+  // }
+  //
+  // Future<void> favoriteAction(SingleProductModel? product,
+  //     FavoriteModel? isFavorite, String productId) async {
+  //   try {
+  //     await _favoriteRepository.favorite(
+  //          isFavorite, productId, loggedInUser!.userId!);
+  //     await getFavoritesUser();
+  //     notifyListeners();
+  //   } catch (e) {
+  //     _favorites = [];
+  //     notifyListeners();
+  //   }
+  // }
+
+  Future<void> addMyProductFavorite(FavoriteModel product) async {
     try {
-      var response =
-          await _favoriteRepository.getFavoritesUser(loggedInUser!.userId!);
-      _favorites = [];
-      for (var element in response) {
-        _favorites.add(element.data());
-      }
-      _favoriteProduct = [];
-      if (_favorites.isNotEmpty) {
-        var productResponse = await ProductRepository()
-            .getProductFromList(_favorites.map((e) => e.productId).toList());
-        for (var element in productResponse) {
-          _favoriteProduct!.add(element.data());
-        }
-      }
+      await FavoriteRepository().addProductsFavorite(product: product);
 
+      await getMyProductsFromFavorite();
+      notifyListeners();
+    } catch (e) {}
+  }
+
+  List<SingleProductModel>? _myProduct;
+  List<SingleProductModel>? get myProduct => _myProduct;
+
+  Future<void> getMyProductsFromFavorite() async {
+    try {
+      var productResponse =
+          await FavoriteRepository().getMyProducts(loggedInUser!.userId!);
+      _myProduct = [];
+      for (var element in productResponse) {
+        _myProduct!.add(element.data());
+      }
       notifyListeners();
     } catch (e) {
       print(e);
-      _favorites = [];
-      _favoriteProduct = null;
+      _myProduct = null;
       notifyListeners();
     }
   }
 
-  Future<void> favoriteAction(
-      FavoriteModel? isFavorite, String productId) async {
+  // Cart
+  Future<void> getMyProductsFromCart() async {
     try {
-      await _favoriteRepository.favorite(
-          isFavorite, productId, loggedInUser!.userId!);
-      await getFavoritesUser();
+      var productResponse =
+          await CartRepository().getMyProducts(loggedInUser!.userId!);
+      _myProduct = [];
+      for (var element in productResponse) {
+        _myProduct!.add(element.data());
+      }
       notifyListeners();
     } catch (e) {
-      _favorites = [];
+      print(e);
+      _myProduct = null;
+      notifyListeners();
+    }
+  }
+
+  Future<void> addMyProductToCart(SingleProductModel product) async {
+    try {
+      await CartRepository().addProductsToCart(product: product);
+
+      await getMyProductsFromCart();
+      notifyListeners();
+    } catch (e) {}
+  }
+
+  Future<void> deleteMyProductFromCart(String productId) async {
+    try {
+      await CartRepository().removeProduct(productId, loggedInUser!.userId!);
+      await getMyProductsFromCart();
+      notifyListeners();
+    } catch (e) {
+      print(e);
+      _myProduct = null;
       notifyListeners();
     }
   }

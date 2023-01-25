@@ -28,25 +28,25 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
   Future<void> getInit() async {
     _ui.loadState(true);
     try {
-      await _authViewModel.getFavoritesUser();
+      // await _authViewModel.getFavoritesUser();
     } catch (e) {}
     _ui.loadState(false);
   }
 
-  Future<void> removeFavorite(
-      FavoriteModel isFavorite, String productId) async {
-    _ui.loadState(true);
-    try {
-      await _authViewModel.favoriteAction(isFavorite, productId);
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text("Favorite updated.")));
-    } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text("Something went wrong. Please try again.")));
-      print(e);
-    }
-    _ui.loadState(false);
-  }
+  // Future<void> removeFavorite(
+  //     FavoriteModel isFavorite, String productId) async {
+  //   _ui.loadState(true);
+  //   try {
+  //     await _authViewModel.favoriteAction(isFavorite, productId);
+  //     ScaffoldMessenger.of(context)
+  //         .showSnackBar(SnackBar(content: Text("Favorite updated.")));
+  //   } catch (e) {
+  //     ScaffoldMessenger.of(context).showSnackBar(
+  //         SnackBar(content: Text("Something went wrong. Please try again.")));
+  //     print(e);
+  //   }
+  //   _ui.loadState(false);
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -85,11 +85,11 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                                   trailing: IconButton(
                                     iconSize: 25,
                                     onPressed: () {
-                                      removeFavorite(
-                                          _authViewModel.favorites.firstWhere(
-                                              (element) =>
-                                                  element.productId == e.id),
-                                          e.id!);
+                                      // removeFavorite(
+                                      //     _authViewModel.favorites.firstWhere(
+                                      //         (element) =>
+                                      //             element.productId == e.id),
+                                      //     e.id!);
                                     },
                                     icon: Icon(
                                       Icons.delete_outlined,
@@ -99,7 +99,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                                   leading: ClipRRect(
                                       borderRadius: BorderRadius.circular(5),
                                       child: Image.network(
-                                        e.imageUrl.toString(),
+                                        e.productImage.toString(),
                                         width: 100,
                                         fit: BoxFit.cover,
                                         errorBuilder: (BuildContext context,

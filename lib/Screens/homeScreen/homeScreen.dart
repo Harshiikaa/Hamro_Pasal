@@ -200,12 +200,15 @@ class _HomeScreenState extends State<HomeScreen>
                                 var arrivalDataStore = sigleProductData[index];
 
                                 return SingleProductWidget(
-                                    productImage: arrivalDataStore.productImage,
-                                    productModel: arrivalDataStore.productModel,
-                                    productName: arrivalDataStore.productName,
+                                    productImage:
+                                        arrivalDataStore.productImage!,
+                                    productModel:
+                                        arrivalDataStore.productModel!,
+                                    productName: arrivalDataStore.productName!,
                                     productOldPrice:
-                                        arrivalDataStore.productOldPrice,
-                                    productPrice: arrivalDataStore.productPrice,
+                                        arrivalDataStore.productOldPrice!,
+                                    productPrice:
+                                        arrivalDataStore.productPrice!,
                                     onPressed: () {
                                       PageRouting.goToNextPage(
                                         context: context,

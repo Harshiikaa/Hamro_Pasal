@@ -20,7 +20,7 @@ class AuthRepository {
       UserCredential _uc = await FirebaseService.firebaseAuth
           .createUserWithEmailAndPassword(
               email: user.email!, password: user.password!);
-      user.id = _uc.user!.uid;
+      user.userId = _uc.user!.uid;
 
       await FirebaseService.db.collection("users").add(user.toJson());
       return _uc;
@@ -41,7 +41,7 @@ class AuthRepository {
 
   Future<UserModel> getUserDetail(String id) async {
     try {
-      final respose = await userRef.where("id", isEqualTo: id).get();
+      final respose = await userRef.where("user_id", isEqualTo: id).get();
       var user = respose.docs.single.data();
       // user.fcm = "";
       await userRef.doc(user.id).set(user);
