@@ -118,7 +118,7 @@ class AuthViewModel with ChangeNotifier {
     try {
       await FavoriteRepository().addProductsFavorite(product: product);
 
-      await getMyProductsFromFavorite();
+      // await getMyProductsFromFavorite();
       notifyListeners();
     } catch (e) {}
   }
@@ -126,21 +126,21 @@ class AuthViewModel with ChangeNotifier {
   List<SingleProductModel>? _myProduct;
   List<SingleProductModel>? get myProduct => _myProduct;
 
-  Future<void> getMyProductsFromFavorite() async {
-    try {
-      var productResponse =
-          await FavoriteRepository().getMyProducts(loggedInUser!.userId!);
-      _myProduct = [];
-      for (var element in productResponse) {
-        _myProduct!.add(element.data());
-      }
-      notifyListeners();
-    } catch (e) {
-      print(e);
-      _myProduct = null;
-      notifyListeners();
-    }
-  }
+  // Future<void> getMyProductsFromFavorite() async {
+  //   try {
+  //     var productResponse =
+  //         await FavoriteRepository().getMyProducts(loggedInUser!.userId!);
+  //     _myProduct = [];
+  //     for (var element in productResponse) {
+  //       _myProduct!.add(element.data());
+  //     }
+  //     notifyListeners();
+  //   } catch (e) {
+  //     print(e);
+  //     _myProduct = null;
+  //     notifyListeners();
+  //   }
+  // }
 
   // Cart
   Future<void> getMyProductsFromCart() async {
