@@ -14,6 +14,23 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  void deleteUser() async {
+    _ui.loadState(true);
+    try {
+      await _auth.deleteUser("abc").then((value) {
+        Navigator.of(context).pushReplacementNamed('/login');
+      }).catchError((e) {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text(e.message.toString())));
+      });
+    } catch (err) {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text(err.toString())));
+    }
+    _ui.loadState(false);
+  }
+
+  // for logout
   void logout() async {
     _ui.loadState(true);
     try {
@@ -305,15 +322,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
               TextButton(
                 onPressed: () {
-                  // if (rating == 0) {
-                  //   Navigator.pop(context);
-                  // } else {
-                  //   Navigator.pop(context);
-                  //   Navigator.push(context, showPopUpThankYouDialog(context));
-                  //   setState(() {
-                  //     rating = 0;
-                  //   });
-                  // }
+                  deleteUser();
                 },
                 child: Text(
                   "OK",

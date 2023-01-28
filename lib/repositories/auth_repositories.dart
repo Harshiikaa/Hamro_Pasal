@@ -68,4 +68,15 @@ class AuthRepository {
       rethrow;
     }
   }
+
+  Future<UserModel> deleteUser(String id) async {
+    try {
+      final response = await userRef.where("user_id", isEqualTo: id).get();
+      var user = response.docs.single.data();
+      await userRef.doc(user.id).delete();
+      return user;
+    } catch (err) {
+      rethrow;
+    }
+  }
 }

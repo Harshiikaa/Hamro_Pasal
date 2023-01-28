@@ -140,4 +140,13 @@ class AuthViewModel with ChangeNotifier {
       notifyListeners();
     }
   }
+
+  Future<void> deleteUser(String id) async {
+    try {
+      await AuthRepository().deleteUser(id);
+      notifyListeners();
+    } catch (err) {
+      rethrow;
+    }
+  }
 }
