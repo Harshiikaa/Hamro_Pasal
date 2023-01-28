@@ -271,6 +271,58 @@ class _ProfileScreenState extends State<ProfileScreen> {
     );
   }
 
+  showPopUpDeleteAccountDialog(BuildContext context) => showCupertinoDialog(
+      context: context,
+      builder: (context) => CupertinoAlertDialog(
+            title: Text("This will delete all your data!"),
+            content: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Container(
+                  padding: EdgeInsets.fromLTRB(0, 20, 0, 20),
+                  // padding: EdgeInsets.symmetric(horizontal: 0),
+                  child: Align(
+                    alignment: Alignment.topCenter,
+                    child: Text(" Do you still want to continue?",
+                        style: TextStyle(fontSize: 18),
+                        textAlign: TextAlign.center),
+                  ),
+                ),
+                // createRating(),
+              ],
+            ),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                  // Navigator.push(context);
+                },
+                child: Text(
+                  "Cancel",
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+              TextButton(
+                onPressed: () {
+                  // if (rating == 0) {
+                  //   Navigator.pop(context);
+                  // } else {
+                  //   Navigator.pop(context);
+                  //   Navigator.push(context, showPopUpThankYouDialog(context));
+                  //   setState(() {
+                  //     rating = 0;
+                  //   });
+                  // }
+                },
+                child: Text(
+                  "OK",
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+            ],
+          ));
+
   Widget logoutButton() {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
